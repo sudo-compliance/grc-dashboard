@@ -1,0 +1,974 @@
+import json
+
+controls = [
+    # -------------------------------------------------------------------------
+    # Chapter II — ICT Risk Management (IRM)
+    # -------------------------------------------------------------------------
+    {
+        "id": "DORA-01",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "ICT Risk Management Framework",
+        "description": "Financial entities must have a sound, comprehensive and well-documented ICT risk management framework as part of their overall risk management system. The framework must include strategies, policies, procedures, ICT protocols and tools necessary to protect all ICT assets and ICT-related assets. Board and senior management are accountable for setting and overseeing the framework.",
+        "guidance": "Article 5–6 DORA. The board of directors must approve and periodically review the ICT risk management framework. Senior management holds accountability for implementation, escalation procedures, and the allocation of adequate budget and resources to ICT risk functions.",
+        "implementationGuide": "Start by formalising the ICT risk management framework document, endorsed by the board, that explicitly references DORA Articles 5–9. Use Archer GRC or ServiceNow GRC to create the framework as a living policy object with version control and board sign-off workflow. Assign an ICT Risk Owner (typically the CISO or CRO) with defined escalation paths to the board's risk committee. Embed the framework into the organisation's existing risk taxonomy so that ICT risks appear alongside credit and operational risks in board reporting. Link all sub-policies (asset management, BCDR, incident response) to the parent framework record to demonstrate hierarchy. The 'done' state is a board-resolution minute approving the framework and a GRC tool record showing the last review date, owners, and linked sub-policies. A common failure mode is treating this as a static document review exercise — avoid by scheduling quarterly framework health checks in ServiceNow with automated owner reminders.",
+        "exampleEvidence": [
+            "Board resolution minute approving the ICT Risk Management Framework (dated within last 12 months)",
+            "Signed ICT Risk Management Framework policy document (version-controlled, with change log)",
+            "Archer GRC or ServiceNow GRC screenshot showing framework record, owner assignment, and review schedule",
+            "Organisation chart excerpt showing CISO/CRO accountability and board risk committee oversight",
+            "Budget allocation memo or board paper authorising ICT risk resources for the current fiscal year",
+            "Annual framework review report presented to the board risk committee, including gap findings and remediation status"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-02",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "ICT Risk Management Strategy",
+        "description": "Financial entities must define and implement an ICT risk management strategy explaining how the framework is implemented, including the risk tolerance level, strategic ICT objectives, and the means by which ICT risk management supports overall business strategy. The strategy must be reviewed at least annually.",
+        "guidance": "Article 6(6) DORA. The strategy must align ICT risk appetite with the board-approved overall risk appetite statement. It should address multi-year objectives, investment priorities, and how digital operational resilience supports the entity's business model.",
+        "implementationGuide": "Draft the ICT risk strategy as a three-year rolling document that maps each strategic objective to a measurable KRI (Key Risk Indicator) tracked in ServiceNow GRC or RSA Archer. Establish the ICT risk appetite statement in quantitative terms (e.g., maximum tolerated downtime, maximum data loss window) and get board sign-off. Use Azure Policy or a similar governance tooling to enforce technical guardrails that operationalise the appetite thresholds in cloud environments. Conduct an annual strategy refresh workshop with the CISO, CIO, and business line heads to incorporate changes in the entity's digital footprint. Tie strategy milestones to the capital planning cycle so that ICT risk investment requests are justified against strategy objectives. The 'done' state is a board-approved strategy document with dated KRIs loaded into the GRC tool. A common failure mode is producing a strategy that is disconnected from budget cycles — avoid this by explicitly referencing strategy milestones in the annual ICAAP/ILAAP or business planning submissions.",
+        "exampleEvidence": [
+            "ICT Risk Management Strategy document (board-approved, version-controlled)",
+            "ICT risk appetite statement signed by CEO/CRO and ratified by the board risk committee",
+            "KRI dashboard screenshot from ServiceNow GRC showing current tolerance thresholds and status",
+            "Annual strategy review meeting minutes with attendees including CISO, CIO, and board representative",
+            "Azure Policy compliance report demonstrating technical guardrails aligned to risk appetite",
+            "Mapping document linking ICT strategy objectives to the entity's overall business strategy and capital plan"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-03",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "ICT Asset Management and Classification",
+        "description": "Financial entities must identify, classify, and document all ICT assets, including hardware, software, data, and services supporting critical or important functions. An up-to-date asset inventory must be maintained and regularly reviewed to ensure accuracy and completeness.",
+        "guidance": "Article 8 DORA. Asset classification must consider criticality to business functions, sensitivity of data processed, and interdependencies. The inventory must support risk assessments and business continuity planning.",
+        "implementationGuide": "Deploy a CMDB (Configuration Management Database) within ServiceNow IT Asset Management or Qualys CSAM (Cyber Security Asset Management) as the single source of truth for all ICT assets. Define a classification taxonomy with at least three tiers (critical, important, standard) linked to the supporting business function. Automate asset discovery using Qualys or Tenable.io network scanning to reduce manual gaps and ensure new assets are enrolled within 72 hours of provisioning. Establish a quarterly reconciliation process between the CMDB, the financial fixed-asset register, and cloud inventory exports (e.g., AWS Config, Azure Resource Graph) to catch shadow IT. Assign each critical or important asset to a named ICT owner who is responsible for risk assessment and patching compliance. The 'done' state is a CMDB with 95%+ coverage confirmed by an automated scan-versus-inventory reconciliation report. A common failure mode is allowing cloud infrastructure to expand without CMDB hooks — avoid by enforcing infrastructure-as-code pipelines (e.g., Terraform with Azure Policy) that auto-register resources on creation.",
+        "exampleEvidence": [
+            "CMDB export or ServiceNow IT Asset Management report listing all ICT assets with classification tiers and owners",
+            "Qualys CSAM or Tenable.io asset discovery scan report showing coverage percentage and unmanaged asset count",
+            "Asset classification policy document defining criticality tiers and mapping to business functions",
+            "Quarterly CMDB reconciliation report comparing scan results to registered inventory (gap analysis)",
+            "Cloud asset inventory export from AWS Config or Azure Resource Graph cross-referenced to CMDB",
+            "Asset owner assignment register showing named owners for all critical and important ICT assets"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-04",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "Protection and Prevention Measures",
+        "description": "Financial entities must continuously monitor and control the security and functioning of ICT systems and tools, minimise the impact of ICT risk, and implement protection measures covering access controls, patch management, encryption, physical security, and network segmentation.",
+        "guidance": "Article 9 DORA. Protection measures must be commensurate with the classification of assets and the risk appetite of the entity. Policies must address both physical and logical security controls, and cover all network layers.",
+        "implementationGuide": "Implement a defence-in-depth architecture covering identity (CyberArk PAM for privileged access, Azure Active Directory Conditional Access), network (next-gen firewall segmentation, Palo Alto Networks or Cisco Secure Firewall), endpoint (CrowdStrike Falcon EDR), and data layers (encryption at rest via Azure Key Vault and in transit via TLS 1.2+). Establish a patch management SLA in Qualys VMDR or Tenable.sc that mandates critical patches within 72 hours, high within 14 days, and medium within 30 days, with automated SLA breach alerts sent to asset owners. Use Azure Policy or AWS Security Hub to enforce baseline security configurations (CIS Benchmarks) across cloud workloads and flag non-compliant resources in near-real-time. Document all controls in a control catalogue within Archer GRC, mapping each control to the DORA obligation it satisfies. Conduct semi-annual control effectiveness reviews using evidence from SIEM dashboards (Splunk or Microsoft Sentinel). The 'done' state is a control catalogue with 100% of critical-asset controls tested, and a patch compliance dashboard showing >95% of critical patches applied within SLA. A common failure mode is applying controls inconsistently across on-prem and cloud estates — avoid by enforcing a unified policy baseline through Azure Policy and AWS Config rules.",
+        "exampleEvidence": [
+            "Patch management SLA policy and Qualys VMDR or Tenable.sc compliance dashboard screenshot (critical/high patch rates)",
+            "Azure Policy or AWS Security Hub compliance report showing CIS Benchmark conformance across cloud workloads",
+            "CrowdStrike Falcon or equivalent EDR deployment report showing endpoint coverage percentage",
+            "CyberArk PAM privileged account audit report listing all privileged sessions for the review period",
+            "Network segmentation diagram and firewall rule review evidence (e.g., Palo Alto Panorama policy review export)",
+            "Control catalogue extract from Archer GRC mapping protection controls to DORA Article 9 obligations"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-05",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "Detection of Anomalous Activities",
+        "description": "Financial entities must have mechanisms and processes in place to promptly detect anomalous activities, including ICT network performance issues, and ICT-related incidents. Detection mechanisms must enable multiple layers of control and define alert thresholds and criteria for escalation.",
+        "guidance": "Article 10 DORA. Detection capabilities must cover networks, systems, and user behaviour. Alerts must be triaged against defined thresholds and escalated through a documented process to the incident management team.",
+        "implementationGuide": "Deploy a SIEM platform — Splunk Enterprise Security or Microsoft Sentinel — as the central detection hub ingesting logs from all critical and important ICT assets identified in the asset inventory. Build detection rules mapped to the MITRE ATT&CK framework to cover the most relevant threat actors targeting financial services, and tune alert thresholds quarterly based on false-positive rates. Complement the SIEM with a User and Entity Behaviour Analytics (UEBA) capability (e.g., Splunk UBA or Microsoft Sentinel UEBA) to surface insider threats and compromised credential activity. Define and document escalation thresholds (e.g., severity levels P1–P4) in the incident response playbooks stored in ServiceNow Security Incident Response. Conduct monthly detection coverage reviews to identify log source gaps, ensuring that 100% of critical assets forward logs to the SIEM. The 'done' state is a SIEM with documented log source inventory, active detection rule set, and a monthly coverage report reviewed by the SOC manager. A common failure mode is deploying the SIEM but failing to onboard all critical log sources — avoid by creating a mandatory log onboarding checklist that must be completed before any critical asset goes live.",
+        "exampleEvidence": [
+            "Splunk Enterprise Security or Microsoft Sentinel log source inventory report confirming coverage of all critical assets",
+            "MITRE ATT&CK coverage heatmap generated from the SIEM's active detection rule set",
+            "UEBA alert report for the review period showing anomalous behaviour detections and outcomes",
+            "Alert threshold and escalation matrix document (P1–P4 definitions with response SLAs)",
+            "Monthly SIEM detection coverage review report signed off by SOC manager",
+            "ServiceNow Security Incident Response playbook screenshots showing escalation workflow for anomalous activity alerts"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-06",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "Response and Recovery Planning",
+        "description": "Financial entities must have in place comprehensive ICT response and recovery plans that address continuity of critical functions, communications during incidents, and the steps required to restore normal operations. Plans must be tested and updated regularly.",
+        "guidance": "Article 11 DORA. Response plans must define roles, responsibilities, escalation paths, and communication protocols for all incident severity levels. Recovery plans must specify Recovery Time Objectives (RTOs) and Recovery Point Objectives (RPOs) for critical functions.",
+        "implementationGuide": "Develop tiered Incident Response Plans (IRP) and IT Disaster Recovery Plans (ITRP) that align RTOs and RPOs with business impact analysis outputs stored in ServiceNow Business Continuity Management. Use IBM Resilient (now QRadar SOAR) or Splunk SOAR (Phantom) to automate containment and recovery runbooks for the highest-frequency incident types (e.g., ransomware, DDoS, data breach). Ensure every plan includes a RACI matrix, 24/7 on-call rosters, and pre-authorised vendor contacts (e.g., CrowdStrike incident response retainer). Run tabletop exercises at least twice a year and full failover tests annually, documenting outcomes in a post-exercise report uploaded to Archer GRC. Maintain plan versioning with a minimum annual review cycle triggered by material changes to the ICT environment. The 'done' state is a set of approved, version-controlled plans with documented test results showing RTO/RPO targets were met or a remediation plan exists for any gaps. A common failure mode is writing plans that are never tested — avoid by treating the annual BCDR test as a board-level compliance gate with a mandatory sign-off before the test report is closed.",
+        "exampleEvidence": [
+            "ICT Incident Response Plan document (version-controlled, with RACI matrix and escalation paths)",
+            "IT Disaster Recovery Plan with defined RTOs and RPOs per critical function, aligned to BIA output",
+            "Splunk SOAR or IBM QRadar SOAR playbook export showing automated containment runbooks",
+            "Tabletop exercise report (dated within last 12 months) including scenario, participants, findings, and action items",
+            "Annual failover test report showing actual RTO/RPO achieved vs. target, with gap remediation plan",
+            "Archer GRC screenshot showing plan version history, review dates, and owner sign-off records"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-07",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "Backup Policies and Restoration",
+        "description": "Financial entities must implement backup policies specifying the frequency of backups, the retention period, and the locations where backup copies are stored. Restoration procedures must be documented and tested at defined intervals to verify data integrity and recoverability.",
+        "guidance": "Article 12 DORA. Backup copies of data and systems critical to business functions must be stored in locations isolated from the primary ICT environment to prevent co-incident failure. Restoration tests must demonstrate the ability to meet RPO targets.",
+        "implementationGuide": "Define a tiered backup policy (e.g., daily incremental, weekly full, monthly offsite) aligned to the RPO targets from the BIA, and enforce it through backup orchestration tools such as Veeam Backup & Replication or Commvault. Ensure at least one backup copy is stored in an air-gapped or immutable storage location (e.g., Azure Blob immutable storage, AWS S3 Object Lock) to protect against ransomware. Automate backup job monitoring and alerting within Veeam or a centralised SIEM (Splunk) so that failed backup jobs trigger a P2 incident ticket in ServiceNow within 30 minutes. Conduct quarterly restoration tests — restoring at least three critical systems — and document results including time-to-restore and data integrity verification (hash comparison or application smoke test). Store test reports in Archer GRC linked to the backup policy record. The 'done' state is a backup policy with 100% of critical systems covered, monthly automated compliance checks, and quarterly restoration test reports on file. A common failure mode is backing up data but never testing restoration — avoid by making quarterly restoration tests a mandatory control with board-level reporting of pass/fail rates.",
+        "exampleEvidence": [
+            "Backup policy document specifying frequency, retention periods, and storage locations (including offsite/air-gapped)",
+            "Veeam Backup & Replication or Commvault job summary report showing backup success rates for critical systems",
+            "Azure Blob immutable storage or AWS S3 Object Lock configuration screenshot confirming ransomware-resilient backup location",
+            "Quarterly restoration test report (dated within last 12 months) showing systems restored, time-to-restore, and data integrity check results",
+            "Splunk or ServiceNow alert log showing automated detection and ticketing of failed backup jobs",
+            "Critical system backup coverage register mapping each critical/important system to its backup schedule and retention period"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-08",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "Learning and Evolving (Post-Incident Reviews)",
+        "description": "Financial entities must have processes to learn from ICT incidents and near-misses, incorporating findings into the ICT risk management framework. Post-incident reviews must identify root causes, corrective actions, and improvements to controls or processes to reduce the likelihood of recurrence.",
+        "guidance": "Article 13 DORA. Lessons learned must feed back into the ICT risk management framework, incident response plans, and control updates. The review process must be documented and outcomes tracked to completion.",
+        "implementationGuide": "Establish a formal Post-Incident Review (PIR) process mandating that all P1 and P2 incidents receive a root-cause analysis (RCA) completed within 10 business days, using the '5 Whys' or a fault tree methodology. Manage PIR actions in ServiceNow Problem Management, linking each action to the originating incident record and assigning due dates and owners. Feed confirmed control gaps into the risk register in Archer GRC as risk items requiring treatment, and track treatment milestones through to closure. Hold a monthly 'Lessons Learned' forum attended by the CISO, SOC lead, and key business stakeholders to review all closed PIRs and identify thematic trends. Produce a quarterly summary report of recurring incident themes and control improvements delivered, presented to the board risk committee. The 'done' state is a ServiceNow Problem Management queue with zero overdue PIR actions for P1/P2 incidents, and quarterly theme reports on file. A common failure mode is completing the RCA but not following through on action closure — avoid by integrating PIR action due dates into the CISO's monthly KPI dashboard.",
+        "exampleEvidence": [
+            "Post-Incident Review policy or procedure document specifying RCA methodology, timelines, and ownership",
+            "ServiceNow Problem Management report listing all PIR actions for P1/P2 incidents in the review period, with status and due dates",
+            "Completed RCA document for at least one major incident, showing '5 Whys' analysis and corrective actions",
+            "Archer GRC risk register extract showing control gaps identified from PIRs, treatment plans, and closure evidence",
+            "Monthly Lessons Learned forum meeting minutes (dated within last 3 months) with attendees and thematic findings",
+            "Quarterly lessons-learned summary report presented to board risk committee, including trend analysis and control improvements delivered"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-09",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "Business Continuity Management",
+        "description": "Financial entities must establish, implement, and maintain ICT business continuity policies and plans to ensure the continuity of critical or important functions in the event of a severe business disruption. Plans must address scenarios including natural disasters, cyber attacks, and supply chain failures.",
+        "guidance": "Article 11 DORA. Business Continuity Plans (BCPs) must be integrated with the overall business continuity management system and must address all critical ICT dependencies. Plans must be reviewed and tested at least annually.",
+        "implementationGuide": "Conduct a Business Impact Analysis (BIA) using ServiceNow Business Continuity Management to identify critical functions, their supporting ICT systems, and maximum tolerable periods of disruption (MTPD). Develop BCPs for each critical function that include activation criteria, escalation trees, alternate operating procedures, and recovery steps for ICT systems managed via Veeam or Zerto for workload mobility. Integrate the BCP with supplier contingency plans, ensuring that ICT third-party providers (identified in the TPR register) have contractually committed RTOs that align with the entity's MTPD. Perform an annual BCP walkthrough and at least one full-scale test (e.g., failover to DR site or cloud DR region) using AWS CloudEndure or Azure Site Recovery. Document test outcomes in Archer GRC and present to the board risk committee. The 'done' state is a set of current BCPs linked to the BIA, with annual test results and a board-approved summary. A common failure mode is maintaining BCPs that don't account for cloud-first or hybrid architectures — avoid by including cloud failover runbooks and vendor SLA evidence as mandatory BCP annexes.",
+        "exampleEvidence": [
+            "Business Impact Analysis report identifying critical functions, supporting ICT systems, and MTPD values",
+            "ICT Business Continuity Plan document (version-controlled) covering cyber attack and supply chain failure scenarios",
+            "Azure Site Recovery or AWS CloudEndure failover test report with RTO/RPO actuals vs. targets",
+            "ServiceNow BCM module screenshot showing critical function records, BCP links, and test schedules",
+            "ICT third-party provider RTO commitments (from contracts or SLA addenda) cross-referenced to MTPD requirements",
+            "Board risk committee presentation (dated within last 12 months) summarising BCP test outcomes and open actions"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-10",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "ICT Business Continuity Testing",
+        "description": "Financial entities must test their ICT business continuity plans and disaster recovery capabilities at defined intervals, including through scenario-based exercises, to verify their effectiveness and identify gaps requiring remediation.",
+        "guidance": "Article 11(6) DORA. Testing must include a range of scenarios relevant to the entity's risk profile, such as cyberattacks, system failures, and third-party outages. Results must be documented and findings remediated in a timely manner.",
+        "implementationGuide": "Develop an annual BCT (Business Continuity Testing) calendar that escalates through four test tiers: (1) tabletop exercises, (2) technical component tests, (3) integrated DR failover tests using Zerto or Azure Site Recovery, and (4) full business continuity exercises involving operations and client communications. Use Fusion Risk Management or ServiceNow BCM to schedule tests, assign owners, and capture results. For the annual integrated failover test, measure actual RTO and RPO against targets and record results in Archer GRC. Include third-party ICT provider participation in at least one test per year to validate supplier recovery commitments. Share test summary reports with the competent authority if required, and use findings to drive remediation tickets in ServiceNow ITSM. The 'done' state is a completed annual test calendar with documented results for each tier, zero overdue critical remediation actions, and a board sign-off on the overall test programme. A common failure mode is skipping the integrated failover test due to operational risk concerns — avoid by scheduling it during a planned maintenance window and getting board pre-approval for the controlled downtime.",
+        "exampleEvidence": [
+            "Annual BCT calendar showing all four test tiers with scheduled dates, owners, and completion status",
+            "Tabletop exercise scenario documentation and participant sign-in sheet (dated within last 12 months)",
+            "Zerto or Azure Site Recovery integrated failover test report with actual RTO/RPO vs. targets",
+            "Third-party ICT provider participation confirmation and their recovery test results for the review period",
+            "Archer GRC remediation action tracker showing findings from BCT exercises and closure evidence",
+            "Board or board risk committee sign-off document approving the annual BCT programme and reviewing results"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-11",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "Communication Plans",
+        "description": "Financial entities must have in place crisis communication plans for ICT-related incidents, covering internal communication to staff and management, external communication to clients and counterparts, and reporting to competent authorities. Plans must define spokespersons, messaging protocols, and escalation triggers.",
+        "guidance": "Article 14 DORA. Communication plans must be integrated with incident response plans and tested. They must address both internal channels and external stakeholders including clients, regulators, and the press.",
+        "implementationGuide": "Draft a tiered ICT Crisis Communication Plan that maps communication actions to incident severity levels (P1–P4), specifying who is notified, through which channel, within what timeframe, using pre-approved message templates. Store templates and contact lists in a system accessible during an ICT outage — consider a printed crisis pack and an out-of-band communication tool such as Everbridge Mass Notification or Microsoft Teams Emergency Calling as backup. Integrate the communication plan with ServiceNow Security Incident Response so that severity escalation automatically triggers a communication task assigned to the designated spokesperson. Include a media relations protocol and a regulatory notification workflow referencing DORA Articles 19–20 reporting obligations. Test the communication plan at least annually as part of the BCT programme, capturing response times and message accuracy. The 'done' state is an approved communication plan linked to the IRP, with documented test results showing all notification SLAs met. A common failure mode is relying solely on email for crisis communications — avoid by establishing at least one out-of-band channel (e.g., Everbridge or SMS bridge) that functions independently of the primary ICT environment.",
+        "exampleEvidence": [
+            "ICT Crisis Communication Plan document with tiered notification matrix (P1–P4), spokespersons, and channel assignments",
+            "Pre-approved message template library for common incident types (ransomware, data breach, system outage)",
+            "Everbridge or equivalent mass notification system configuration screenshot showing contact groups and escalation paths",
+            "ServiceNow Security Incident Response screenshot showing automated communication task assignment on severity escalation",
+            "Communication plan test report from the most recent BCT exercise, showing notification timelines and message review outcomes",
+            "Regulatory notification workflow document referencing DORA Articles 19–20 with responsible roles and submission templates"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-12",
+        "domain": "ICT Risk Management",
+        "domainCode": "IRM",
+        "title": "ICT Risk Reporting to Management",
+        "description": "Financial entities must ensure that ICT risk information is reported regularly to the management body and senior management, covering the current ICT risk exposure, significant incidents, key risk indicators, and progress on remediation activities. Reports must be sufficient to enable informed decision-making.",
+        "guidance": "Article 6(5) DORA. ICT risk reports must be timely, accurate, and actionable. The frequency and content must be defined in the ICT risk management framework. Senior management must actively engage with risk reporting and challenge ICT risk owners.",
+        "implementationGuide": "Establish a formal ICT Risk Reporting framework with defined report types: (1) monthly KRI dashboard for senior management, (2) quarterly ICT risk report for the board risk committee, and (3) ad-hoc critical incident briefings. Build the KRI dashboard in ServiceNow GRC Performance Analytics or Archer GRC dashboards, sourcing data directly from the SIEM (Splunk), vulnerability scanner (Qualys), and ITSM ticket queues to minimise manual effort. Define at least 10 KRIs covering vulnerability age, patch SLA compliance, open critical risks, BCDR test results, and third-party incident count. Ensure the board risk committee agenda includes a standing ICT risk item, with a standard report template reviewed by the CISO before submission. Maintain an evidence trail of report submissions and board minutes acknowledging receipt and discussion. The 'done' state is a reporting schedule in the GRC tool showing all reports submitted on time, with board minutes confirming discussion of ICT risk items. A common failure mode is producing reports that are too technical for board-level consumers — avoid by including an executive summary with RAG status and top three actions required from the board on the first page.",
+        "exampleEvidence": [
+            "ICT Risk Reporting framework document defining report types, frequency, audience, and content requirements",
+            "Monthly KRI dashboard export from ServiceNow GRC or Archer GRC covering at least 10 defined KRIs",
+            "Quarterly ICT risk report submitted to the board risk committee (most recent, with CISO sign-off)",
+            "Board risk committee minutes confirming discussion and challenge of ICT risk items (dated within last 6 months)",
+            "Splunk or Qualys data feed configuration evidence showing automated KRI data sourcing for reporting",
+            "Report submission log from the GRC tool showing on-time delivery record for the previous four quarters"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+
+    # -------------------------------------------------------------------------
+    # Chapter III — ICT-Related Incidents (INC)
+    # -------------------------------------------------------------------------
+    {
+        "id": "DORA-13",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Incident Classification Criteria",
+        "description": "Financial entities must establish and apply classification criteria to determine whether an ICT-related incident is a 'major incident' requiring regulatory reporting, based on factors including the number of clients affected, the duration and geographic spread of the disruption, the criticality of services impacted, and the economic impact.",
+        "guidance": "Article 18 DORA and RTS on major incident classification. Classification criteria must be documented and applied consistently. Entities must assess incidents against all mandatory criteria and document the outcome.",
+        "implementationGuide": "Develop an incident classification matrix that maps each DORA Article 18 criterion (client impact, duration, geographic spread, criticality, economic loss, reputational impact, data losses) to a scoring rubric, and implement it as a structured triage form in ServiceNow Security Incident Response. Automate preliminary scoring using SIEM (Splunk) alert severity and asset criticality data from the CMDB to pre-populate the triage form within 15 minutes of incident creation. Require the on-call security manager to validate and finalise the classification score within 30 minutes for any P1/P2 incident. Store all classification decisions with timestamps and supporting rationale, as these will form part of the supervisory notification package under DORA Article 19. Conduct quarterly calibration exercises using historical incidents to ensure consistent classification across analysts. The 'done' state is a classification procedure with a 100% completion rate on triage forms for all P1/P2 incidents and an audit trail in ServiceNow. A common failure mode is under-classifying incidents to avoid regulatory reporting — avoid by requiring dual sign-off (CISO and Legal/Compliance) for any decision NOT to classify an incident as major.",
+        "exampleEvidence": [
+            "Incident classification policy document mapping DORA Article 18 criteria to scoring rubric and major/non-major thresholds",
+            "ServiceNow Security Incident Response triage form template screenshot showing all DORA classification criteria fields",
+            "Completed triage forms for P1/P2 incidents in the review period with classification decisions and rationale",
+            "Splunk alert-to-ServiceNow integration configuration showing automated pre-population of triage fields from SIEM data",
+            "Quarterly classification calibration exercise report with scenario examples and scoring consistency analysis",
+            "Dual sign-off log (CISO and Legal/Compliance) for incidents assessed and determined not to be major incidents"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-14",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Incident Management Process",
+        "description": "Financial entities must implement a comprehensive ICT incident management process covering detection, logging, classification, response, resolution, post-incident review, and closure. The process must be documented, tested, and supported by appropriate tools.",
+        "guidance": "Article 17 DORA. The incident management process must ensure timely identification and response to incidents, with clear roles and responsibilities at each stage. All incidents must be logged and tracked to resolution.",
+        "implementationGuide": "Implement the end-to-end incident management lifecycle in ServiceNow Security Incident Response (SNIR), with SIEM-to-ITSM integration enabling Splunk or Microsoft Sentinel to automatically create and enrich incident tickets. Define RACI for each process stage (detection → triage → containment → eradication → recovery → PIR → closure) and embed it in the ServiceNow workflow as mandatory task assignments. Establish SLA targets per severity level (P1: 15-min initial response, 4-hr containment; P2: 1-hr initial response, 8-hr containment) and configure SLA breach escalation notifications to the CISO. Integrate Splunk SOAR (Phantom) to automate repetitive containment tasks (e.g., account isolation, IP blocking via Palo Alto XSOAR playbooks) to reduce mean-time-to-contain. Maintain an immutable audit log of all incident actions using ServiceNow's audit trail, which serves as evidence for regulatory enquiries. The 'done' state is a fully configured SNIR workflow with documented RACI, active SLA timers, and a monthly process performance report showing SLA compliance rates. A common failure mode is siloing incident management between IT operations and security — avoid by configuring a single shared queue in ServiceNow visible to both the NOC and SOC with role-based views.",
+        "exampleEvidence": [
+            "ICT Incident Management process document with RACI matrix for all lifecycle stages",
+            "ServiceNow SNIR workflow diagram screenshot showing all stages from detection to closure with mandatory task assignments",
+            "Splunk-to-ServiceNow integration configuration confirming automated ticket creation and enrichment from SIEM alerts",
+            "SLA compliance report from ServiceNow showing P1/P2 response and containment time performance for the review period",
+            "Splunk SOAR or Palo Alto XSOAR playbook export showing automated containment runbooks",
+            "Monthly incident management performance report presented to the CISO, including volume, SLA compliance, and open actions"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-15",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Major Incident Reporting — Initial Notification",
+        "description": "Financial entities must submit an initial notification to the relevant competent authority without undue delay, and no later than 4 hours from classification as a major incident (and no later than 24 hours from becoming aware of the incident). The notification must contain the information specified in the DORA RTS on reporting templates.",
+        "guidance": "Article 19(1)(a) DORA. The initial notification is a rapid alert and need not be complete. It must confirm that a major incident has occurred, provide an initial description, and indicate the services affected.",
+        "implementationGuide": "Build an initial notification workflow in ServiceNow Security Incident Response that auto-triggers when a major incident classification is confirmed, generating a pre-populated notification template with all DORA RTS mandatory fields and routing it to the Compliance team for review and submission within the 4-hour window. Pre-establish a secure submission channel with the competent authority (e.g., national regulator's reporting portal or secure email with digital signature) and store credentials in CyberArk PAM to enable access during an ICT outage scenario. Assign a dedicated Major Incident Coordinator role (typically the Head of Operational Resilience or CISO) responsible for approving and dispatching the initial notification. Maintain a notification log in Archer GRC recording submission timestamp, channel used, and acknowledgement received from the authority. Run an annual drill simulating a major incident to test the end-to-end notification workflow including the 4-hour SLA. The 'done' state is a tested workflow producing a compliant initial notification within 4 hours, with a drill report on file. A common failure mode is the Compliance team being unavailable out-of-hours — avoid by designating at least two trained deputies and storing notification templates in an out-of-band location accessible without corporate network access.",
+        "exampleEvidence": [
+            "Major incident notification procedure document specifying 4-hour SLA, responsible roles, and submission channel",
+            "ServiceNow SNIR workflow screenshot showing auto-triggered notification task on major incident classification",
+            "DORA RTS-compliant initial notification template (blank) with all mandatory fields identified",
+            "Sample completed initial notification (anonymised/redacted) with submission timestamp within the 4-hour window",
+            "CyberArk PAM entry or out-of-band access documentation for competent authority reporting portal credentials",
+            "Annual major incident notification drill report showing end-to-end workflow test results and 4-hour SLA attainment"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-16",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Major Incident Reporting — Intermediate and Final Reports",
+        "description": "Following the initial notification, financial entities must submit an intermediate report to the competent authority as soon as the status of the incident has changed materially, and a final report no later than one month after the initial notification, including root cause analysis and remediation measures taken.",
+        "guidance": "Article 19(1)(b)(c) DORA. Intermediate reports update the authority on the evolving impact and response. The final report must include a comprehensive post-incident analysis, confirming resolution and preventive measures.",
+        "implementationGuide": "Extend the ServiceNow Security Incident Response major incident workflow to include 'Intermediate Report Due' and 'Final Report Due' tasks, with automated reminders to the Major Incident Coordinator at the 24-hour and 3-week marks respectively. Define the content requirements for intermediate and final reports in a structured template aligned to the DORA RTS reporting fields, stored in Confluence or SharePoint and linked from the ServiceNow incident record. The final report must incorporate the RCA output from the PIR process (DORA-08) and list all corrective actions with owners and target dates. Store submitted reports and authority acknowledgements in Archer GRC against the incident record to maintain a complete audit trail. Conduct an annual review of all major incident reports submitted in the period to identify recurring themes and improve the reporting process. The 'done' state is a complete set of notification records in Archer GRC for every major incident: initial, intermediate (if applicable), and final, with submission timestamps and authority acknowledgements. A common failure mode is the final report being filed without a genuine RCA — avoid by requiring the PIR to be formally signed off before the final report is drafted.",
+        "exampleEvidence": [
+            "Intermediate and final report templates (DORA RTS-aligned) with mandatory fields annotated",
+            "ServiceNow SNIR workflow screenshot showing 'Intermediate Report Due' and 'Final Report Due' task automation",
+            "Sample final incident report (anonymised) including RCA, timeline, impact summary, and corrective actions with owners",
+            "Archer GRC incident record extract showing initial, intermediate, and final report submissions with timestamps for a major incident",
+            "Competent authority acknowledgement receipt for a submitted final incident report (anonymised)",
+            "Annual review report of all major incident notifications submitted, summarising themes and process improvement actions"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-17",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Voluntary Notification of Significant Cyber Threats",
+        "description": "Financial entities may voluntarily notify competent authorities of significant cyber threats that have not materialised into incidents but that could have a significant impact on the financial system. Voluntary notifications should include information on the nature of the threat, potential targets, and indicators of compromise.",
+        "guidance": "Article 19(2) DORA. Voluntary notifications are encouraged to support systemic threat awareness. Entities must have a process for deciding when to submit voluntary notifications and for preparing the content.",
+        "implementationGuide": "Establish a documented Voluntary Threat Notification (VTN) procedure that defines the threshold for submission (e.g., credible, targeted threat with potential major impact if materialised) and assigns the decision to the CISO in consultation with Legal/Compliance. Integrate threat intelligence feeds — such as MISP, Recorded Future, or IBM X-Force — into Splunk to surface credible threats against the entity or the broader financial sector. Build a VTN assessment form in ServiceNow Security Incident Response that captures threat type, affected assets, indicators of compromise (IoCs), and probability/impact assessment, pre-populating the DORA notification template. Maintain a log of all VTN decisions (submitted and not-submitted) with rationale in Archer GRC for supervisory transparency. Brief the board risk committee quarterly on significant threats assessed during the period, whether or not a VTN was submitted. The 'done' state is a documented VTN procedure with a decision log in Archer GRC and at least one annual process rehearsal. A common failure mode is failing to identify the threshold for voluntary notification — avoid by defining explicit trigger criteria based on the DORA classification factors (Article 18) as a benchmark.",
+        "exampleEvidence": [
+            "Voluntary Threat Notification procedure document defining submission threshold, decision authority (CISO), and process steps",
+            "Recorded Future or IBM X-Force threat intelligence feed integration configuration with Splunk (screenshot or architecture diagram)",
+            "ServiceNow VTN assessment form template showing IoC capture fields and DORA notification pre-population",
+            "Archer GRC VTN decision log showing all threats assessed in the review period with submitted/not-submitted status and rationale",
+            "Sample VTN submission (anonymised) or draft template aligned to DORA notification fields",
+            "Board risk committee quarterly briefing extract covering significant cyber threats assessed in the period"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-18",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Harmonised Reporting Templates",
+        "description": "Financial entities must use the harmonised reporting templates specified in the DORA Regulatory Technical Standards when submitting major incident notifications to competent authorities. Internal incident reporting must also align with these templates to enable efficient extraction of regulatory report content.",
+        "guidance": "Article 20 DORA and the RTS on content and timelines. Templates must be embedded into internal processes so that required information is captured at the point of detection, not reconstructed after the fact.",
+        "implementationGuide": "Map the DORA RTS mandatory fields for initial, intermediate, and final reports to the ServiceNow Security Incident Response incident record fields, configuring custom fields or sections for DORA-specific data points (e.g., number of clients affected, cross-border impact, economic impact estimate). Work with the RegTech team to configure automated report generation from ServiceNow that produces a DORA-compliant report in the required format (PDF/XML) at the click of a button for Compliance review. Store the current ESA-published reporting templates in a shared Confluence space and assign a Compliance owner to monitor ESA updates and maintain template currency. Train SOC analysts, incident managers, and the Compliance team on template requirements through an annual DORA incident reporting training session, with attendance records retained. The 'done' state is a ServiceNow incident record schema that captures all RTS mandatory fields, with a report generation capability tested against a sample incident. A common failure mode is capturing DORA fields as free-text comments rather than structured data — avoid by using mandatory drop-down and numeric fields that enforce data quality at entry.",
+        "exampleEvidence": [
+            "ServiceNow incident record schema documentation showing DORA RTS mandatory fields mapped to structured data fields",
+            "Auto-generated DORA incident report sample (from ServiceNow) in ESA-required format, produced from a test incident record",
+            "Confluence page or SharePoint library showing current ESA harmonised reporting templates with version and last-reviewed date",
+            "Compliance owner assignment and template monitoring process documentation",
+            "DORA incident reporting training materials and attendee sign-in sheet (dated within last 12 months)",
+            "Gap analysis comparing internal incident record fields to DORA RTS mandatory fields, showing 100% coverage or open items"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-19",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Centralised Reporting Hub",
+        "description": "Where a centralised reporting hub has been designated by the competent authority to streamline major incident reporting, financial entities must use that hub for submissions. Entities must establish connectivity and test submission capabilities in advance of any actual incident.",
+        "guidance": "Article 21 DORA. Financial entities must monitor ESA and national competent authority guidance on centralised hub availability and onboarding requirements, and must complete any required registration or technical integration.",
+        "implementationGuide": "Assign a Regulatory Reporting Manager to monitor ESA and national competent authority (NCA) announcements regarding the centralised reporting hub, including technical specifications, API endpoints, and pilot timelines. Once the hub is available, complete the formal registration process and document the entity's reporting credentials and submission workflow. Integrate the reporting hub API (if available) with ServiceNow Security Incident Response to enable one-click submission of DORA-formatted reports, storing the API key in CyberArk PAM. Conduct an annual connectivity and submission test using a synthetic test incident record to verify end-to-end hub submission capability. Maintain a fallback submission procedure (email to NCA) if the hub is unavailable, documented in the communication plan. The 'done' state is a confirmed hub registration, a tested API integration or manual submission workflow, and a connectivity test report on file. A common failure mode is attempting to onboard during an actual incident rather than in advance — avoid by treating hub registration as a pre-condition to DORA compliance sign-off.",
+        "exampleEvidence": [
+            "Regulatory Reporting Manager role assignment documentation and NCA monitoring process description",
+            "Centralised reporting hub registration confirmation from the NCA or ESA (onboarding certificate or email confirmation)",
+            "ServiceNow-to-reporting-hub API integration configuration or manual submission workflow documentation",
+            "Annual hub connectivity and submission test report confirming successful synthetic submission and response from hub",
+            "CyberArk PAM credential entry for reporting hub access (screenshot showing entry exists, credentials redacted)",
+            "Fallback submission procedure document for hub unavailability, cross-referenced to the communication plan"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-20",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Incident Notification to Clients and Counterparts",
+        "description": "Financial entities must inform affected clients and financial counterparts without undue delay when a major ICT incident has or may have an adverse impact on the financial interests of those clients. Notifications must be factual, timely, and include information on the measures taken and actions available to clients.",
+        "guidance": "Article 19(4) DORA. Client notifications must not compromise security investigations or regulatory obligations. The timing, content, and channel of client notifications must be pre-planned and aligned with the crisis communication plan.",
+        "implementationGuide": "Develop client notification templates for common major incident scenarios (e.g., data breach, prolonged service outage, fraudulent transaction activity) in consultation with Legal, Compliance, and Communications teams, stored in ServiceNow Knowledge Management. Build a client impact assessment step into the major incident workflow in ServiceNow that requires the incident manager to identify affected client segments and trigger the appropriate notification template within a defined SLA (e.g., 24 hours of major incident declaration). Use Salesforce Service Cloud or a CRM platform to batch-send personalised client notifications and track delivery and open rates. Ensure all client notifications are reviewed by Legal before dispatch to manage liability and regulatory obligations simultaneously. Log all notification dispatches in Archer GRC against the incident record. The 'done' state is a notification capability tested in the annual BCT drill with a template library covering the top five incident scenarios. A common failure mode is sending client notifications before internal containment, revealing exploit details — avoid by having Legal approve the notification text before any external dispatch.",
+        "exampleEvidence": [
+            "Client notification template library (at least 3 scenario types) reviewed and approved by Legal and Compliance",
+            "ServiceNow major incident workflow screenshot showing client impact assessment step and notification task trigger",
+            "Salesforce or CRM batch notification dispatch log for a major incident in the review period (anonymised)",
+            "Legal review sign-off record for client notification text prior to dispatch",
+            "Archer GRC incident record extract showing client notification dispatch timestamp and channel",
+            "BCT drill report section covering client notification exercise, including time-to-dispatch and template accuracy assessment"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-21",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Incident Root Cause Analysis",
+        "description": "Financial entities must conduct root cause analyses (RCAs) for major ICT incidents and significant near-misses to determine the underlying causes of the incident and identify systemic weaknesses in ICT systems, processes, or third-party arrangements. RCA findings must inform updates to the ICT risk management framework.",
+        "guidance": "Article 17(3) DORA. RCAs must go beyond proximate causes to identify systemic and organisational factors. Findings must be tracked to remediation and fed back into risk assessments.",
+        "implementationGuide": "Mandate structured RCA completion for all major incidents and P2 near-misses, using the Ishikawa (fishbone) diagram or '5 Whys' methodology, facilitated by the Problem Manager in ServiceNow Problem Management. Require RCA reports to be drafted within 10 business days of incident closure and reviewed by the CISO before submission to the board risk committee. Link each root cause finding to the relevant control in Archer GRC — if the root cause is a missing or inadequate control, create a risk treatment item with an owner and due date. Where root cause involves a third-party ICT provider, initiate a formal vendor root cause request using the audit rights clause in the contract (DORA-39) and track vendor response in ServiceNow Vendor Risk Management. Produce a quarterly RCA trend report to identify recurring root cause categories (e.g., patching failures, misconfiguration, human error) and drive preventive investment decisions. The 'done' state is a ServiceNow Problem Management queue with zero overdue RCA reports for major incidents, and root cause findings linked to risk treatment items in Archer GRC. A common failure mode is stopping at the proximate cause (e.g., 'unpatched vulnerability') without examining why the patch was not applied — avoid by mandating at least five 'Why' iterations before closing the RCA.",
+        "exampleEvidence": [
+            "RCA methodology document (Ishikawa/5 Whys) and minimum standards for major incident RCA reports",
+            "Completed RCA report for a major incident (anonymised) showing root cause chain, contributing factors, and corrective actions",
+            "ServiceNow Problem Management report listing all major incident RCAs in the review period with completion dates and status",
+            "Archer GRC risk treatment items linked to root cause findings, with owners and due dates",
+            "Vendor root cause request letter template and sample response from a third-party ICT provider (anonymised)",
+            "Quarterly RCA trend report presented to CISO showing root cause category distribution and investment recommendations"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-22",
+        "domain": "ICT-Related Incidents",
+        "domainCode": "INC",
+        "title": "Incident Registry and Lessons Learned Integration",
+        "description": "Financial entities must maintain an up-to-date registry of all ICT-related incidents and significant cyber threats, and must systematically integrate lessons learned from incidents into the ICT risk management framework, controls, and training programmes to prevent recurrence.",
+        "guidance": "Article 17(1) DORA. The incident registry must be available for supervisory inspection. Lessons learned must be formally documented and tracked to implementation, not merely noted.",
+        "implementationGuide": "Configure the ServiceNow Security Incident Response module as the authoritative incident registry, capturing all mandatory DORA fields (incident ID, classification, timeline, affected assets, impact, root cause, and resolution). Implement strict data quality controls — mandatory fields, drop-down selections, and automated completeness checks — so that the registry can withstand supervisory inspection at any time. Establish a Lessons Learned Integration process that links closed incident records to policy, procedure, or training improvement actions in ServiceNow GRC and the Learning Management System (e.g., Cornerstone OnDemand). Conduct a semi-annual 'Lessons Learned Synthesis' session facilitated by the Head of Operational Resilience, producing a report that quantifies how many prior lessons have been fully implemented. Present the synthesis report to the board risk committee and include a 12-month trend of incident frequency by classification as a board KRI. The 'done' state is a registry with 100% data completeness on mandatory fields for all incidents in the last 12 months, and a lessons-learned synthesis report showing implementation rates. A common failure mode is logging incidents but failing to track whether lessons were ever implemented — avoid by creating a mandatory 'Lesson Implemented' closure task in ServiceNow that cannot be bypassed.",
+        "exampleEvidence": [
+            "ServiceNow Security Incident Response registry configuration screenshot showing mandatory DORA fields and data validation rules",
+            "Incident registry export for the review period with all mandatory fields populated (anonymised client/system data)",
+            "Lessons Learned Integration process document mapping incident closures to policy/training improvement actions",
+            "Cornerstone OnDemand or LMS training update evidence linking a lesson learned to a revised training module",
+            "Semi-annual Lessons Learned Synthesis report showing implementation rate of prior lessons and open actions",
+            "Board risk committee presentation extract showing 12-month incident trend by classification and lessons-learned KPI"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+
+    # -------------------------------------------------------------------------
+    # Chapter IV — Digital Operational Resilience Testing (DRT)
+    # -------------------------------------------------------------------------
+    {
+        "id": "DORA-23",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "Digital Operational Resilience Testing Programme",
+        "description": "Financial entities must establish, maintain, and implement a comprehensive digital operational resilience testing programme as an integral part of the ICT risk management framework. The programme must cover all ICT systems and assets supporting critical or important functions and include a range of test types proportionate to the entity's risk profile.",
+        "guidance": "Article 24 DORA. The testing programme must be risk-based, documented, and subject to independent review. Testing frequency and scope must be reviewed annually, with results feeding into the ICT risk management framework.",
+        "implementationGuide": "Develop a Digital Operational Resilience Testing (DORT) Programme document that defines the annual testing calendar, test types, scope, ownership, and success criteria for all critical and important functions. Manage the testing programme in Archer GRC, linking each test to the asset inventory and risk register so that high-risk assets receive more frequent testing. Use Qualys VMDR and Tenable.io for continuous vulnerability scanning (baseline), supplemented by periodic penetration tests and, for significant firms, TLPT. Establish a Testing Review Board — chaired by the CISO and including IT, Compliance, and business risk owners — that meets quarterly to review test results, approve remediation plans, and update the testing scope. Ensure that test results and remediation actions are tracked in Jira or ServiceNow ITSM with SLA-driven closure targets. The 'done' state is an approved DORT programme document with a complete, evidence-backed test calendar for the current year and a quarterly Testing Review Board meeting record. A common failure mode is running tests but not remediating findings within a defined timeframe — avoid by integrating test findings as risk items in Archer GRC with mandatory escalation if overdue.",
+        "exampleEvidence": [
+            "Digital Operational Resilience Testing Programme document (board/CISO-approved) with annual testing calendar and scope",
+            "Archer GRC programme record linking test activities to asset inventory and risk register",
+            "Qualys VMDR or Tenable.io continuous scanning configuration screenshot showing coverage of all critical assets",
+            "Quarterly Testing Review Board meeting minutes with attendees, results reviewed, and remediation decisions",
+            "Jira or ServiceNow ITSM report showing open and closed test findings with SLA compliance rates",
+            "Annual testing programme review report documenting scope changes, new test types added, and risk-based prioritisation rationale"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-24",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "Vulnerability Assessments and Network Security Assessments",
+        "description": "Financial entities must perform regular vulnerability assessments on ICT assets supporting critical or important functions, including network security assessments and open-source analyses, to identify weaknesses that could be exploited by threat actors. Findings must be prioritised and remediated in a risk-based manner.",
+        "guidance": "Article 25 DORA. Vulnerability assessments must be conducted at least annually and after significant changes to ICT systems. Network security assessments must evaluate the effectiveness of network controls including segmentation, access controls, and intrusion detection.",
+        "implementationGuide": "Run authenticated network vulnerability scans using Qualys VMDR or Tenable.io on a monthly cadence for all internet-facing and critical internal assets, with immediate ad-hoc scans triggered by new CVE disclosures scoring CVSS 9.0+. Complement automated scanning with annual manual network security assessments conducted by an internal red team or an approved third party such as NCC Group or Mandiant, covering segmentation testing, firewall rule review, and wireless security. Integrate Qualys or Tenable findings into ServiceNow ITSM via API to auto-generate remediation tickets assigned to the relevant asset owner, with patch SLA timers running from discovery date. Perform open-source analysis (OSA) of all software dependencies using tools like Snyk or Black Duck to identify vulnerable third-party libraries in critical applications, integrating OSA into the CI/CD pipeline (e.g., GitHub Actions or Jenkins). The 'done' state is a scanning configuration with 100% asset coverage, a monthly compliance report, and a remediation backlog where no critical vulnerability exceeds the defined patch SLA. A common failure mode is running scans but failing to act on findings because remediation ownership is unclear — avoid by enforcing CMDB asset ownership so that every vulnerability ticket is auto-assigned to a named owner.",
+        "exampleEvidence": [
+            "Qualys VMDR or Tenable.io scan configuration screenshot showing monthly scan schedule and critical asset coverage",
+            "Vulnerability assessment report for the review period with CVSS severity distribution and remediation status",
+            "Annual network security assessment report from internal red team or third party (NCC Group/Mandiant) including segmentation and firewall rule findings",
+            "Snyk or Black Duck open-source analysis report for critical applications showing vulnerable dependency findings and remediation status",
+            "ServiceNow ITSM remediation ticket queue showing vulnerability tickets with SLA timers and assignment to named asset owners",
+            "Patch SLA compliance dashboard showing percentage of critical/high vulnerabilities remediated within SLA for the review period"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-25",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "Gap Analyses and Physical Security Reviews",
+        "description": "Financial entities must conduct gap analyses of the ICT risk management framework and physical security controls to identify areas where current practices fall short of regulatory requirements or best practice standards. Findings must be prioritised and addressed through a time-bound remediation plan.",
+        "guidance": "Article 25(1)(d) DORA. Gap analyses must be conducted against recognised frameworks (e.g., DORA, ISO 27001, TIBER-EU) and must include an assessment of physical security controls protecting ICT infrastructure.",
+        "implementationGuide": "Schedule an annual ICT risk management gap analysis using Archer GRC to map current controls against DORA requirements, ISO 27001:2022 Annex A, and any sector-specific standards (e.g., TIBER-EU). Engage an approved third party (e.g., Big Four firm or specialist consultancy) to conduct an independent gap analysis at least every two years to provide an objective view. For physical security reviews, use a structured assessment checklist covering data centre access controls, CCTV, environmental monitoring, and visitor management — comparing findings against Tier III/IV data centre standards or ISO 27001 controls A.7. Load all gap findings into Archer GRC as risk treatment items, with owners, target remediation dates, and progress tracked quarterly. Present the annual gap analysis summary to the board risk committee with a RAG-rated remediation roadmap. The 'done' state is an Archer GRC gap analysis record with all findings tracked to closure or accepted risk, and a board-reviewed remediation roadmap. A common failure mode is conducting a gap analysis against the wrong baseline (e.g., last year's requirements rather than current DORA RTS) — avoid by maintaining a live DORA requirements register in Archer GRC updated quarterly against ESA publications.",
+        "exampleEvidence": [
+            "Annual ICT risk management gap analysis report mapped to DORA requirements and ISO 27001:2022 (Archer GRC export or standalone document)",
+            "Independent third-party gap analysis report (dated within last 24 months) with findings and recommendations",
+            "Physical security assessment checklist and findings report for primary data centre(s) and critical office locations",
+            "Archer GRC gap finding records showing owners, target dates, and current remediation status for all open items",
+            "Board risk committee presentation showing RAG-rated remediation roadmap derived from gap analysis findings",
+            "DORA requirements register (Archer GRC) showing current RTS/ITS obligations with mapping to assessed controls"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-26",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "Threat-Led Penetration Testing (TLPT) Programme",
+        "description": "Significant financial entities must carry out advanced threat-led penetration testing (TLPT) at least every three years, covering the production systems and processes supporting critical or important functions. TLPT must be conducted in accordance with the TIBER-EU framework or equivalent national framework.",
+        "guidance": "Article 26 DORA. TLPT is mandatory for significant entities as designated by competent authorities. Testing must be performed by qualified external testers with internal threat intelligence support, and results must be shared with the relevant competent authority.",
+        "implementationGuide": "Establish the TLPT programme governance structure: appoint a TLPT Lead (typically Head of Offensive Security or a senior CISO delegate) and form a Control Team responsible for managing the test without informing the Blue Team (operational security). Engage a TIBER Cyber Team (TCT) provider — such as Mandiant, NCC Group, or KPMG Cyber — for threat intelligence and an approved TLPT tester for the red team exercise, both satisfying DORA Article 27 tester qualification requirements. Define the scope in coordination with the competent authority, covering all production systems supporting critical or important functions, documented in a Target Threat Intelligence (TTI) report. Use Archer GRC to manage the TLPT programme lifecycle (scoping → TTI → red team → purple team → reporting → remediation) with milestone sign-offs at each phase. Submit the TLPT summary report to the competent authority and maintain the detailed findings report internally in a restricted-access repository. The 'done' state is a completed TLPT cycle with a competent authority-accepted summary report and a closed or time-bound remediation plan for all critical findings. A common failure mode is allowing the Blue Team to become aware of the test, invalidating results — avoid by strictly limiting knowledge of the test to the Control Team and documented TLPT Lead.",
+        "exampleEvidence": [
+            "TLPT programme governance document defining Control Team membership, scope definition process, and competent authority coordination",
+            "TIBER Cyber Team (TCT) or threat intelligence provider engagement letter and qualification evidence (KPMG/Mandiant/NCC Group)",
+            "TLPT tester qualification evidence satisfying DORA Article 27 requirements (certifications, experience summary)",
+            "Target Threat Intelligence (TTI) report used to scope the red team exercise (appropriately redacted)",
+            "TLPT summary report submitted to the competent authority with confirmation of receipt",
+            "Remediation plan for TLPT critical findings with owners, target dates, and current status in Archer GRC"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-27",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "TLPT Scope, Internal Tester Qualifications, and Third-Party Requirements",
+        "description": "The TLPT scope must encompass all production systems and processes supporting critical or important functions, and must not exclude cloud-based or outsourced services. Internal testers may be used subject to strict qualification requirements and independence safeguards. Third-party testers must meet defined qualification, insurance, and independence standards.",
+        "guidance": "Article 27 DORA. The scope must be agreed with the competent authority. Internal testers must not have been involved in ICT risk management or incident response for the tested systems in the previous year. Third-party testers must carry professional indemnity insurance.",
+        "implementationGuide": "Document the TLPT scope definition methodology, ensuring that cloud services provided by critical ICT third-party providers (e.g., AWS, Azure, or a core banking SaaS provider) are included within or explicitly assessed as in-scope, coordinating scope boundaries with the relevant cloud provider's penetration testing policy. For internal testers, maintain a qualification register in Archer GRC listing certifications (e.g., CREST CRT, OSCP, CHECK Team Leader) and confirming no involvement in IRM or incident response for in-scope systems in the prior 12 months — cross-referenced against ServiceNow ITSM change and incident records. Verify third-party tester qualifications (CREST certification, TIBER-EU accreditation, professional indemnity insurance certificate) before contract signature, storing evidence in the vendor due diligence file in ServiceNow Vendor Risk Management. Include contractual clauses requiring the tester to maintain confidentiality of findings and indemnify the entity for tester-caused damage. The 'done' state is a documented scope agreement with the competent authority and a qualification register showing all testers meet DORA Article 27 criteria. A common failure mode is scoping out cloud-hosted critical systems — avoid by mapping all critical function system components in the CMDB and explicitly addressing each in the scope document.",
+        "exampleEvidence": [
+            "TLPT scope agreement document (countersigned by competent authority or acknowledged in correspondence)",
+            "Cloud provider penetration testing policy confirmation (e.g., AWS penetration testing policy acknowledgement) included in scope documentation",
+            "Internal tester qualification register from Archer GRC listing certifications (CREST, OSCP) and independence confirmations",
+            "ServiceNow ITSM cross-check report confirming no internal tester involvement in IRM/incident response for in-scope systems in prior 12 months",
+            "Third-party tester qualification pack: CREST certificate, TIBER-EU accreditation, professional indemnity insurance certificate",
+            "Third-party tester contract extract showing confidentiality clause, indemnification clause, and scope-of-testing limitations"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-28",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "Remediation of TLPT Findings",
+        "description": "Financial entities must promptly remediate all critical and high-severity findings identified during TLPT exercises and report the remediation status to the competent authority. A remediation plan with defined timelines must be approved by senior management and tracked to completion.",
+        "guidance": "Article 26(7) DORA. Remediation of critical findings must not be deferred. The competent authority may set remediation deadlines and request evidence of completion. Non-remediated critical findings may be factored into supervisory assessments.",
+        "implementationGuide": "Upon completion of the TLPT red team exercise, convene a Purple Team session within 10 business days to review all findings with the defending Blue Team, agree exploitability ratings, and build a remediation plan. Load all findings into Archer GRC as risk treatment items with severity classification (critical, high, medium, low), named owners (typically the relevant system owner from the asset inventory), and target remediation dates agreed with the CISO. Configure automated escalation in ServiceNow ITSM so that any critical TLPT finding approaching its due date without closure triggers a P1 change request and a CISO alert. Report remediation progress to the competent authority at the intervals specified in the TLPT programme agreement (typically 3-month and 6-month updates). Conduct a remediation verification re-test — using Qualys or the original TLPT tester — before closing critical findings in Archer GRC. The 'done' state is a TLPT finding tracker with 100% of critical findings closed or formally risk-accepted by the board, with re-test evidence on file. A common failure mode is accepting risk on critical findings without genuine compensating controls — avoid by requiring the board risk committee to formally approve any risk acceptance on TLPT critical findings.",
+        "exampleEvidence": [
+            "Purple Team session report listing all TLPT findings with exploitability ratings and agreed remediation ownership",
+            "Archer GRC TLPT finding tracker showing all findings, severity, owners, target dates, and current status",
+            "ServiceNow ITSM escalation alert log showing automated notifications for critical findings approaching due dates",
+            "Remediation progress update reports submitted to the competent authority (3-month and 6-month)",
+            "Remediation verification re-test report from Qualys or original TLPT tester confirming closure of critical findings",
+            "Board risk committee minute approving any risk-accepted TLPT findings with documented compensating controls"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-29",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "Testing of Critical ICT Third-Party Provider Systems",
+        "description": "Where critical ICT systems supporting important functions are hosted or managed by third-party providers, financial entities must ensure that resilience testing covers those systems, either through direct testing rights or by relying on equivalent testing conducted by the provider, subject to oversight and assurance requirements.",
+        "guidance": "Article 26(6) DORA. Entities cannot delegate their resilience testing obligations to providers without obtaining adequate assurance. Contractual audit and testing rights must be exercised, and provider test results must be assessed for equivalence.",
+        "implementationGuide": "For each critical ICT third-party provider, establish a testing assurance process: (1) request annual penetration test summaries and vulnerability assessment reports from providers, (2) assess whether provider testing scope and methodology is equivalent to DORA requirements using a structured equivalence checklist stored in ServiceNow Vendor Risk Management, and (3) exercise direct testing rights for systems where provider reports are insufficient. Include explicit DORA-aligned testing clauses in all critical provider contracts (Article 30 minimum contractual provisions) requiring the provider to allow the entity or its appointed tester to conduct resilience tests on hosted systems with reasonable notice. Track provider testing assurance status in the vendor risk register in Archer GRC, with quarterly review and escalation for providers who fail to provide adequate evidence. Where a provider hosts systems for multiple financial entities, explore joint testing programmes coordinated through the competent authority to reduce duplication. The 'done' state is a vendor assurance tracker in Archer GRC showing testing evidence received and assessed for 100% of critical providers, with escalated gaps actively managed. A common failure mode is accepting a provider's SOC 2 report as a substitute for resilience testing — avoid by maintaining a testing equivalence checklist that distinguishes compliance audits from penetration testing and DORA-specific resilience tests.",
+        "exampleEvidence": [
+            "Third-party testing assurance process document describing the three-step equivalence assessment approach",
+            "Provider penetration test summary reports received for all critical ICT providers (previous 12 months, appropriately redacted)",
+            "Testing equivalence assessment checklist completed for each critical provider, with pass/fail determination and rationale",
+            "Contract clause extract from a critical provider agreement showing DORA-aligned testing rights (Article 30 compliant)",
+            "Archer GRC vendor risk register extract showing testing assurance status for all critical providers",
+            "ServiceNow Vendor Risk Management escalation log for providers where testing evidence was insufficient or overdue"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-30",
+        "domain": "Digital Operational Resilience Testing",
+        "domainCode": "DRT",
+        "title": "Resilience Testing Results and Continuous Improvement",
+        "description": "Financial entities must use the results of all resilience testing activities to continuously improve their ICT systems, controls, and risk management practices. Test findings must be tracked to remediation, and the testing programme must evolve to reflect changes in the threat landscape and ICT environment.",
+        "guidance": "Article 29 DORA. Testing results must feed into the ICT risk management framework and risk assessments. The testing programme must be reviewed at least annually to incorporate lessons from testing and emerging threats.",
+        "implementationGuide": "Establish an annual Testing Programme Review (TPR) cycle facilitated by the CISO, reviewing all test results from the preceding year (vulnerability scans, penetration tests, BCT exercises, TLPT) and identifying thematic weaknesses, recurring findings, and coverage gaps. Use the Archer GRC testing programme record to aggregate findings across test types and generate a 'testing maturity score' that tracks improvement over time against a defined baseline. Feed recurring findings (e.g., persistent configuration weaknesses found in multiple scan cycles) into the risk register as systemic risks requiring structural remediation rather than individual patch fixes. Update the testing programme scope and methodology annually based on the MITRE ATT&CK threat intelligence review and any new critical assets added to the CMDB. Publish a Testing Programme Annual Report to the board risk committee, showing the entity's resilience posture trajectory. The 'done' state is an annual TPR report with quantified improvement metrics and an updated programme scope approved by the CISO. A common failure mode is treating each test cycle as isolated rather than cumulative — avoid by requiring each test brief to reference prior test findings for the same asset and confirming whether previously identified weaknesses have been addressed.",
+        "exampleEvidence": [
+            "Annual Testing Programme Review report aggregating findings across all test types with thematic analysis and maturity score",
+            "Archer GRC testing programme record showing aggregated findings, maturity score trend, and programme scope history",
+            "Risk register extract from Archer GRC showing systemic risks derived from recurring testing findings",
+            "Updated testing programme scope and methodology document reflecting MITRE ATT&CK review and new asset additions",
+            "Testing Programme Annual Report presented to board risk committee with resilience posture trajectory metrics",
+            "Individual test brief showing reference to prior test findings for the same asset and remediation confirmation"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+
+    # -------------------------------------------------------------------------
+    # Chapter V — ICT Third-Party Risk (TPR)
+    # -------------------------------------------------------------------------
+    {
+        "id": "DORA-31",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "ICT Third-Party Risk Management Policy",
+        "description": "Financial entities must adopt and implement a dedicated ICT third-party risk management policy that defines the approach to identifying, assessing, managing, monitoring, and reporting on risks arising from the use of ICT third-party providers, including sub-contractors supporting ICT functions.",
+        "guidance": "Article 28(1) DORA. The policy must be reviewed at least annually and must be proportionate to the size and risk profile of the entity. It must cover the full lifecycle of third-party relationships from pre-contract due diligence through exit.",
+        "implementationGuide": "Draft an ICT Third-Party Risk Management Policy endorsed by the board that defines the policy scope (all ICT providers supporting critical or important functions), risk appetite for third-party concentration, and the full vendor lifecycle stages. Implement the policy operationally through ServiceNow Vendor Risk Management (VRM), configuring vendor onboarding workflows that enforce policy compliance gates. Define a third-party tiering model (critical, significant, standard) based on criticality, data sensitivity, and sub-outsourcing complexity, and apply differentiated due diligence requirements per tier. Assign a Third-Party Risk Manager role responsible for maintaining the vendor register and reporting on policy compliance to the CISO monthly. Integrate the policy with Archer GRC's vendor risk module to maintain a real-time dashboard of third-party risk exposure. The 'done' state is a board-approved policy with a ServiceNow VRM workflow enforcing its requirements and a monthly compliance report. A common failure mode is allowing ICT procurement to bypass the vendor onboarding workflow — avoid by requiring a VRM-generated due diligence certificate as a mandatory input to the procurement sign-off process.",
+        "exampleEvidence": [
+            "ICT Third-Party Risk Management Policy document (board-approved, version-controlled) with full lifecycle scope",
+            "Third-party tiering model documentation defining critical/significant/standard criteria and differentiated due diligence requirements",
+            "ServiceNow VRM onboarding workflow screenshot showing policy compliance gates and due diligence certificate generation",
+            "Third-Party Risk Manager role assignment documentation and monthly reporting obligations",
+            "Archer GRC vendor risk dashboard screenshot showing third-party risk exposure by tier and status",
+            "Monthly ICT third-party risk compliance report presented to the CISO, covering vendor count by tier and open risk items"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-32",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Pre-Contractual Due Diligence",
+        "description": "Before entering into contractual arrangements with ICT third-party providers, financial entities must conduct risk-based due diligence to assess the provider's financial stability, security posture, operational resilience capabilities, regulatory compliance, and sub-outsourcing arrangements.",
+        "guidance": "Article 28(4) DORA. Due diligence must be proportionate to the criticality of the function to be supported. Entities must assess whether the provider can meet the entity's operational resilience requirements and DORA obligations throughout the contract term.",
+        "implementationGuide": "Implement a structured pre-contractual due diligence process in ServiceNow Vendor Risk Management with tiered questionnaires: a comprehensive questionnaire (covering security, resilience, compliance, financial stability, and sub-outsourcing) for critical and significant providers, and a streamlined questionnaire for standard providers. Supplement questionnaire responses with independent intelligence: financial health checks via Dun & Bradstreet, security ratings from SecurityScorecard or BitSight, and regulatory sanction screening via Refinitiv World-Check. For critical providers, require a site visit or remote assessment session facilitated by the entity's Third-Party Risk Manager. Document all due diligence outputs in Archer GRC, linked to the vendor record and the pre-contract risk assessment. Obtain a sign-off from the CISO and Legal before any critical provider contract is executed. The 'done' state is a completed due diligence pack in ServiceNow VRM for every critical provider with all gating checks passed before contract execution. A common failure mode is skipping due diligence for renewals of long-standing providers — avoid by enforcing a triennial re-due-diligence trigger in ServiceNow VRM regardless of whether the provider relationship is new.",
+        "exampleEvidence": [
+            "Pre-contractual due diligence questionnaire templates (critical-tier and standard-tier) used in ServiceNow VRM",
+            "SecurityScorecard or BitSight security rating report for a critical provider (anonymised, dated within last 12 months)",
+            "Dun & Bradstreet financial health check for a critical provider (anonymised, dated within last 12 months)",
+            "Completed due diligence pack in Archer GRC for a critical provider including questionnaire responses, ratings, and risk assessment",
+            "CISO and Legal sign-off record confirming completion of due diligence prior to contract execution for a critical provider",
+            "ServiceNow VRM triennial re-due-diligence trigger configuration showing automated review scheduling for existing critical providers"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-33",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Contractual Arrangements with ICT Providers — Key Clauses",
+        "description": "Contracts with ICT third-party providers supporting critical or important functions must include minimum contractual provisions required by DORA, covering service descriptions, sub-outsourcing, data location, audit rights, resilience obligations, incident notification, and exit assistance.",
+        "guidance": "Article 30 DORA. Contracts must be clear, comprehensive, and enforceable. Entities must review existing contracts and remediate any gaps against DORA Article 30 minimum provisions within a defined timeframe.",
+        "implementationGuide": "Develop a DORA-compliant contract clause library in collaboration with Legal, covering all Article 30 minimum provisions (service levels, data location and processing, confidentiality, audit rights, business continuity, incident notification, sub-outsourcing controls, termination and exit assistance). Store the clause library in a Contract Lifecycle Management (CLM) tool such as Ironclad or DocuSign CLM, with mandatory clause inclusion checks for critical provider contracts. Conduct a contract gap assessment for all existing critical and significant provider contracts using a structured review template in Archer GRC, identifying absent or non-compliant clauses and negotiating remediation within 12 months. Require Legal sign-off confirming Article 30 compliance before any critical provider contract is executed or renewed. Maintain a contract register in ServiceNow VRM showing each provider's contract status, key dates, and DORA clause compliance. The 'done' state is a contract register showing 100% DORA Article 30 compliance for all critical provider contracts, with a gap remediation plan for any outstanding items. A common failure mode is assuming legacy contracts are sufficient without explicit Article 30 mapping — avoid by conducting a clause-by-clause gap analysis for every critical provider contract annually.",
+        "exampleEvidence": [
+            "DORA Article 30 contract clause library (Legal-approved) stored in Ironclad or DocuSign CLM",
+            "Contract gap assessment template and completed assessment for at least two critical provider contracts",
+            "ServiceNow VRM contract register extract showing critical provider contracts with DORA clause compliance status",
+            "Legal sign-off record confirming Article 30 compliance for a critical provider contract prior to execution",
+            "Negotiation correspondence or contract amendment confirming remediation of DORA clause gaps for an existing critical provider",
+            "Annual contract compliance review report showing DORA Article 30 coverage rates across all critical/significant provider contracts"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-34",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Register of Contractual Arrangements",
+        "description": "Financial entities must maintain an up-to-date register of all contractual arrangements with ICT third-party providers. The register must cover all providers, including those supporting non-critical functions, and must be available for supervisory inspection upon request.",
+        "guidance": "Article 28(3) DORA. The register must include the information specified in the relevant ITS, covering provider identity, contract type, criticality classification, data categories processed, and key contract terms. The register must be submitted to the competent authority as part of regular DORA reporting.",
+        "implementationGuide": "Build the ICT third-party contractual arrangements register in ServiceNow Vendor Risk Management, configuring mandatory fields for all DORA ITS-specified data points: provider name, LEI, contract ID, service category, criticality tier, data types processed, contract start/end dates, sub-outsourcing flag, and governing law. Integrate ServiceNow VRM with the entity's CLM tool (Ironclad) via API to auto-populate contract dates and renewal triggers, reducing manual data entry errors. Establish a quarterly register refresh process requiring all Third-Party Risk Managers to confirm or update their portfolio entries, with a completeness check automated in ServiceNow. Configure the register to export in the ESA-specified format for supervisory submission, and conduct an annual supervisory submission dry run to validate data quality. Assign overall register ownership to the Head of Third-Party Risk. The 'done' state is a ServiceNow VRM register with 100% of ICT providers enrolled, all DORA ITS fields populated, and a quarterly completeness report on file. A common failure mode is failing to capture sub-contractor relationships — avoid by requiring providers to declare sub-contractors as a contractual obligation and monitoring for undisclosed additions.",
+        "exampleEvidence": [
+            "ServiceNow VRM register configuration screenshot showing all DORA ITS-required fields as mandatory",
+            "Register extract (anonymised) showing a sample of provider records with all required fields populated",
+            "Ironclad-to-ServiceNow VRM API integration documentation confirming automated contract data population",
+            "Quarterly register completeness report showing field population rates and outstanding items with owner assignments",
+            "Annual supervisory submission dry run report confirming ESA-format export capability and data quality validation results",
+            "Register ownership assignment document and RACI for quarterly refresh and annual supervisory submission process"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-35",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "ICT Concentration Risk Assessment",
+        "description": "Financial entities must assess and monitor ICT concentration risk arising from over-reliance on a single ICT third-party provider or a small number of providers, particularly for critical or important functions. Concentration risk must be included in the ICT risk management framework and reported to the management body.",
+        "guidance": "Article 29 DORA. Concentration risk must be assessed at both entity level and, where applicable, at group and sectoral level. Entities must consider geographic concentration, cloud provider concentration, and single points of failure in their ICT supply chain.",
+        "implementationGuide": "Build a concentration risk dashboard in Archer GRC that maps each critical or important function to its supporting ICT provider(s), calculates the number of functions dependent on each provider, and highlights providers representing more than 30% of critical function coverage (the indicative concentration threshold from DORA guidance). Conduct an annual concentration risk assessment that evaluates not just provider count but also geographic concentration (e.g., all critical data centres in one jurisdiction), cloud hyperscaler dependency (AWS, Azure, GCP), and technology stack concentration (e.g., single OS or database vendor). Present the concentration risk assessment to the board risk committee with a heat map of concentration exposures and proposed mitigants (dual-sourcing, multi-cloud strategy, contractual exit rights). Integrate concentration risk findings into the ICT risk appetite statement (DORA-02) as a quantitative limit. The 'done' state is an annual concentration risk assessment report with a board-reviewed heat map and documented mitigants for all exposures above appetite. A common failure mode is assessing concentration only at the direct provider level without mapping the sub-contractor layer — avoid by requiring providers to disclose sub-contractors in their annual due diligence update and incorporating this data into the concentration analysis.",
+        "exampleEvidence": [
+            "Archer GRC concentration risk dashboard screenshot showing function-to-provider mapping and concentration threshold flags",
+            "Annual ICT concentration risk assessment report evaluating provider, geographic, cloud, and technology stack concentration",
+            "Board risk committee presentation with concentration risk heat map and proposed mitigants (dual-sourcing, multi-cloud roadmap)",
+            "ICT risk appetite statement extract showing quantitative concentration limits (e.g., max % of critical functions on single provider)",
+            "Provider sub-contractor disclosure register showing sub-contractor data incorporated into concentration analysis",
+            "Multi-cloud or dual-sourcing implementation evidence (e.g., Azure/AWS architecture diagram or contract with secondary provider)"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-36",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Exit Strategies and Transition Plans",
+        "description": "Financial entities must establish and maintain exit strategies for each critical ICT third-party provider, including detailed transition plans that ensure the continuity of critical or important functions during and after a provider exit, whether planned or unplanned.",
+        "guidance": "Article 28(8) DORA. Exit strategies must be tested and updated regularly. They must address alternative provider options, data portability, and the resources required to manage a transition. Unplanned exit scenarios (e.g., provider insolvency, regulatory action) must be specifically addressed.",
+        "implementationGuide": "Develop a documented exit strategy for each critical ICT provider that covers: (1) exit triggers (planned: end-of-contract; unplanned: insolvency, regulatory action, performance breach), (2) transition timelines and key milestones, (3) alternative provider shortlist or in-sourcing option, (4) data portability and migration plan, and (5) resource requirements (internal team, transition manager, legal support). Store exit strategies in ServiceNow VRM linked to the provider contract record, and review and update them at each annual due diligence refresh. For critical providers with long lead times (e.g., core banking), maintain an active alternative provider relationship or a shadow infrastructure maintained via tools such as Zerto or AWS CloudEndure to enable rapid transition. Test exit strategies for the top three critical providers annually as part of the BCT programme (DORA-10), simulating an unplanned exit scenario. The 'done' state is a ServiceNow VRM record with approved exit strategies for 100% of critical providers and annual test evidence. A common failure mode is writing an exit strategy that assumes the departing provider will cooperate — avoid by including contractual exit assistance obligations (90-day minimum) in all critical provider contracts.",
+        "exampleEvidence": [
+            "Exit strategy template and completed exit strategy documents for all critical ICT providers (stored in ServiceNow VRM)",
+            "Data portability and migration plan for a critical provider, including technical approach and estimated timelines",
+            "Alternative provider shortlist or in-sourcing feasibility assessment for the top three critical functions",
+            "Zerto or AWS CloudEndure shadow infrastructure configuration evidence for a critical workload",
+            "Annual BCT exercise report section covering exit strategy simulation for a critical provider (scenario, participants, outcomes)",
+            "Contract clause extract confirming 90-day exit assistance obligation from a critical provider agreement"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-37",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Oversight of Critical ICT Third-Party Providers",
+        "description": "Financial entities must implement ongoing oversight mechanisms for critical ICT third-party providers, including regular performance monitoring, security posture assessment, compliance verification, and engagement with the provider's designated oversight function where one has been established by competent authorities under DORA Chapter V.",
+        "guidance": "Article 31 DORA. Financial entities remain fully responsible for compliance with DORA obligations even when functions are delegated to third parties. Oversight must be proportionate to criticality and risk, and must not substitute for contractual protections.",
+        "implementationGuide": "Implement a tiered continuous monitoring programme for critical ICT providers using SecurityScorecard or BitSight for automated security posture scoring, supplemented by quarterly business reviews (QBRs) using a standardised scorecard covering SLA performance, incident counts, vulnerability management, and DORA compliance milestones. Manage QBR outcomes and provider risk ratings in Archer GRC, escalating providers whose risk rating falls below an agreed threshold to enhanced oversight (monthly reviews, site visits, remediation plan). Engage with the ESA/competent authority Oversight Forum for designated critical ICT third-party providers (CTPPs) as required under DORA Article 31, appointing a Lead Overseer liaison within the Compliance team. Track all oversight activities in ServiceNow VRM with a complete audit trail available for supervisory inspection. Conduct an annual third-party oversight effectiveness review to assess whether monitoring activities are detecting risks in a timely manner. The 'done' state is a tiered monitoring programme covering 100% of critical providers, with quarterly scorecard records and an annual effectiveness review in Archer GRC. A common failure mode is relying exclusively on provider self-reporting — avoid by combining automated external scoring (SecurityScorecard) with at least one annual direct assessment or site visit per critical provider.",
+        "exampleEvidence": [
+            "Critical ICT provider oversight programme document defining monitoring tiers, frequency, and escalation thresholds",
+            "SecurityScorecard or BitSight automated security posture score report for critical providers (current period)",
+            "QBR scorecard template and completed QBR scorecard for a critical provider (anonymised, dated within last 6 months)",
+            "Archer GRC provider risk rating records showing escalation decisions for providers below threshold",
+            "Compliance team CTPP Lead Overseer liaison appointment document and ESA Oversight Forum engagement log",
+            "Annual third-party oversight effectiveness review report with findings and process improvement actions"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-38",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Sub-Outsourcing Risk Management",
+        "description": "Financial entities must identify, assess, and manage risks arising from sub-outsourcing arrangements where ICT third-party providers sub-contract material parts of ICT services to further sub-contractors. Sub-outsourcing chains must be transparent and subject to oversight equivalent to that applied to direct providers.",
+        "guidance": "Article 30(3)(d) DORA. Contracts with critical providers must require notification of intended sub-outsourcing arrangements affecting critical functions and provide the entity with the right to object. Sub-contractors must be subject to equivalent security and resilience standards.",
+        "implementationGuide": "Require all critical and significant ICT providers to disclose their sub-outsourcing arrangements during the annual due diligence refresh, using a standardised sub-contractor disclosure questionnaire in ServiceNow VRM. Map the full sub-outsourcing chain for each critical function in the CMDB (up to three tiers where feasible) and assess each sub-contractor against the same criticality and risk criteria applied to direct providers. Include contractual clauses in critical provider agreements requiring 30-day advance notice of any new or changed sub-outsourcing, the entity's right to object, and the obligation for the provider to flow down DORA-equivalent obligations to sub-contractors. Configure ServiceNow VRM to flag undisclosed sub-contractor additions identified through threat intelligence or audit activities, triggering an enhanced review. Produce an annual sub-outsourcing risk report for the board risk committee covering chain depth, geographic distribution, and concentration exposures. The 'done' state is a sub-outsourcing chain map for all critical functions, with risk assessments on file for all identified sub-contractors and contractual flow-down provisions verified. A common failure mode is accepting provider assertions about sub-contractors without independent verification — avoid by requesting direct confirmation from the sub-contractor or independent evidence (e.g., certification, audit report) annually.",
+        "exampleEvidence": [
+            "Sub-contractor disclosure questionnaire template used in annual due diligence and sample completed disclosure from a critical provider",
+            "CMDB sub-outsourcing chain map for a critical function showing provider and sub-contractor tiers (anonymised)",
+            "Contract clause extract confirming 30-day notification obligation, right to object, and DORA flow-down requirements",
+            "ServiceNow VRM alert log showing automated flags for undisclosed sub-contractor additions",
+            "Sub-contractor risk assessment records in Archer GRC showing assessments for identified sub-contractors",
+            "Annual sub-outsourcing risk report presented to the board risk committee with chain depth and concentration analysis"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-39",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Access and Audit Rights in Contracts",
+        "description": "Contracts with ICT third-party providers supporting critical or important functions must include explicit rights for the financial entity and its competent authority to access, inspect, and audit the provider's premises, systems, documentation, and personnel relevant to the contracted ICT services.",
+        "guidance": "Article 30(2)(g) DORA. Audit rights must be unrestricted and must extend to sub-contractors where relevant. Entities must exercise audit rights regularly and document the outcomes. Providers may not restrict audit scope to the point of ineffectiveness.",
+        "implementationGuide": "Implement a DORA Article 30-compliant audit rights clause standard in the contract clause library (DORA-33), specifying: the entity's right to conduct or commission audits with reasonable notice (maximum 30 days), the competent authority's right of access, extension of audit rights to sub-contractors supporting critical functions, and the prohibition on contract clauses that materially restrict audit effectiveness. Use ServiceNow VRM to schedule and track the exercise of audit rights, targeting at least one on-site or remote audit per critical provider per year. Prepare an audit execution guide using a standardised audit programme covering ICT security controls, resilience capabilities, DORA compliance, and sub-contractor management — leverage Archer GRC audit management module to manage the audit lifecycle. Upon completion, issue formal audit findings letters to providers with required response timelines, and track remediation in Archer GRC. The 'done' state is an audit schedule showing all critical providers audited at least annually, with findings letters and remediation tracking on file. A common failure mode is exercising audit rights only once (at contract signing) and never following through — avoid by mandating annual audit planning as a CISO KPI.",
+        "exampleEvidence": [
+            "Contract audit rights clause standard from the clause library confirming DORA Article 30(2)(g) compliance",
+            "ServiceNow VRM audit schedule showing all critical providers with planned audit dates and completion status",
+            "Audit execution guide or standardised audit programme for critical ICT provider reviews",
+            "Completed audit findings letter for a critical provider (anonymised) with identified gaps and required remediation timelines",
+            "Archer GRC audit management records showing provider remediation responses and action closure evidence",
+            "Annual audit planning document confirming CISO sign-off on the provider audit schedule and resource allocation"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-40",
+        "domain": "ICT Third-Party Risk",
+        "domainCode": "TPR",
+        "title": "Incident Reporting Obligations on ICT Providers",
+        "description": "Contracts with ICT third-party providers must require providers to notify the financial entity promptly of any ICT-related incident or significant vulnerability affecting the contracted services, enabling the entity to assess the impact, fulfil its own regulatory reporting obligations, and manage client impacts.",
+        "guidance": "Article 30(2)(f) DORA. Provider incident notification timelines must be consistent with the entity's own DORA reporting deadlines (initial notification within 4 hours of major incident classification). Notification requirements must cover both confirmed incidents and significant threats.",
+        "implementationGuide": "Embed incident notification clauses in all critical and significant provider contracts specifying: (1) notification of any security incident within 2 hours of provider classification, (2) notification of any vulnerability with CVSS ≥ 9.0 within 24 hours of discovery, (3) provision of detailed incident information including affected systems, estimated client impact, and containment actions taken. Configure ServiceNow VRM to create a P1/P2 incident ticket automatically upon receipt of a provider incident notification, routing it to the Third-Party Risk Manager and CISO for impact assessment within 30 minutes. Use the provider incident notification as a trigger for the entity's own DORA classification assessment (DORA-13) to determine whether the incident constitutes a major incident for the entity. Test provider notification capabilities as part of the annual BCT programme by simulating a provider-reported incident and measuring the end-to-end response time from provider notification to entity classification decision. The 'done' state is a contract clause standard with all critical providers under compliant notification obligations, and a ServiceNow VRM workflow tested and operational for provider incident intake. A common failure mode is receiving provider notifications via informal channels (phone call, email) without logging — avoid by establishing a dedicated secure provider incident notification mailbox that auto-creates a ServiceNow ticket.",
+        "exampleEvidence": [
+            "Contract incident notification clause standard confirming 2-hour notification requirement and required information fields",
+            "ServiceNow VRM provider incident intake workflow configuration showing auto-ticket creation and CISO routing",
+            "Provider incident notification log for the review period showing notifications received, classification decisions, and response times",
+            "Dedicated provider incident notification mailbox configuration and auto-ticketing evidence",
+            "BCT drill report section testing provider incident notification workflow with end-to-end response time measurement",
+            "Sample provider incident notification (anonymised) and corresponding entity DORA classification decision record"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+
+    # -------------------------------------------------------------------------
+    # Chapter VI — Information Sharing (ISH)
+    # -------------------------------------------------------------------------
+    {
+        "id": "DORA-41",
+        "domain": "Information Sharing",
+        "domainCode": "ISH",
+        "title": "Cyber Threat Information Sharing Arrangements",
+        "description": "Financial entities should voluntarily participate in cyber threat intelligence information sharing arrangements to enhance the collective resilience of the financial sector. Entities must have the governance, legal, and technical infrastructure to share and receive threat information in a structured and responsible manner.",
+        "guidance": "Article 45 DORA. Participation is voluntary but strongly encouraged. Entities must ensure that sharing arrangements comply with GDPR and applicable confidentiality obligations, and that received intelligence is operationalised within the security function.",
+        "implementationGuide": "Establish a formal Threat Intelligence Sharing Policy that defines participation governance (who can share, what can be shared, approval requirements), approved sharing communities (e.g., FS-ISAC, sector-specific ISAC, ENISA CTI network), and the STIX/TAXII standards for structured threat data exchange. Configure a Threat Intelligence Platform (TIP) — such as MISP, ThreatConnect, or Anomali ThreatStream — as the central hub for ingesting community threat feeds and sharing indicators of compromise (IoCs) outbound after automated de-identification (stripping of client and proprietary data). Integrate the TIP with Splunk SIEM so that community IoCs are automatically deployed as detection rules within 1 hour of receipt. Obtain Legal/DPO sign-off confirming that the information sharing arrangement and de-identification process satisfies GDPR Article 6 requirements. Assign a Threat Intelligence Analyst role responsible for the daily operation of the TIP and the quality of outbound shared intelligence. The 'done' state is an active TIP with at least two community feeds integrated, an approved sharing policy, and a monthly sharing activity report. A common failure mode is receiving intelligence but never sharing — avoid by setting a minimum quarterly outbound sharing commitment reviewed by the CISO.",
+        "exampleEvidence": [
+            "Threat Intelligence Sharing Policy document (Legal/DPO-approved) defining governance, approved communities, and STIX/TAXII standards",
+            "MISP, ThreatConnect, or Anomali ThreatStream TIP configuration screenshot showing integrated community feeds (FS-ISAC, ENISA)",
+            "TIP-to-Splunk SIEM integration evidence showing automated IoC deployment as detection rules within 1-hour SLA",
+            "Legal/DPO GDPR Article 6 compliance sign-off for information sharing arrangement and de-identification process",
+            "Threat Intelligence Analyst role assignment and quarterly sharing activity report showing inbound and outbound volume",
+            "FS-ISAC or equivalent sharing community membership confirmation and participation agreement"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-42",
+        "domain": "Information Sharing",
+        "domainCode": "ISH",
+        "title": "Content of Information Sharing",
+        "description": "When participating in cyber threat information sharing arrangements, financial entities must ensure that the content shared is accurate, relevant, timely, and does not expose confidential client data or proprietary business information. Shared information should include indicators of compromise, tactics, techniques and procedures (TTPs), and threat actor profiles.",
+        "guidance": "Article 45(2) DORA. Shared information must be formatted using recognised standards (STIX, TAXII) to enable automated processing. Entities must have processes to validate the quality and accuracy of information before sharing.",
+        "implementationGuide": "Implement a structured intelligence sharing workflow in MISP or ThreatConnect that enforces a three-stage quality gate before any intelligence is shared outbound: (1) technical validation (IoC format correctness, STIX schema compliance), (2) de-identification review (automated scan for PII, client data, and proprietary fields using a custom regex ruleset), and (3) Threat Intelligence Analyst approval. Develop a content classification taxonomy for shareable intelligence types (IoCs, TTPs, threat actor profiles, vulnerability intelligence) aligned to the MITRE ATT&CK framework, ensuring that shared TTPs are mapped to ATT&CK technique IDs for interoperability. Mandate STIX 2.1 format for all outbound structured intelligence to enable automated ingestion by receiving entities. Conduct quarterly quality reviews of shared content, sampling 10% of outbound intelligence packages for accuracy, completeness, and de-identification compliance. The 'done' state is a TIP configuration with an enforced three-stage quality gate and quarterly quality review reports on file. A common failure mode is sharing raw, unvalidated IoCs that are already stale or false positives — avoid by implementing a minimum confidence threshold (e.g., 70% confidence score in ThreatConnect) before automated outbound sharing.",
+        "exampleEvidence": [
+            "MISP or ThreatConnect sharing workflow configuration showing three-stage quality gate (validation, de-identification, analyst approval)",
+            "Intelligence content classification taxonomy document mapping shareable types to MITRE ATT&CK technique IDs",
+            "STIX 2.1 format validation report confirming outbound intelligence package compliance for a sample sharing period",
+            "Automated de-identification configuration (regex rules) and test evidence showing PII/client data removal from sample packages",
+            "Quarterly outbound intelligence quality review report (sampling methodology, findings, and corrective actions)",
+            "Confidence threshold configuration in ThreatConnect or MISP showing minimum 70% score required for automated outbound sharing"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-43",
+        "domain": "Information Sharing",
+        "domainCode": "ISH",
+        "title": "Confidentiality Obligations in Information Sharing",
+        "description": "Financial entities participating in information sharing arrangements must ensure that all shared information is subject to appropriate confidentiality obligations, protecting the source entity's identity and commercially sensitive details where required. Confidentiality must be balanced against the imperative to share actionable threat intelligence.",
+        "guidance": "Article 45(3) DORA. Sharing arrangements must include confidentiality agreements or terms of participation that are legally binding on all participants. Entities must assess the classification level of information before sharing and apply Traffic Light Protocol (TLP) markings.",
+        "implementationGuide": "Adopt the Traffic Light Protocol (TLP) framework as the standard classification system for all shared cyber threat intelligence, configuring MISP or ThreatConnect to mandate TLP marking on every outbound intelligence object. Define an internal TLP usage policy specifying the default TLP level for different intelligence categories (e.g., IoCs: TLP:GREEN, incident details: TLP:AMBER, strategic assessments: TLP:RED) and train the Threat Intelligence team through an annual awareness session. Obtain a legal review of the terms of participation for each sharing community to confirm they satisfy GDPR Article 28 (processor obligations) and applicable financial services confidentiality requirements, storing the review in Archer GRC. For TLP:RED or TLP:AMBER intelligence received, enforce access controls in the TIP limiting access to named personnel with a legitimate need-to-know (implemented through ThreatConnect role-based access or MISP sharing groups). The 'done' state is a TIP with 100% of outbound intelligence packages carrying a valid TLP marking, and a legal review on file for each sharing community. A common failure mode is applying TLP:WHITE (now TLP:CLEAR) to everything to avoid the effort of classification — avoid by building TLP assignment into the quality gate as a mandatory field with no default.",
+        "exampleEvidence": [
+            "Internal TLP usage policy defining default TLP levels for each intelligence category, approved by Legal",
+            "MISP or ThreatConnect configuration screenshot showing mandatory TLP field on outbound intelligence objects",
+            "Legal review of sharing community terms of participation confirming GDPR and confidentiality compliance (per community)",
+            "ThreatConnect role-based access control configuration showing TLP:AMBER/RED access restrictions to named personnel",
+            "Quarterly TLP compliance audit report confirming 100% of outbound intelligence packages carry valid TLP markings",
+            "Threat Intelligence team TLP training materials and attendance record (dated within last 12 months)"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-44",
+        "domain": "Information Sharing",
+        "domainCode": "ISH",
+        "title": "Participation in Threat-Sharing Communities",
+        "description": "Financial entities are encouraged to actively participate in sector-specific and cross-sector cyber threat information sharing communities, including ISACs (Information Sharing and Analysis Centres), ESA-sponsored networks, and national CERT/CSIRT collaboration forums. Active participation means contributing intelligence, not just consuming it.",
+        "guidance": "Article 45(1) DORA. Entities should notify their competent authority of their participation in sharing arrangements. The quality and regularity of contributions are indicators of meaningful participation. Entities should monitor ESA guidance on recognised sharing communities.",
+        "implementationGuide": "Establish memberships in the key financial sector sharing communities relevant to the entity's jurisdiction: FS-ISAC (global), EURO CERT (EU), and any national sector ISAC (e.g., UK Finance CISP, German Finanzinformationssystem). Assign a Community Liaison Officer (typically the Threat Intelligence Analyst) responsible for attending community working groups, submitting intelligence contributions, and operationalising received threat briefs. Track community engagement metrics in Archer GRC: contributions submitted per quarter, threat briefs received and operationalised, and community exercises participated in. Notify the competent authority of participation arrangements in the annual DORA reporting submission. Produce a quarterly Threat Intelligence Community Engagement Report for the CISO, summarising intelligence shared, received, and operationalised (deployed as detection rules in Splunk). The 'done' state is active membership in at least two recognised sharing communities, with a quarterly engagement report showing two-way intelligence exchange. A common failure mode is joining a community but not operationalising the received intelligence — avoid by setting a KPI that 100% of TLP:GREEN or TLP:WHITE IoCs received from communities are deployed in Splunk within 24 hours.",
+        "exampleEvidence": [
+            "FS-ISAC and sector ISAC membership confirmation letters or portal access evidence",
+            "Community Liaison Officer appointment document and terms of reference",
+            "Archer GRC community engagement tracker showing contributions submitted, briefs received, and exercises participated in per quarter",
+            "Competent authority notification of participation arrangements (extract from annual DORA reporting submission)",
+            "Quarterly Threat Intelligence Community Engagement Report for CISO (most recent, showing bi-directional exchange metrics)",
+            "Splunk detection rule deployment log showing community-sourced IoCs deployed within 24-hour SLA (TLP:GREEN/CLEAR)"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+    {
+        "id": "DORA-45",
+        "domain": "Information Sharing",
+        "domainCode": "ISH",
+        "title": "Reporting Threat Information to Authorities",
+        "description": "Financial entities must report significant cyber threats and relevant threat intelligence to competent authorities to support sector-wide situational awareness and regulatory oversight of systemic risks. Reporting must be timely, accurate, and use the formats and channels specified by the relevant authority.",
+        "guidance": "Article 19(2) and Article 45 DORA. Threat reporting to authorities complements the voluntary notification process (DORA-17) and the mandatory incident reporting regime. Entities should maintain relationships with national CERTs, CSIRTs, and competent authority cyber teams.",
+        "implementationGuide": "Formalise a Threat Intelligence Reporting to Authorities process within the Threat Intelligence Sharing Policy (DORA-41), defining trigger criteria for authority reporting (e.g., credible threat targeting critical financial infrastructure, novel TTPs not yet in public threat databases, intelligence received from sharing communities that has systemic implications). Designate the CISO as the approving authority for all threat reports submitted to competent authorities, with the Threat Intelligence Analyst drafting reports in the authority-specified format. Maintain established working relationships with the national CERT/CSIRT (e.g., ENISA CERT-EU, national financial sector CSIRT) and competent authority cyber team, including named contacts in the crisis communication plan (DORA-11). Store all submitted threat reports and authority acknowledgements in Archer GRC under the Voluntary Threat Notification log (DORA-17). Conduct an annual review of the threat reporting process to assess whether the trigger criteria remain appropriate and whether authority feedback indicates the quality of submissions is meeting expectations. The 'done' state is a formalised process with at least one authority relationship established, a submission log in Archer GRC, and an annual process review report. A common failure mode is treating authority threat reporting as separate from the incident reporting process, creating duplication and inconsistency — avoid by integrating threat reporting triggers into the same ServiceNow Security Incident Response workflow used for major incident notifications.",
+        "exampleEvidence": [
+            "Threat Intelligence Reporting to Authorities process document integrated with the Threat Intelligence Sharing Policy (DORA-41)",
+            "Named contact list for national CERT/CSIRT and competent authority cyber team, included in the crisis communication plan",
+            "Archer GRC Voluntary Threat Notification log showing all threat reports submitted to authorities in the review period with timestamps",
+            "Sample threat report submitted to a competent authority (anonymised/redacted) in the authority-specified format",
+            "Authority acknowledgement or feedback confirmation for submitted threat reports (anonymised)",
+            "Annual threat reporting process review report confirming trigger criteria assessment and authority feedback analysis"
+        ],
+        "status": "not-started",
+        "notes": "",
+        "evidence": "",
+        "owner": ""
+    },
+]
+
+output_path = "/Users/mac/Desktop/grc-dashboard/src/data/dora.json"
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(controls, f, indent=2, ensure_ascii=False)
+
+print(f"Written {len(controls)} controls to dora.json")

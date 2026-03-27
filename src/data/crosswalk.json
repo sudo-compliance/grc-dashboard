@@ -1,0 +1,1180 @@
+[
+  {
+    "isoId": "5.1",
+    "nistIds": [
+      "GV.PO-01",
+      "GV.PO-02"
+    ],
+    "pciIds": [
+      "R12.1",
+      "R12.2"
+    ],
+    "notes": "Policy establishment and maintenance is a foundational requirement across all three frameworks.",
+    "cisIds": [],
+    "soc2Ids": [
+      "CC1.1",
+      "CC1.2"
+    ],
+    "doraIds": [
+      "DORA-01",
+      "DORA-02"
+    ],
+    "ukGdprIds": [
+      "GDPR-24",
+      "GDPR-25"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-5.1",
+      "42001-5.2",
+      "42001-A.2.1"
+    ]
+  },
+  {
+    "isoId": "5.2",
+    "nistIds": [
+      "GV.RR-01",
+      "GV.RR-02"
+    ],
+    "pciIds": [
+      "R12.4"
+    ],
+    "notes": "Roles and responsibilities for security map directly to PCI programme ownership and NIST governance.",
+    "cisIds": [],
+    "soc2Ids": [
+      "CC1.3"
+    ],
+    "doraIds": [
+      "DORA-01"
+    ],
+    "ukGdprIds": [
+      "GDPR-25"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-5.3",
+      "42001-A.3.1",
+      "42001-A.3.2"
+    ]
+  },
+  {
+    "isoId": "5.3",
+    "nistIds": [
+      "GV.RR-02",
+      "PR.AA-05"
+    ],
+    "pciIds": [
+      "R7.1",
+      "R7.2"
+    ],
+    "notes": "Segregation of duties is addressed by access control requirements in all frameworks.",
+    "cisIds": [
+      "CIS05.04",
+      "CIS06.01"
+    ],
+    "soc2Ids": [
+      "CC6.3"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-03"
+    ],
+    "iso42001Ids": [
+      "42001-5.3",
+      "42001-A.3.2"
+    ]
+  },
+  {
+    "isoId": "5.5",
+    "nistIds": [
+      "GV.OC-03"
+    ],
+    "pciIds": [
+      "R12.4"
+    ],
+    "notes": "Regulatory contact aligns to NIST organisational context and PCI compliance management.",
+    "cisIds": [],
+    "soc2Ids": [
+      "CC1.4"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [
+      "GDPR-31"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-4.2",
+      "42001-5.1"
+    ]
+  },
+  {
+    "isoId": "5.7",
+    "nistIds": [
+      "ID.RA-02",
+      "ID.RA-03"
+    ],
+    "pciIds": [
+      "R12.3"
+    ],
+    "notes": "Threat intelligence directly feeds the risk assessment process in both NIST and PCI.",
+    "cisIds": [
+      "CIS07.01"
+    ],
+    "soc2Ids": [
+      "CC3.2"
+    ],
+    "doraIds": [
+      "DORA-41",
+      "DORA-42"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-6.1",
+      "42001-6.1.2"
+    ]
+  },
+  {
+    "isoId": "5.9",
+    "nistIds": [
+      "ID.AM-01",
+      "ID.AM-02",
+      "ID.AM-05"
+    ],
+    "pciIds": [
+      "R12.5"
+    ],
+    "notes": "Asset inventory is required for scoping in PCI and asset management in NIST.",
+    "cisIds": [
+      "CIS01.01",
+      "CIS01.02",
+      "CIS02.01"
+    ],
+    "soc2Ids": [
+      "CC6.1"
+    ],
+    "doraIds": [
+      "DORA-03"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.4.1",
+      "42001-A.4.2"
+    ]
+  },
+  {
+    "isoId": "5.12",
+    "nistIds": [
+      "PR.DS-01",
+      "PR.DS-02"
+    ],
+    "pciIds": [
+      "R3.1",
+      "R3.4"
+    ],
+    "notes": "Information classification drives data protection requirements in PCI and NIST data security.",
+    "cisIds": [
+      "CIS03.07"
+    ],
+    "soc2Ids": [
+      "C1.1"
+    ],
+    "doraIds": [
+      "DORA-03"
+    ],
+    "ukGdprIds": [
+      "GDPR-03"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.7.1",
+      "42001-A.7.2"
+    ]
+  },
+  {
+    "isoId": "5.14",
+    "nistIds": [
+      "PR.DS-02",
+      "PR.DS-10"
+    ],
+    "pciIds": [
+      "R4.1",
+      "R4.2"
+    ],
+    "notes": "Secure data transfer requirements align closely across all frameworks.",
+    "cisIds": [
+      "CIS03.10"
+    ],
+    "soc2Ids": [
+      "C1.2"
+    ],
+    "doraIds": [
+      "DORA-04"
+    ],
+    "ukGdprIds": [
+      "GDPR-06"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.7.3"
+    ]
+  },
+  {
+    "isoId": "5.15",
+    "nistIds": [
+      "PR.AA-03",
+      "PR.AA-05"
+    ],
+    "pciIds": [
+      "R7.1",
+      "R7.2",
+      "R7.3"
+    ],
+    "notes": "Access control is a core requirement universally, with near-identical intent.",
+    "cisIds": [
+      "CIS06.01",
+      "CIS06.02",
+      "CIS06.07"
+    ],
+    "soc2Ids": [
+      "CC6.2",
+      "CC6.3"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-01",
+      "CE-UA-02"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "5.16",
+    "nistIds": [
+      "PR.AA-01"
+    ],
+    "pciIds": [
+      "R8.1",
+      "R8.2"
+    ],
+    "notes": "Identity management lifecycle requirements closely mirror each other.",
+    "cisIds": [
+      "CIS05.01",
+      "CIS05.02"
+    ],
+    "soc2Ids": [
+      "CC6.2"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-01"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "5.17",
+    "nistIds": [
+      "PR.AA-02",
+      "PR.AA-04"
+    ],
+    "pciIds": [
+      "R8.3",
+      "R8.4",
+      "R8.6"
+    ],
+    "notes": "Authentication information management maps to MFA and credential policy requirements.",
+    "cisIds": [
+      "CIS05.02",
+      "CIS06.03",
+      "CIS06.04",
+      "CIS06.05"
+    ],
+    "soc2Ids": [
+      "CC6.1"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-06",
+      "CE-UA-07"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "5.18",
+    "nistIds": [
+      "PR.AA-03",
+      "PR.AA-05"
+    ],
+    "pciIds": [
+      "R7.2",
+      "R7.3"
+    ],
+    "notes": "Access rights review and provisioning requirements are aligned.",
+    "cisIds": [
+      "CIS06.01",
+      "CIS06.02"
+    ],
+    "soc2Ids": [
+      "CC6.3"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-04"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "5.19",
+    "nistIds": [
+      "GV.SC-01",
+      "GV.SC-03",
+      "GV.SC-04"
+    ],
+    "pciIds": [
+      "R12.8",
+      "R12.9"
+    ],
+    "notes": "Third-party risk management requirements are structurally equivalent across frameworks.",
+    "cisIds": [
+      "CIS15.01",
+      "CIS15.02"
+    ],
+    "soc2Ids": [
+      "CC9.2"
+    ],
+    "doraIds": [
+      "DORA-31",
+      "DORA-38"
+    ],
+    "ukGdprIds": [
+      "GDPR-38",
+      "GDPR-39"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.10.1",
+      "42001-A.10.2"
+    ]
+  },
+  {
+    "isoId": "5.20",
+    "nistIds": [
+      "GV.SC-05"
+    ],
+    "pciIds": [
+      "R12.8"
+    ],
+    "notes": "Supplier agreements map to NIST supply chain requirements and PCI TPSP management.",
+    "cisIds": [
+      "CIS15.04"
+    ],
+    "soc2Ids": [
+      "CC9.2"
+    ],
+    "doraIds": [
+      "DORA-32",
+      "DORA-33"
+    ],
+    "ukGdprIds": [
+      "GDPR-39",
+      "GDPR-40"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.10.1"
+    ]
+  },
+  {
+    "isoId": "5.23",
+    "nistIds": [
+      "GV.SC-01",
+      "GV.SC-03"
+    ],
+    "pciIds": [
+      "R12.8"
+    ],
+    "notes": "Cloud services introduce supply chain risk addressed in all frameworks.",
+    "cisIds": [
+      "CIS15.01"
+    ],
+    "soc2Ids": [
+      "CC9.2"
+    ],
+    "doraIds": [
+      "DORA-31"
+    ],
+    "ukGdprIds": [
+      "GDPR-38"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.10.1",
+      "42001-A.10.2"
+    ]
+  },
+  {
+    "isoId": "5.24",
+    "nistIds": [
+      "RS.MA-01",
+      "RS.MA-02"
+    ],
+    "pciIds": [
+      "R12.10"
+    ],
+    "notes": "Incident management planning is a near-identical requirement across all three.",
+    "cisIds": [
+      "CIS17.04"
+    ],
+    "soc2Ids": [
+      "CC7.3"
+    ],
+    "doraIds": [
+      "DORA-13",
+      "DORA-14"
+    ],
+    "ukGdprIds": [
+      "GDPR-30"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-10.2"
+    ]
+  },
+  {
+    "isoId": "5.25",
+    "nistIds": [
+      "RS.MA-02",
+      "RS.MA-03"
+    ],
+    "pciIds": [
+      "R12.10"
+    ],
+    "notes": "Incident triage and categorisation are parallel requirements.",
+    "cisIds": [
+      "CIS17.04"
+    ],
+    "soc2Ids": [
+      "CC7.4"
+    ],
+    "doraIds": [
+      "DORA-14",
+      "DORA-15"
+    ],
+    "ukGdprIds": [
+      "GDPR-30"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-10.2"
+    ]
+  },
+  {
+    "isoId": "5.26",
+    "nistIds": [
+      "RS.MA-01",
+      "RS.MI-01"
+    ],
+    "pciIds": [
+      "R12.10"
+    ],
+    "notes": "Incident response execution and containment are universally required.",
+    "cisIds": [
+      "CIS17.04",
+      "CIS17.05"
+    ],
+    "soc2Ids": [
+      "CC7.3",
+      "CC7.4"
+    ],
+    "doraIds": [
+      "DORA-06",
+      "DORA-14"
+    ],
+    "ukGdprIds": [
+      "GDPR-30"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-10.2"
+    ]
+  },
+  {
+    "isoId": "5.27",
+    "nistIds": [
+      "RS.AN-03",
+      "ID.IM-01"
+    ],
+    "pciIds": [
+      "R12.10"
+    ],
+    "notes": "Post-incident review and lessons learned align to NIST improvement and PCI response.",
+    "cisIds": [
+      "CIS17.08"
+    ],
+    "soc2Ids": [
+      "CC7.5"
+    ],
+    "doraIds": [
+      "DORA-08",
+      "DORA-22"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-10.2"
+    ]
+  },
+  {
+    "isoId": "5.28",
+    "nistIds": [
+      "RS.AN-03"
+    ],
+    "pciIds": [
+      "R10.3"
+    ],
+    "notes": "Evidence collection aligns to forensic log protection in PCI and analysis in NIST.",
+    "cisIds": [
+      "CIS08.02"
+    ],
+    "soc2Ids": [
+      "CC7.2"
+    ],
+    "doraIds": [
+      "DORA-20"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.9.3"
+    ]
+  },
+  {
+    "isoId": "5.31",
+    "nistIds": [
+      "GV.OC-03"
+    ],
+    "pciIds": [
+      "R12.4"
+    ],
+    "notes": "Legal and regulatory requirements tracking is a governance foundation across all frameworks.",
+    "cisIds": [],
+    "soc2Ids": [
+      "CC1.4",
+      "CC3.1"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [
+      "GDPR-01",
+      "GDPR-07"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-4.1",
+      "42001-4.2"
+    ]
+  },
+  {
+    "isoId": "5.34",
+    "nistIds": [
+      "GV.OC-03",
+      "GV.RM-03"
+    ],
+    "pciIds": [
+      "R3.1",
+      "R3.2"
+    ],
+    "notes": "Privacy and personal data protection align to data minimisation requirements.",
+    "cisIds": [
+      "CIS03.01"
+    ],
+    "soc2Ids": [
+      "P1.1"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [
+      "GDPR-02",
+      "GDPR-03"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.5.2",
+      "42001-A.7.1"
+    ]
+  },
+  {
+    "isoId": "5.35",
+    "nistIds": [
+      "GV.RM-03",
+      "ID.IM-02"
+    ],
+    "pciIds": [
+      "R12.4"
+    ],
+    "notes": "Independent review maps to PCI compliance management and NIST risk management review.",
+    "cisIds": [],
+    "soc2Ids": [
+      "CC4.1",
+      "CC4.2"
+    ],
+    "doraIds": [
+      "DORA-01"
+    ],
+    "ukGdprIds": [
+      "GDPR-25"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-9.2",
+      "42001-9.3"
+    ]
+  },
+  {
+    "isoId": "6.3",
+    "nistIds": [
+      "PR.AT-01",
+      "PR.AT-02"
+    ],
+    "pciIds": [
+      "R12.6"
+    ],
+    "notes": "Security awareness training is explicitly required with similar content across all frameworks.",
+    "cisIds": [
+      "CIS14.01",
+      "CIS14.02"
+    ],
+    "soc2Ids": [
+      "CC1.4"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [
+      "GDPR-23"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-7.2",
+      "42001-7.3"
+    ]
+  },
+  {
+    "isoId": "6.7",
+    "nistIds": [
+      "PR.IR-01"
+    ],
+    "pciIds": [
+      "R12.2"
+    ],
+    "notes": "Remote working security requirements overlap with network and endpoint protection.",
+    "cisIds": [
+      "CIS12.07"
+    ],
+    "soc2Ids": [
+      "CC6.7"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-07"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "6.8",
+    "nistIds": [
+      "RS.MA-01",
+      "DE.AE-06"
+    ],
+    "pciIds": [
+      "R12.10"
+    ],
+    "notes": "Event reporting requirements support detection and response in all frameworks.",
+    "cisIds": [
+      "CIS17.03"
+    ],
+    "soc2Ids": [
+      "CC7.3"
+    ],
+    "doraIds": [
+      "DORA-15"
+    ],
+    "ukGdprIds": [
+      "GDPR-30"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.9.3"
+    ]
+  },
+  {
+    "isoId": "7.2",
+    "nistIds": [
+      "PR.AA-06"
+    ],
+    "pciIds": [
+      "R9.2",
+      "R9.3"
+    ],
+    "notes": "Physical entry controls are equivalently required across all frameworks.",
+    "cisIds": [],
+    "soc2Ids": [
+      "CC6.4"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "7.4",
+    "nistIds": [
+      "DE.CM-02"
+    ],
+    "pciIds": [
+      "R9.1"
+    ],
+    "notes": "Physical security monitoring maps to NIST detection and PCI physical controls.",
+    "cisIds": [],
+    "soc2Ids": [
+      "CC6.4"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "7.10",
+    "nistIds": [
+      "PR.DS-01"
+    ],
+    "pciIds": [
+      "R9.4"
+    ],
+    "notes": "Storage media management is required with near-identical intent.",
+    "cisIds": [
+      "CIS03.05",
+      "CIS03.09"
+    ],
+    "soc2Ids": [
+      "C1.1"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [
+      "GDPR-05"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.4.1"
+    ]
+  },
+  {
+    "isoId": "8.1",
+    "nistIds": [
+      "PR.PS-01",
+      "PR.PS-02"
+    ],
+    "pciIds": [
+      "R2.1",
+      "R2.2"
+    ],
+    "notes": "Endpoint device security maps to configuration management and secure defaults.",
+    "cisIds": [
+      "CIS01.01",
+      "CIS01.03"
+    ],
+    "soc2Ids": [
+      "CC6.1"
+    ],
+    "doraIds": [
+      "DORA-03"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.2",
+    "nistIds": [
+      "PR.AA-03",
+      "PR.AA-05"
+    ],
+    "pciIds": [
+      "R7.2",
+      "R8.3"
+    ],
+    "notes": "Privileged access management is a common high-priority control across all frameworks.",
+    "cisIds": [
+      "CIS06.05"
+    ],
+    "soc2Ids": [
+      "CC6.3"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-03"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.5",
+    "nistIds": [
+      "PR.AA-02"
+    ],
+    "pciIds": [
+      "R8.3",
+      "R8.4"
+    ],
+    "notes": "Secure authentication and MFA requirements are equivalent across frameworks.",
+    "cisIds": [
+      "CIS06.03",
+      "CIS06.04",
+      "CIS06.05"
+    ],
+    "soc2Ids": [
+      "CC6.1"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-UA-06",
+      "CE-UA-07"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.7",
+    "nistIds": [
+      "DE.CM-09"
+    ],
+    "pciIds": [
+      "R5.2",
+      "R5.3"
+    ],
+    "notes": "Malware protection requirements are nearly identical, covering detection and monitoring.",
+    "cisIds": [
+      "CIS10.01",
+      "CIS10.07"
+    ],
+    "soc2Ids": [
+      "CC6.8"
+    ],
+    "doraIds": [
+      "DORA-04"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-MP-01",
+      "CE-MP-03"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.8",
+    "nistIds": [
+      "ID.RA-01",
+      "ID.RA-05"
+    ],
+    "pciIds": [
+      "R6.1",
+      "R6.3",
+      "R11.3"
+    ],
+    "notes": "Vulnerability management is a core requirement with similar SLA expectations.",
+    "cisIds": [
+      "CIS07.05",
+      "CIS07.06",
+      "CIS07.07"
+    ],
+    "soc2Ids": [
+      "CC7.1"
+    ],
+    "doraIds": [
+      "DORA-04"
+    ],
+    "ukGdprIds": [
+      "GDPR-29"
+    ],
+    "cyberEssIds": [
+      "CE-PM-01",
+      "CE-PM-02"
+    ],
+    "iso42001Ids": [
+      "42001-A.6.3"
+    ]
+  },
+  {
+    "isoId": "8.9",
+    "nistIds": [
+      "PR.PS-01"
+    ],
+    "pciIds": [
+      "R2.1",
+      "R2.2"
+    ],
+    "notes": "Configuration management and hardening baselines are universally required.",
+    "cisIds": [
+      "CIS04.01"
+    ],
+    "soc2Ids": [
+      "CC6.8"
+    ],
+    "doraIds": [
+      "DORA-04"
+    ],
+    "ukGdprIds": [
+      "GDPR-29"
+    ],
+    "cyberEssIds": [
+      "CE-SC-01",
+      "CE-SC-07"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.12",
+    "nistIds": [
+      "PR.DS-01",
+      "PR.DS-02"
+    ],
+    "pciIds": [
+      "R3.4",
+      "R3.5"
+    ],
+    "notes": "Data leakage prevention covers sensitive data protection requirements in all frameworks.",
+    "cisIds": [
+      "CIS03.13"
+    ],
+    "soc2Ids": [
+      "C1.2"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [
+      "GDPR-06"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.7.2"
+    ]
+  },
+  {
+    "isoId": "8.13",
+    "nistIds": [
+      "PR.DS-11"
+    ],
+    "pciIds": [],
+    "notes": "Backup requirements are specified in ISO and NIST; PCI implies availability through R10.",
+    "cisIds": [
+      "CIS11.01",
+      "CIS11.02"
+    ],
+    "soc2Ids": [
+      "A1.2"
+    ],
+    "doraIds": [
+      "DORA-07"
+    ],
+    "ukGdprIds": [
+      "GDPR-29"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.15",
+    "nistIds": [
+      "PR.PS-04",
+      "DE.AE-03"
+    ],
+    "pciIds": [
+      "R10.2",
+      "R10.3"
+    ],
+    "notes": "Logging requirements are among the most closely aligned across all three frameworks.",
+    "cisIds": [
+      "CIS08.02",
+      "CIS08.09"
+    ],
+    "soc2Ids": [
+      "CC7.2"
+    ],
+    "doraIds": [
+      "DORA-05"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-8.1"
+    ]
+  },
+  {
+    "isoId": "8.16",
+    "nistIds": [
+      "DE.CM-01",
+      "DE.AE-02"
+    ],
+    "pciIds": [
+      "R10.4",
+      "R10.7"
+    ],
+    "notes": "Monitoring activities map to continuous monitoring and log review requirements.",
+    "cisIds": [
+      "CIS13.01",
+      "CIS13.02"
+    ],
+    "soc2Ids": [
+      "CC7.2"
+    ],
+    "doraIds": [
+      "DORA-05"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.6.4"
+    ]
+  },
+  {
+    "isoId": "8.20",
+    "nistIds": [
+      "PR.IR-01"
+    ],
+    "pciIds": [
+      "R1.2",
+      "R1.3",
+      "R1.4"
+    ],
+    "notes": "Network security and segmentation requirements are closely aligned across all frameworks.",
+    "cisIds": [
+      "CIS04.04",
+      "CIS12.02"
+    ],
+    "soc2Ids": [
+      "CC6.6"
+    ],
+    "doraIds": [
+      "DORA-04"
+    ],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-FW-01",
+      "CE-FW-02"
+    ],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.22",
+    "nistIds": [
+      "PR.IR-01"
+    ],
+    "pciIds": [
+      "R1.3"
+    ],
+    "notes": "Network segregation maps directly to CDE isolation requirements in PCI.",
+    "cisIds": [],
+    "soc2Ids": [],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.24",
+    "nistIds": [
+      "PR.DS-01",
+      "PR.DS-02"
+    ],
+    "pciIds": [
+      "R3.5",
+      "R4.2"
+    ],
+    "notes": "Cryptography requirements for data at rest and in transit are core to all frameworks.",
+    "cisIds": [
+      "CIS03.06",
+      "CIS03.10",
+      "CIS03.11"
+    ],
+    "soc2Ids": [
+      "C1.1",
+      "CC6.7"
+    ],
+    "doraIds": [
+      "DORA-04"
+    ],
+    "ukGdprIds": [
+      "GDPR-06"
+    ],
+    "cyberEssIds": [],
+    "iso42001Ids": []
+  },
+  {
+    "isoId": "8.25",
+    "nistIds": [
+      "ID.IM-02"
+    ],
+    "pciIds": [
+      "R6.2"
+    ],
+    "notes": "Secure development lifecycle requirements align closely in intent and tooling.",
+    "cisIds": [],
+    "soc2Ids": [],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.6.1",
+      "42001-A.6.2"
+    ]
+  },
+  {
+    "isoId": "8.28",
+    "nistIds": [
+      "ID.IM-02"
+    ],
+    "pciIds": [
+      "R6.2"
+    ],
+    "notes": "Secure coding standards are required with similar scope in all frameworks.",
+    "cisIds": [
+      "CIS16.01",
+      "CIS16.09"
+    ],
+    "soc2Ids": [
+      "CC8.1"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [],
+    "iso42001Ids": [
+      "42001-A.6.2"
+    ]
+  },
+  {
+    "isoId": "8.32",
+    "nistIds": [
+      "GV.RM-03"
+    ],
+    "pciIds": [
+      "R6.3"
+    ],
+    "notes": "Change management requirements help control vulnerability introduction across frameworks.",
+    "cisIds": [
+      "CIS04.01"
+    ],
+    "soc2Ids": [
+      "CC8.1"
+    ],
+    "doraIds": [],
+    "ukGdprIds": [],
+    "cyberEssIds": [
+      "CE-SC-07"
+    ],
+    "iso42001Ids": [
+      "42001-8.1"
+    ]
+  }
+]

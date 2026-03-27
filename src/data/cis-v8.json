@@ -1,0 +1,2909 @@
+[
+  {
+    "id": "CIS01.01",
+    "domain": "Asset Inventory",
+    "domainCode": "1",
+    "title": "Establish and Maintain a Detailed Enterprise Asset Inventory",
+    "description": "Actively manage all enterprise assets connected to the infrastructure, including hardware, software, and cloud assets. Review and update the inventory at minimum quarterly.",
+    "guidance": "Maintain a CMDB or asset inventory tool (Lansweeper, Snipe-IT) updated at least quarterly. Include all physical, virtual, and cloud assets.",
+    "implementationGuide": "Deploy and enforce establish and maintain a detailed enterprise asset inventory across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Detailed Enterprise Asset Inventory policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a detailed enterprise asset inventory is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS01.02",
+    "domain": "Asset Inventory",
+    "domainCode": "1",
+    "title": "Address Unauthorised Assets",
+    "description": "Ensure a process exists to address unauthorised assets on a weekly basis. Remove, deny network access, or quarantine unauthorised assets.",
+    "guidance": "Configure NAC or DHCP alerting to flag unknown devices. Define a written procedure for handling rogue assets within 24 hours of detection.",
+    "implementationGuide": "Deploy and enforce address unauthorised assets across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Address Unauthorised Assets policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing address unauthorised assets is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS01.03",
+    "domain": "Asset Inventory",
+    "domainCode": "1",
+    "title": "Utilise an Active Discovery Tool",
+    "description": "Utilise an active discovery tool to identify assets connected to the network. Configure it to execute daily or more frequently.",
+    "guidance": "Deploy Nmap, Qualys, or Rapid7 on a scheduled daily scan. Review new asset alerts and update the inventory automatically.",
+    "implementationGuide": "Deploy and enforce utilise an active discovery tool across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Utilise an Active Discovery Tool policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing utilise an active discovery tool is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS01.04",
+    "domain": "Asset Inventory",
+    "domainCode": "1",
+    "title": "Use DHCP Logging to Update Asset Inventory",
+    "description": "Use DHCP logging on all DHCP servers to update the enterprise asset inventory.",
+    "guidance": "Enable DHCP server logging and feed lease data into your asset inventory or SIEM automatically.",
+    "implementationGuide": "Deploy and enforce use dhcp logging to update asset inventory across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use DHCP Logging to Update Asset Inventory policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use dhcp logging to update asset inventory is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS01.05",
+    "domain": "Asset Inventory",
+    "domainCode": "1",
+    "title": "Use a Passive Asset Discovery Tool",
+    "description": "Use a passive discovery tool to identify assets connected to the network. Review scans to update asset inventory at least weekly.",
+    "guidance": "Deploy a passive sensor (Darktrace, Claroty, or Zeek) on the network mirror port. Review newly discovered devices weekly.",
+    "implementationGuide": "Deploy and enforce use a passive asset discovery tool across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use a Passive Asset Discovery Tool policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use a passive asset discovery tool is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS02.01",
+    "domain": "Software Inventory",
+    "domainCode": "2",
+    "title": "Establish and Maintain a Software Inventory",
+    "description": "Establish and maintain a detailed inventory of all licensed software installed on enterprise assets. Review and update bi-annually or more frequently.",
+    "guidance": "Use an MDM (Jamf, Intune) or software asset management tool to auto-enumerate installed applications.",
+    "implementationGuide": "Deploy and enforce establish and maintain a software inventory across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Software Inventory policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a software inventory is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS02.02",
+    "domain": "Software Inventory",
+    "domainCode": "2",
+    "title": "Ensure Authorised Software is Currently Supported",
+    "description": "Ensure that only currently supported software is designated as authorised. Document exceptions with compensating controls for unsupported software.",
+    "guidance": "Flag end-of-life software in your inventory. Maintain an EOL exceptions register with compensating controls for each entry.",
+    "implementationGuide": "Deploy and enforce ensure authorised software is currently supported across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Ensure Authorised Software is Currently Supported policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing ensure authorised software is currently supported is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS02.03",
+    "domain": "Software Inventory",
+    "domainCode": "2",
+    "title": "Address Unauthorised Software",
+    "description": "Ensure unauthorised software is removed from enterprise assets or receives a documented exception. Review monthly or more frequently.",
+    "guidance": "Configure endpoint management to alert on unapproved installs. Block execution of unlisted software where possible via allowlisting.",
+    "implementationGuide": "Deploy and enforce address unauthorised software across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Address Unauthorised Software policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing address unauthorised software is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS02.04",
+    "domain": "Software Inventory",
+    "domainCode": "2",
+    "title": "Utilise Automated Software Inventory Tools",
+    "description": "Utilise software inventory tools to automate the documentation of all software on enterprise assets.",
+    "guidance": "Integrate MDM software discovery with your CMDB for continuous automated inventory updates across all managed endpoints.",
+    "implementationGuide": "Deploy and enforce utilise automated software inventory tools across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Utilise Automated Software Inventory Tools policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing utilise automated software inventory tools is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS02.05",
+    "domain": "Software Inventory",
+    "domainCode": "2",
+    "title": "Allowlist Authorised Software",
+    "description": "Use technical controls such as application allowlisting to ensure only authorised software can execute or be accessed.",
+    "guidance": "Implement Windows Defender Application Control (WDAC) or AppLocker to enforce an application allowlist on managed endpoints.",
+    "implementationGuide": "Deploy and enforce allowlist authorised software across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Allowlist Authorised Software policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing allowlist authorised software is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS02.06",
+    "domain": "Software Inventory",
+    "domainCode": "2",
+    "title": "Allowlist Authorised Libraries",
+    "description": "Use technical controls to ensure only authorised libraries such as DLL and shared object files are allowed to load into system processes.",
+    "guidance": "Configure WDAC or a third-party allowlisting tool to control which DLLs and shared libraries can be loaded at runtime.",
+    "implementationGuide": "Deploy and enforce allowlist authorised libraries across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Allowlist Authorised Libraries policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing allowlist authorised libraries is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS02.07",
+    "domain": "Software Inventory",
+    "domainCode": "2",
+    "title": "Allowlist Authorised Scripts",
+    "description": "Use technical controls such as digital signatures and version control to ensure only authorised scripts can execute.",
+    "guidance": "Require script signing via PowerShell Constrained Language Mode and GPO script execution policy. Block unsigned scripts.",
+    "implementationGuide": "Deploy and enforce allowlist authorised scripts across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Allowlist Authorised Scripts policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing allowlist authorised scripts is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS03.01",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Establish and Maintain a Data Management Process",
+    "description": "Establish and maintain a data management process to categorise, handle, retain, and dispose of data in accordance with regulatory requirements.",
+    "guidance": "Document a data lifecycle policy covering creation, classification, storage, sharing, and disposal with assigned owners per data type.",
+    "implementationGuide": "Deploy and enforce establish and maintain a data management process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Data Management Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a data management process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS03.02",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Establish and Maintain a Data Inventory",
+    "description": "Establish and maintain a data inventory based on the enterprise data management process. Review and update at minimum annually.",
+    "guidance": "Build a data inventory or use a DLP tool to automatically discover data stores. Map data types to classification levels.",
+    "implementationGuide": "Deploy and enforce establish and maintain a data inventory across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Data Inventory policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a data inventory is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS03.03",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Configure Data Access Control Lists",
+    "description": "Configure data access control lists based on a user need-to-know principle. Apply to local and remote file systems, databases, and applications.",
+    "guidance": "Enforce least-privilege ACLs in file shares, S3 buckets, and databases. Review permissions quarterly using access review tooling.",
+    "implementationGuide": "Deploy and enforce configure data access control lists across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Configure Data Access Control Lists policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing configure data access control lists is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS03.04",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Enforce Data Retention",
+    "description": "Retain data according to the enterprise data management process including both minimum and maximum timelines.",
+    "guidance": "Configure automated retention policies in SharePoint, Exchange, and your data warehouse aligned to legal and regulatory minimums.",
+    "implementationGuide": "Deploy and enforce enforce data retention across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Enforce Data Retention policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing enforce data retention is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS03.05",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Securely Dispose of Data",
+    "description": "Securely dispose of data as outlined in the enterprise data management process using methods appropriate for the sensitivity of the data.",
+    "guidance": "Use DOD 5220.22-M wiping or physical destruction for sensitive media. Log all disposal events with serial numbers and destruction dates.",
+    "implementationGuide": "Deploy and enforce securely dispose of data across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Securely Dispose of Data policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing securely dispose of data is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS03.06",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Encrypt Data on End-User Devices",
+    "description": "Encrypt data on end-user devices containing sensitive data. Example implementations include BitLocker, FileVault, or dm-crypt.",
+    "guidance": "Enforce full-disk encryption via Intune (BitLocker) or Jamf (FileVault). Validate compliance in MDM reporting dashboard.",
+    "implementationGuide": "Deploy and enforce encrypt data on end-user devices across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Encrypt Data on End-User Devices policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing encrypt data on end-user devices is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS03.07",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Establish and Maintain a Data Classification Scheme",
+    "description": "Establish and maintain a data classification scheme that includes definitions for sensitivity levels and criteria for each level.",
+    "guidance": "Define at minimum four classification tiers (Public, Internal, Confidential, Restricted). Label all documents and assets accordingly.",
+    "implementationGuide": "Deploy and enforce establish and maintain a data classification scheme across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Data Classification Scheme policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a data classification scheme is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS03.08",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Document Data Flows",
+    "description": "Document data flows including service provider data flows based on the enterprise data management process.",
+    "guidance": "Create data flow diagrams for all critical systems using draw.io or Lucidchart. Update after any significant architecture change.",
+    "implementationGuide": "Deploy and enforce document data flows across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Document Data Flows policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing document data flows is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS03.09",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Encrypt Data on Removable Media",
+    "description": "Encrypt data on removable media when required by policy or regulation.",
+    "guidance": "Enforce BitLocker To Go or equivalent for all removable media via Group Policy or MDM. Block unencrypted USB use.",
+    "implementationGuide": "Deploy and enforce encrypt data on removable media across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Encrypt Data on Removable Media policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing encrypt data on removable media is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS03.10",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Encrypt Sensitive Data in Transit",
+    "description": "Encrypt sensitive data in transit using TLS and HTTPS for web-based communication and IPSec VPN for network access.",
+    "guidance": "Require TLS 1.2+ on all endpoints and APIs. Enforce HTTPS-only with HSTS headers. Disable legacy protocols.",
+    "implementationGuide": "Deploy and enforce encrypt sensitive data in transit across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Encrypt Sensitive Data in Transit policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing encrypt sensitive data in transit is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS03.11",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Encrypt Sensitive Data at Rest",
+    "description": "Encrypt sensitive data at rest on servers, applications, and databases containing sensitive data.",
+    "guidance": "Enable encryption at rest for all databases (TDE), object storage (S3 SSE-KMS), and backup repositories.",
+    "implementationGuide": "Deploy and enforce encrypt sensitive data at rest across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Encrypt Sensitive Data at Rest policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing encrypt sensitive data at rest is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS03.12",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Segment Data Processing and Storage Based on Sensitivity",
+    "description": "Segment data processing and storage based on data sensitivity. Do not process sensitive data on assets intended for lower-sensitivity data.",
+    "guidance": "Use separate environments (prod/dev/test) and VLANs for data classified at different sensitivity levels. Enforce via firewall rules.",
+    "implementationGuide": "Deploy and enforce segment data processing and storage based on sensitivity across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Segment Data Processing and Storage Based on Sensitivity policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing segment data processing and storage based on sensitivity is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS03.13",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Deploy a Data Loss Prevention Solution",
+    "description": "Implement an automated tool to identify all sensitive data stored, processed, or transmitted through enterprise assets.",
+    "guidance": "Deploy Microsoft Purview DLP or a third-party DLP tool with policies covering PII, payment card data, and classified content.",
+    "implementationGuide": "Deploy and enforce deploy a data loss prevention solution across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy a Data Loss Prevention Solution policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy a data loss prevention solution is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS03.14",
+    "domain": "Data Protection",
+    "domainCode": "3",
+    "title": "Log Sensitive Data Access",
+    "description": "Log sensitive data access including modification and disposal. Use a SIEM to aggregate and review access logs.",
+    "guidance": "Enable audit logging on all data stores containing classified or sensitive data. Alert on unusual access patterns via SIEM rules.",
+    "implementationGuide": "Deploy and enforce log sensitive data access across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Log Sensitive Data Access policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing log sensitive data access is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS04.01",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Establish and Maintain a Secure Configuration Process",
+    "description": "Establish and maintain a documented secure configuration process for enterprise assets including end-user devices, servers, and IoT devices.",
+    "guidance": "Document hardening baselines per asset type using CIS Benchmarks. Use configuration management tools to enforce and detect drift.",
+    "implementationGuide": "Deploy and enforce establish and maintain a secure configuration process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Secure Configuration Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a secure configuration process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS04.02",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Establish and Maintain a Secure Configuration Process for Network Infrastructure",
+    "description": "Establish and maintain a secure configuration process for network devices.",
+    "guidance": "Apply CIS Benchmarks for routers, switches, and firewalls. Use network automation to enforce configs and detect drift.",
+    "implementationGuide": "Deploy and enforce establish and maintain a secure configuration process for network infrastructure across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Secure Configuration Process for Network Infrastructure policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a secure configuration process for network infrastructure is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS04.03",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Configure Automatic Session Locking on Enterprise Assets",
+    "description": "Configure automatic session locking on enterprise assets after a defined period of inactivity.",
+    "guidance": "Set screen lock timeout to 15 minutes or less via Group Policy or MDM for all managed workstations, laptops, and mobile devices.",
+    "implementationGuide": "Deploy and enforce configure automatic session locking on enterprise assets across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Configure Automatic Session Locking on Enterprise Assets policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing configure automatic session locking on enterprise assets is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS04.04",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Implement and Manage a Firewall on Servers",
+    "description": "Implement and manage a firewall on servers. Implementations include virtual firewalls, AWS Security Groups, or Azure NSGs.",
+    "guidance": "Enable host-based firewall on all servers. Define default-deny ruleset with explicit allow rules for required services only.",
+    "implementationGuide": "Deploy and enforce implement and manage a firewall on servers across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Implement and Manage a Firewall on Servers policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing implement and manage a firewall on servers is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS04.05",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Implement and Manage a Firewall on End-User Devices",
+    "description": "Implement and manage a host-based firewall on end-user devices with a default-deny rule.",
+    "guidance": "Enable and enforce Windows Defender Firewall or macOS firewall via MDM with a default-deny policy profile.",
+    "implementationGuide": "Deploy and enforce implement and manage a firewall on end-user devices across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Implement and Manage a Firewall on End-User Devices policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing implement and manage a firewall on end-user devices is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS04.06",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Securely Manage Enterprise Assets and Software",
+    "description": "Manage enterprise assets and software securely using version-controlled infrastructure-as-code and secure configuration hardening.",
+    "guidance": "Store all config as code in Git. Use a change management workflow with peer review for all configuration changes.",
+    "implementationGuide": "Deploy and enforce securely manage enterprise assets and software across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Securely Manage Enterprise Assets and Software policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing securely manage enterprise assets and software is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS04.07",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Manage Default Accounts on Enterprise Assets and Software",
+    "description": "Manage default accounts such as root and administrator on enterprise assets and software.",
+    "guidance": "Rename or disable all default vendor accounts immediately on provisioning. Change all default passwords before production deployment.",
+    "implementationGuide": "Deploy and enforce manage default accounts on enterprise assets and software across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Manage Default Accounts on Enterprise Assets and Software policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing manage default accounts on enterprise assets and software is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS04.08",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Uninstall or Disable Unnecessary Services",
+    "description": "Uninstall or disable unnecessary services on enterprise assets and software.",
+    "guidance": "Run a service audit on all servers and disable any service not required. Document approved running services per asset class.",
+    "implementationGuide": "Deploy and enforce uninstall or disable unnecessary services across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Uninstall or Disable Unnecessary Services policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing uninstall or disable unnecessary services is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS04.09",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Configure Trusted DNS Servers on Enterprise Assets",
+    "description": "Configure trusted DNS servers on enterprise assets to prevent use of rogue or insecure resolvers.",
+    "guidance": "Configure all assets to use enterprise DNS resolvers or reputable DoH providers. Block direct outbound DNS to prevent bypass.",
+    "implementationGuide": "Deploy and enforce configure trusted dns servers on enterprise assets across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Configure Trusted DNS Servers on Enterprise Assets policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing configure trusted dns servers on enterprise assets is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS04.10",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Enforce Automatic Device Lockout on Portable Devices",
+    "description": "Enforce automatic device lockout following a predetermined threshold of local failed authentication attempts.",
+    "guidance": "Set failed login lockout at 10 attempts or fewer via MDM policy. Log lockout events in SIEM.",
+    "implementationGuide": "Deploy and enforce enforce automatic device lockout on portable devices across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Enforce Automatic Device Lockout on Portable Devices policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing enforce automatic device lockout on portable devices is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS04.11",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Enforce Remote Wipe Capability on Portable Devices",
+    "description": "Remotely wipe enterprise data from enterprise-owned portable devices when lost, stolen, or when an individual leaves the organisation.",
+    "guidance": "Enrol all mobile devices in MDM (Intune/Jamf). Test remote wipe capability quarterly. Document and exercise the wipe procedure.",
+    "implementationGuide": "Deploy and enforce enforce remote wipe capability on portable devices across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Enforce Remote Wipe Capability on Portable Devices policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing enforce remote wipe capability on portable devices is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS04.12",
+    "domain": "Secure Configuration",
+    "domainCode": "4",
+    "title": "Separate Enterprise Workspaces on Mobile Devices",
+    "description": "Ensure separate enterprise workspaces are used on mobile end-user devices to isolate corporate data from personal data.",
+    "guidance": "Configure MDM work profile (Android Enterprise or Apple MDM) to containerise corporate data separately from personal data.",
+    "implementationGuide": "Deploy and enforce separate enterprise workspaces on mobile devices across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Separate Enterprise Workspaces on Mobile Devices policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing separate enterprise workspaces on mobile devices is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS05.01",
+    "domain": "Account Management",
+    "domainCode": "5",
+    "title": "Establish and Maintain an Inventory of Accounts",
+    "description": "Establish and maintain an inventory of all accounts managed in the enterprise including user and administrator accounts.",
+    "guidance": "Export all accounts from AD/Entra ID, SaaS apps, and service accounts into a central register. Review quarterly.",
+    "implementationGuide": "Deploy and enforce establish and maintain an inventory of accounts across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain an Inventory of Accounts policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain an inventory of accounts is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS05.02",
+    "domain": "Account Management",
+    "domainCode": "5",
+    "title": "Use Unique Passwords",
+    "description": "Use unique passwords for all enterprise assets. Use at minimum an 8-character password with MFA or 14-character password without MFA.",
+    "guidance": "Enforce password uniqueness and minimum length via Group Policy or Entra ID. Deploy a password manager for all staff.",
+    "implementationGuide": "Deploy and enforce use unique passwords across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use Unique Passwords policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use unique passwords is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS05.03",
+    "domain": "Account Management",
+    "domainCode": "5",
+    "title": "Disable Dormant Accounts",
+    "description": "Delete or disable any dormant accounts after 45 days of inactivity, where supported.",
+    "guidance": "Run a monthly dormant account report. Disable accounts inactive for more than 45 days and delete after a 30-day grace period.",
+    "implementationGuide": "Deploy and enforce disable dormant accounts across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Disable Dormant Accounts policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing disable dormant accounts is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS05.04",
+    "domain": "Account Management",
+    "domainCode": "5",
+    "title": "Restrict Administrator Privileges to Dedicated Accounts",
+    "description": "Restrict administrator privileges to dedicated administrator accounts. Conduct general computing activities from standard user accounts.",
+    "guidance": "Separate admin and standard user accounts. Enforce via PAM tools and configure conditional access to restrict admin account scope.",
+    "implementationGuide": "Deploy and enforce restrict administrator privileges to dedicated accounts across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Restrict Administrator Privileges to Dedicated Accounts policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing restrict administrator privileges to dedicated accounts is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS05.05",
+    "domain": "Account Management",
+    "domainCode": "5",
+    "title": "Establish and Maintain an Inventory of Service Accounts",
+    "description": "Establish and maintain an inventory of service accounts including department owner, review date, and purpose.",
+    "guidance": "Document all service accounts with owner, purpose, and review date. Review quarterly and remove stale accounts.",
+    "implementationGuide": "Deploy and enforce establish and maintain an inventory of service accounts across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain an Inventory of Service Accounts policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain an inventory of service accounts is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS05.06",
+    "domain": "Account Management",
+    "domainCode": "5",
+    "title": "Centralise Account Management",
+    "description": "Centralise account management through a directory or identity service.",
+    "guidance": "Federate all application logins to Entra ID, Okta, or equivalent via SAML/OIDC. Eliminate local accounts on managed systems.",
+    "implementationGuide": "Deploy and enforce centralise account management across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Centralise Account Management policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing centralise account management is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS06.01",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Establish an Access Granting Process",
+    "description": "Establish and follow a process for granting access to enterprise assets upon new hire, rights grant, or role change.",
+    "guidance": "Define a formal joiner/mover process with approvals. Integrate with HR to trigger automated provisioning via IGA tool.",
+    "implementationGuide": "Deploy and enforce establish an access granting process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish an Access Granting Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish an access granting process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS06.02",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Establish an Access Revoking Process",
+    "description": "Establish and follow a process for revoking access through deprovisioning accounts when a user no longer requires access.",
+    "guidance": "Automate leaver process via HR-to-IGA integration. Target: accounts disabled within 24 hours of departure, deleted within 30 days.",
+    "implementationGuide": "Deploy and enforce establish an access revoking process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish an Access Revoking Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish an access revoking process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS06.03",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Require MFA for Externally-Exposed Applications",
+    "description": "Require all externally-exposed enterprise or third-party applications to enforce MFA, where supported.",
+    "guidance": "Enforce MFA on all internet-facing applications via your IdP conditional access policy. Accept no exceptions without documented risk acceptance.",
+    "implementationGuide": "Deploy and enforce require mfa for externally-exposed applications across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Require MFA for Externally-Exposed Applications policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing require mfa for externally-exposed applications is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS06.04",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Require MFA for Remote Network Access",
+    "description": "Require MFA for remote network access including VPN, dial-up, and all other connection methods.",
+    "guidance": "Configure VPN gateway to require MFA. Log all remote access sessions with user, device, and duration.",
+    "implementationGuide": "Deploy and enforce require mfa for remote network access across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Require MFA for Remote Network Access policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing require mfa for remote network access is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS06.05",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Require MFA for Administrative Access",
+    "description": "Require MFA for all administrative access accounts on all enterprise assets, whether managed on-site or through a third party.",
+    "guidance": "Enforce phishing-resistant MFA (FIDO2) for all admin-privileged accounts. Block admin access from devices without compliant MFA.",
+    "implementationGuide": "Deploy and enforce require mfa for administrative access across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Require MFA for Administrative Access policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing require mfa for administrative access is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS06.06",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Maintain an Inventory of Authentication and Authorisation Systems",
+    "description": "Establish and maintain an inventory of authentication and authorisation systems including on-site and hosted.",
+    "guidance": "Document all IAM, SSO, MFA, and PAM tools in a security asset register. Review the inventory semi-annually.",
+    "implementationGuide": "Deploy and enforce maintain an inventory of authentication and authorisation systems across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Maintain an Inventory of Authentication and Authorisation Systems policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing maintain an inventory of authentication and authorisation systems is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS06.07",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Centralise Access Control",
+    "description": "Centralise access control for all enterprise assets through a directory service or SSO provider, where supported.",
+    "guidance": "Federate all apps through a single IdP using SAML 2.0 or OIDC. Configure SCIM provisioning to synchronise lifecycle events.",
+    "implementationGuide": "Deploy and enforce centralise access control across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Centralise Access Control policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing centralise access control is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS06.08",
+    "domain": "Access Control Management",
+    "domainCode": "6",
+    "title": "Define and Maintain Role-Based Access Control",
+    "description": "Define and maintain role-based access control documenting the access rights necessary for each role in the enterprise.",
+    "guidance": "Define RBAC roles in your IdP aligned to job functions. Conduct bi-annual entitlement reviews and revoke excess access.",
+    "implementationGuide": "Deploy and enforce define and maintain role-based access control across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Define and Maintain Role-Based Access Control policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing define and maintain role-based access control is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS07.01",
+    "domain": "Vulnerability Management",
+    "domainCode": "7",
+    "title": "Establish and Maintain a Vulnerability Management Process",
+    "description": "Establish and maintain a documented vulnerability management process for enterprise assets. Review and update annually or when significant changes occur.",
+    "guidance": "Document a vulnerability management policy covering scan frequency, SLA by severity (Critical: 24h, High: 7d, Medium: 30d), and exception handling.",
+    "implementationGuide": "Deploy and enforce establish and maintain a vulnerability management process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Vulnerability Management Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a vulnerability management process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS07.02",
+    "domain": "Vulnerability Management",
+    "domainCode": "7",
+    "title": "Establish and Maintain a Remediation Process",
+    "description": "Establish and maintain a risk-based remediation strategy with monthly or more frequent reviews.",
+    "guidance": "Define a remediation SLA matrix by CVSS score. Track open vulnerabilities in a ticketing system. Report on SLA compliance monthly.",
+    "implementationGuide": "Deploy and enforce establish and maintain a remediation process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Remediation Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a remediation process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS07.03",
+    "domain": "Vulnerability Management",
+    "domainCode": "7",
+    "title": "Perform Automated Operating System Patch Management",
+    "description": "Perform operating system updates on enterprise assets through automated patch management on a monthly or more frequent basis.",
+    "guidance": "Configure WSUS, MECM, or a cloud patching service to apply OS patches within 14 days of release for critical and high CVEs.",
+    "implementationGuide": "Deploy and enforce perform automated operating system patch management across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Automated Operating System Patch Management policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform automated operating system patch management is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS07.04",
+    "domain": "Vulnerability Management",
+    "domainCode": "7",
+    "title": "Perform Automated Application Patch Management",
+    "description": "Perform application updates on enterprise assets through automated patch management on a monthly or more frequent basis.",
+    "guidance": "Automate application patching via software deployment tools. Prioritise browser, office suite, and runtime components.",
+    "implementationGuide": "Deploy and enforce perform automated application patch management across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Automated Application Patch Management policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform automated application patch management is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS07.05",
+    "domain": "Vulnerability Management",
+    "domainCode": "7",
+    "title": "Perform Automated Vulnerability Scans of Internal Enterprise Assets",
+    "description": "Perform automated vulnerability scans of internal enterprise assets on a quarterly or more frequent basis.",
+    "guidance": "Run authenticated Nessus/Qualys/Tenable scans against all internal assets weekly. Route findings to the remediation tracker.",
+    "implementationGuide": "Deploy and enforce perform automated vulnerability scans of internal enterprise assets across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Automated Vulnerability Scans of Internal Enterprise Assets policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform automated vulnerability scans of internal enterprise assets is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS07.06",
+    "domain": "Vulnerability Management",
+    "domainCode": "7",
+    "title": "Perform Automated Vulnerability Scans of Externally-Exposed Assets",
+    "description": "Perform automated vulnerability scans of externally-exposed enterprise assets using a SCAP-compliant vulnerability scanning tool.",
+    "guidance": "Run external vulnerability scans weekly against all internet-facing IPs and domains. Treat externally-visible critical/high as P1.",
+    "implementationGuide": "Deploy and enforce perform automated vulnerability scans of externally-exposed assets across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Automated Vulnerability Scans of Externally-Exposed Assets policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform automated vulnerability scans of externally-exposed assets is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS07.07",
+    "domain": "Vulnerability Management",
+    "domainCode": "7",
+    "title": "Remediate Detected Vulnerabilities",
+    "description": "Remediate detected vulnerabilities in software through processes and tooling on a monthly or more frequent basis.",
+    "guidance": "Track all open vulnerabilities in a risk register. Assign owners per finding. Report weekly on SLA compliance by severity tier.",
+    "implementationGuide": "Deploy and enforce remediate detected vulnerabilities across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Remediate Detected Vulnerabilities policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing remediate detected vulnerabilities is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS08.01",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Establish and Maintain an Audit Log Management Process",
+    "description": "Establish and maintain an audit log management process defining logging requirements, collection, review, and retention of audit logs.",
+    "guidance": "Document a log management policy specifying what to log, where to centralise, retention periods, and review cadence.",
+    "implementationGuide": "Deploy and enforce establish and maintain an audit log management process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain an Audit Log Management Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain an audit log management process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS08.02",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Collect Audit Logs",
+    "description": "Collect audit logs. Ensure logging has been enabled across enterprise assets per the audit log management process.",
+    "guidance": "Enable OS event logging and forward to a centralised SIEM. Ensure no logging gaps across asset classes.",
+    "implementationGuide": "Deploy and enforce collect audit logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Collect Audit Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing collect audit logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS08.03",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Ensure Adequate Audit Log Storage",
+    "description": "Ensure that logging destinations maintain adequate storage to comply with the enterprise audit log management process.",
+    "guidance": "Size log storage for a minimum 90-day hot tier and 1-year cold tier. Alert when storage exceeds 80% capacity.",
+    "implementationGuide": "Deploy and enforce ensure adequate audit log storage across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Ensure Adequate Audit Log Storage policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing ensure adequate audit log storage is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.04",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Standardise Time Synchronisation",
+    "description": "Standardise time synchronisation. Configure at least two synchronised time sources across enterprise assets.",
+    "guidance": "Configure all assets to sync with internal NTP servers backed by authoritative sources. Verify consistency weekly.",
+    "implementationGuide": "Deploy and enforce standardise time synchronisation across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Standardise Time Synchronisation policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing standardise time synchronisation is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.05",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Collect Detailed Audit Logs",
+    "description": "Configure detailed audit logging for enterprise assets containing sensitive data, including source and destination addresses, process, filename, user, and timestamp.",
+    "guidance": "Enable verbose audit logging on servers with sensitive data including process creation and file access. Forward to SIEM.",
+    "implementationGuide": "Deploy and enforce collect detailed audit logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Collect Detailed Audit Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing collect detailed audit logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.06",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Collect DNS Query Audit Logs",
+    "description": "Collect DNS query audit logs on enterprise assets.",
+    "guidance": "Enable DNS query logging on all DNS resolvers. Forward to SIEM for threat hunting and anomaly detection.",
+    "implementationGuide": "Deploy and enforce collect dns query audit logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Collect DNS Query Audit Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing collect dns query audit logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.07",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Collect URL Request Audit Logs",
+    "description": "Collect URL request audit logs for enterprise assets.",
+    "guidance": "Enable HTTP/HTTPS proxy logging or DNS filtering logs. Retain and centralise in SIEM.",
+    "implementationGuide": "Deploy and enforce collect url request audit logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Collect URL Request Audit Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing collect url request audit logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.08",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Collect Command-Line Audit Logs",
+    "description": "Collect command-line audit logs from PowerShell, Bash, and remote administrative tools such as SSH.",
+    "guidance": "Enable PowerShell ScriptBlock logging and Bash history forwarding. Alert on suspicious command patterns in SIEM.",
+    "implementationGuide": "Deploy and enforce collect command-line audit logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Collect Command-Line Audit Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing collect command-line audit logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.09",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Centralise Audit Logs",
+    "description": "Centralise audit log collection and retention across enterprise assets to the extent possible.",
+    "guidance": "Deploy a SIEM (Splunk, Microsoft Sentinel, or Elastic Security). Onboard all log sources systematically.",
+    "implementationGuide": "Deploy and enforce centralise audit logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Centralise Audit Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing centralise audit logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.10",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Retain Audit Logs",
+    "description": "Retain audit logs across enterprise assets for a minimum of 90 days.",
+    "guidance": "Configure 90-day minimum log retention in your SIEM hot tier. Enable 1-year archive for regulatory-sensitive environments.",
+    "implementationGuide": "Deploy and enforce retain audit logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Retain Audit Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing retain audit logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS08.11",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Conduct Audit Log Reviews",
+    "description": "Conduct reviews of audit logs to detect anomalies or abnormal events that could indicate a potential threat.",
+    "guidance": "Run daily automated SIEM detection rules plus a weekly analyst-led log review. Document findings and escalate anomalies.",
+    "implementationGuide": "Deploy and enforce conduct audit log reviews across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Conduct Audit Log Reviews policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing conduct audit log reviews is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS08.12",
+    "domain": "Audit Log Management",
+    "domainCode": "8",
+    "title": "Collect Service Provider Logs",
+    "description": "Collect service provider logs where supported, including authentication events, data creation and disposal events, and user management events.",
+    "guidance": "Enable audit log export from all SaaS providers. Ingest into SIEM and retain for 1 year.",
+    "implementationGuide": "Deploy and enforce collect service provider logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Collect Service Provider Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing collect service provider logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS09.01",
+    "domain": "Email and Web Browser Protections",
+    "domainCode": "9",
+    "title": "Ensure Use of Only Fully Supported Browsers and Email Clients",
+    "description": "Ensure only fully supported browsers and email clients execute in the enterprise using the latest version from the vendor update channel.",
+    "guidance": "Block unsupported browsers via GPO and MDM. Enforce auto-updates for Chrome, Edge, and Outlook.",
+    "implementationGuide": "Deploy and enforce ensure use of only fully supported browsers and email clients across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Ensure Use of Only Fully Supported Browsers and Email Clients policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing ensure use of only fully supported browsers and email clients is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS09.02",
+    "domain": "Email and Web Browser Protections",
+    "domainCode": "9",
+    "title": "Use DNS Filtering Services",
+    "description": "Use DNS filtering services on all enterprise assets to block access to known malicious domains.",
+    "guidance": "Deploy Cisco Umbrella, Cloudflare Gateway, or similar DNS filtering. Block malware, phishing, and C2 category domains.",
+    "implementationGuide": "Deploy and enforce use dns filtering services across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use DNS Filtering Services policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use dns filtering services is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS09.03",
+    "domain": "Email and Web Browser Protections",
+    "domainCode": "9",
+    "title": "Maintain and Enforce Network-Based URL Filters",
+    "description": "Enforce and update network-based URL filters to limit connections to malicious or unapproved websites.",
+    "guidance": "Configure Secure Web Gateway with URL category blocking. Block malware, phishing, and P2P categories.",
+    "implementationGuide": "Deploy and enforce maintain and enforce network-based url filters across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Maintain and Enforce Network-Based URL Filters policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing maintain and enforce network-based url filters is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS09.04",
+    "domain": "Email and Web Browser Protections",
+    "domainCode": "9",
+    "title": "Restrict Unnecessary or Unauthorised Browser and Email Client Extensions",
+    "description": "Restrict unauthorised or unnecessary browser plugins, extensions, and add-on applications.",
+    "guidance": "Use browser management policy to allowlist approved extensions and block all others.",
+    "implementationGuide": "Deploy and enforce restrict unnecessary or unauthorised browser and email client extensions across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Restrict Unnecessary or Unauthorised Browser and Email Client Extensions policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing restrict unnecessary or unauthorised browser and email client extensions is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS09.05",
+    "domain": "Email and Web Browser Protections",
+    "domainCode": "9",
+    "title": "Implement DMARC",
+    "description": "Implement DMARC policy and verification, including SPF and DKIM standards, to reduce spoofed or modified emails from valid domains.",
+    "guidance": "Publish SPF and DKIM DNS records. Set DMARC policy to p=quarantine, escalating to p=reject after monitoring period.",
+    "implementationGuide": "Deploy and enforce implement dmarc across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Implement DMARC policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing implement dmarc is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS09.06",
+    "domain": "Email and Web Browser Protections",
+    "domainCode": "9",
+    "title": "Block Unnecessary File Types",
+    "description": "Block unnecessary file types attempting to enter the enterprise email gateway.",
+    "guidance": "Configure email gateway to block high-risk attachment types: .exe, .iso, .vbs, .ps1, .bat, and similar.",
+    "implementationGuide": "Deploy and enforce block unnecessary file types across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Block Unnecessary File Types policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing block unnecessary file types is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS09.07",
+    "domain": "Email and Web Browser Protections",
+    "domainCode": "9",
+    "title": "Deploy and Maintain Email Server Anti-Malware Protections",
+    "description": "Deploy and maintain email server anti-malware protections including attachment scanning and sandboxing.",
+    "guidance": "Enable cloud-delivered anti-malware scanning in your email gateway with sandbox detonation for unknown file types.",
+    "implementationGuide": "Deploy and enforce deploy and maintain email server anti-malware protections across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy and Maintain Email Server Anti-Malware Protections policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy and maintain email server anti-malware protections is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS10.01",
+    "domain": "Malware Defences",
+    "domainCode": "10",
+    "title": "Deploy and Maintain Anti-Malware Software",
+    "description": "Deploy and maintain anti-malware software on all enterprise assets.",
+    "guidance": "Deploy EDR (CrowdStrike Falcon, Microsoft Defender for Endpoint) on 100% of endpoints. Monitor coverage dashboard weekly.",
+    "implementationGuide": "Deploy and enforce deploy and maintain anti-malware software across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy and Maintain Anti-Malware Software policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy and maintain anti-malware software is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS10.02",
+    "domain": "Malware Defences",
+    "domainCode": "10",
+    "title": "Configure Automatic Anti-Malware Signature Updates",
+    "description": "Configure automatic updates for anti-malware signature files on all enterprise assets.",
+    "guidance": "Enable automatic signature updates (daily minimum) on all AV/EDR deployments. Alert on assets with signatures older than 24 hours.",
+    "implementationGuide": "Deploy and enforce configure automatic anti-malware signature updates across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Configure Automatic Anti-Malware Signature Updates policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing configure automatic anti-malware signature updates is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS10.03",
+    "domain": "Malware Defences",
+    "domainCode": "10",
+    "title": "Disable Autorun and Autoplay for Removable Media",
+    "description": "Disable autorun and autoplay functionality for removable media on all enterprise assets.",
+    "guidance": "Disable AutoPlay and AutoRun via Group Policy. Enforce via MDM on managed devices.",
+    "implementationGuide": "Deploy and enforce disable autorun and autoplay for removable media across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Disable Autorun and Autoplay for Removable Media policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing disable autorun and autoplay for removable media is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS10.04",
+    "domain": "Malware Defences",
+    "domainCode": "10",
+    "title": "Configure Automatic Anti-Malware Scanning of Removable Media",
+    "description": "Configure anti-malware software to automatically scan removable media upon connection.",
+    "guidance": "Enable on-access scanning for removable drives in AV/EDR policy. Log all removable media insertion events.",
+    "implementationGuide": "Deploy and enforce configure automatic anti-malware scanning of removable media across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Configure Automatic Anti-Malware Scanning of Removable Media policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing configure automatic anti-malware scanning of removable media is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS10.05",
+    "domain": "Malware Defences",
+    "domainCode": "10",
+    "title": "Enable Anti-Exploitation Features",
+    "description": "Enable anti-exploitation features on enterprise assets and software where possible, such as Windows Defender Exploit Guard.",
+    "guidance": "Enable Windows Exploit Guard and configure Attack Surface Reduction (ASR) rules via MECM or Intune.",
+    "implementationGuide": "Deploy and enforce enable anti-exploitation features across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Enable Anti-Exploitation Features policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing enable anti-exploitation features is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS10.06",
+    "domain": "Malware Defences",
+    "domainCode": "10",
+    "title": "Centrally Manage Anti-Malware Software",
+    "description": "Centrally manage anti-malware software to ensure consistent policy enforcement and coverage visibility.",
+    "guidance": "Use a central management console to deploy policies, monitor coverage, and review detections across all endpoints.",
+    "implementationGuide": "Deploy and enforce centrally manage anti-malware software across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Centrally Manage Anti-Malware Software policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing centrally manage anti-malware software is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS10.07",
+    "domain": "Malware Defences",
+    "domainCode": "10",
+    "title": "Use Behaviour-Based Anti-Malware Software",
+    "description": "Use behaviour-based anti-malware software with heuristic and AI-based detection capabilities.",
+    "guidance": "Ensure EDR solution has behavioural detection and AI-based heuristics enabled, not just signature-based scanning.",
+    "implementationGuide": "Deploy and enforce use behaviour-based anti-malware software across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use Behaviour-Based Anti-Malware Software policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use behaviour-based anti-malware software is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS11.01",
+    "domain": "Data Recovery",
+    "domainCode": "11",
+    "title": "Establish and Maintain a Data Recovery Process",
+    "description": "Establish and maintain a data recovery process addressing scope, recovery prioritisation, and security of backup data.",
+    "guidance": "Document a data recovery policy with RPO/RTO per system tier. Assign a backup owner. Review and test the plan annually.",
+    "implementationGuide": "Deploy and enforce establish and maintain a data recovery process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Data Recovery Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a data recovery process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS11.02",
+    "domain": "Data Recovery",
+    "domainCode": "11",
+    "title": "Perform Automated Backups",
+    "description": "Perform automated backups of in-scope enterprise assets. Run backups weekly or more frequently based on data sensitivity.",
+    "guidance": "Configure automated daily backups for all critical systems. Use cloud backup services for immutable copies.",
+    "implementationGuide": "Deploy and enforce perform automated backups across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Automated Backups policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform automated backups is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS11.03",
+    "domain": "Data Recovery",
+    "domainCode": "11",
+    "title": "Protect Recovery Data",
+    "description": "Protect recovery data with equivalent controls to the original data including encryption and data separation.",
+    "guidance": "Encrypt all backup data at rest and in transit. Enforce access controls so that only backup admins can access backup storage.",
+    "implementationGuide": "Deploy and enforce protect recovery data across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Protect Recovery Data policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing protect recovery data is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS11.04",
+    "domain": "Data Recovery",
+    "domainCode": "11",
+    "title": "Establish and Maintain an Isolated Instance of Recovery Data",
+    "description": "Establish and maintain an isolated instance of recovery data using version-controlled and out-of-band network storage.",
+    "guidance": "Store at least one backup copy in an air-gapped or immutable location such as AWS S3 Object Lock or offline tape.",
+    "implementationGuide": "Deploy and enforce establish and maintain an isolated instance of recovery data across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain an Isolated Instance of Recovery Data policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain an isolated instance of recovery data is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS11.05",
+    "domain": "Data Recovery",
+    "domainCode": "11",
+    "title": "Test Data Recovery",
+    "description": "Test backup recovery quarterly or more frequently for a sampling of in-scope enterprise assets.",
+    "guidance": "Run quarterly restore tests across a sample of critical systems. Document results, remediate failures, and update recovery runbooks.",
+    "implementationGuide": "Deploy and enforce test data recovery across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Test Data Recovery policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing test data recovery is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.01",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Ensure Network Infrastructure is Up-to-Date",
+    "description": "Ensure network infrastructure is kept up-to-date by running the latest stable release of patches and security fixes.",
+    "guidance": "Apply firmware and security patches to all network devices within 30 days of release. Automate where vendor-supported.",
+    "implementationGuide": "Deploy and enforce ensure network infrastructure is up-to-date across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Ensure Network Infrastructure is Up-to-Date policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing ensure network infrastructure is up-to-date is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.02",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Establish and Maintain a Secure Network Architecture",
+    "description": "Establish and maintain a secure network architecture addressing segmentation, least privilege, and availability.",
+    "guidance": "Document network topology with segmentation zones. Enforce separation of DMZ, production, dev, and user VLANs with explicit ACLs.",
+    "implementationGuide": "Deploy and enforce establish and maintain a secure network architecture across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Secure Network Architecture policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a secure network architecture is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.03",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Securely Manage Network Infrastructure",
+    "description": "Securely manage network infrastructure using version-controlled infrastructure-as-code and secure protocols such as SSH and HTTPS.",
+    "guidance": "Manage all network devices via a bastion host or out-of-band management network. Use SSH or HTTPS only; disable Telnet and HTTP.",
+    "implementationGuide": "Deploy and enforce securely manage network infrastructure across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Securely Manage Network Infrastructure policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing securely manage network infrastructure is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.04",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Establish and Maintain Architecture Diagrams",
+    "description": "Establish and maintain architecture diagrams and network documentation. Review and update annually or when significant changes occur.",
+    "guidance": "Maintain current network diagrams in a version-controlled repository. Update after every significant infrastructure change.",
+    "implementationGuide": "Deploy and enforce establish and maintain architecture diagrams across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain Architecture Diagrams policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain architecture diagrams is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.05",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Centralise Network Authentication, Authorisation, and Auditing",
+    "description": "Centralise network AAA using RADIUS or TACACS+ integrated with the central directory service.",
+    "guidance": "Configure RADIUS/TACACS+ for all network device management access. Integrate with the central directory service.",
+    "implementationGuide": "Deploy and enforce centralise network authentication, authorisation, and auditing across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Centralise Network Authentication, Authorisation, and Auditing policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing centralise network authentication, authorisation, and auditing is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.06",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Use Secure Network Management and Communication Protocols",
+    "description": "Use secure network management and communication protocols such as 802.1X and WPA2 Enterprise or greater.",
+    "guidance": "Enforce WPA3 Enterprise or WPA2 Enterprise with 802.1X on all wireless networks. Disable WEP and legacy protocols.",
+    "implementationGuide": "Deploy and enforce use secure network management and communication protocols across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use Secure Network Management and Communication Protocols policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use secure network management and communication protocols is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.07",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Ensure Remote Devices Utilise a VPN",
+    "description": "Require remote devices to utilise a VPN with MFA connecting to the enterprise AAA infrastructure before accessing enterprise resources.",
+    "guidance": "Require VPN for all remote access. Enforce certificate plus MFA authentication before LAN access.",
+    "implementationGuide": "Deploy and enforce ensure remote devices utilise a vpn across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Ensure Remote Devices Utilise a VPN policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing ensure remote devices utilise a vpn is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS12.08",
+    "domain": "Network Infrastructure Management",
+    "domainCode": "12",
+    "title": "Establish Dedicated Computing Resources for Administrative Work",
+    "description": "Establish and maintain dedicated computing resources physically or logically separated for all administrative tasks.",
+    "guidance": "Provide dedicated privileged access workstations for administrative tasks. Block standard user activities on these workstations.",
+    "implementationGuide": "Deploy and enforce establish dedicated computing resources for administrative work across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish Dedicated Computing Resources for Administrative Work policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish dedicated computing resources for administrative work is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS13.01",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Centralise Security Event Alerting",
+    "description": "Centralise security event alerting across enterprise assets for log correlation and analysis using a SIEM.",
+    "guidance": "Deploy a SIEM and centralise all security-relevant log sources. Enable out-of-box detection rules and develop custom detections.",
+    "implementationGuide": "Deploy and enforce centralise security event alerting across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Centralise Security Event Alerting policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing centralise security event alerting is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS13.02",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Deploy a Host-Based Intrusion Detection Solution",
+    "description": "Deploy a host-based intrusion detection solution on enterprise assets where appropriate.",
+    "guidance": "Enable EDR behavioural detection and file integrity monitoring on all servers and workstations. Forward alerts to SIEM.",
+    "implementationGuide": "Deploy and enforce deploy a host-based intrusion detection solution across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy a Host-Based Intrusion Detection Solution policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy a host-based intrusion detection solution is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS13.03",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Deploy a Network Intrusion Detection Solution",
+    "description": "Deploy a network intrusion detection solution on enterprise assets such as an NIDS or equivalent cloud service.",
+    "guidance": "Deploy NIDS sensors at key network chokepoints including internet ingress, DMZ, and inter-VLAN boundaries.",
+    "implementationGuide": "Deploy and enforce deploy a network intrusion detection solution across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy a Network Intrusion Detection Solution policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy a network intrusion detection solution is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS13.04",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Perform Traffic Filtering Between Network Segments",
+    "description": "Perform traffic filtering between network segments where appropriate.",
+    "guidance": "Configure stateful firewall rules between all network segments. Default-deny between production and dev/corporate zones.",
+    "implementationGuide": "Deploy and enforce perform traffic filtering between network segments across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Traffic Filtering Between Network Segments policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform traffic filtering between network segments is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS13.05",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Manage Access Control for Remote Assets",
+    "description": "Manage access control for assets remotely connecting to enterprise resources based on device compliance status.",
+    "guidance": "Configure Network Access Control or conditional access policy to assess device compliance before granting remote access.",
+    "implementationGuide": "Deploy and enforce manage access control for remote assets across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Manage Access Control for Remote Assets policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing manage access control for remote assets is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS13.06",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Collect Network Traffic Flow Logs",
+    "description": "Collect network traffic flow logs from network devices and review and alert upon them.",
+    "guidance": "Enable NetFlow/IPFIX on all core switches and routers. Forward to SIEM for baselining and anomaly detection.",
+    "implementationGuide": "Deploy and enforce collect network traffic flow logs across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Collect Network Traffic Flow Logs policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing collect network traffic flow logs is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS13.07",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Deploy a Host-Based Intrusion Prevention Solution",
+    "description": "Deploy a host-based intrusion prevention solution on enterprise assets with the ability to prevent or block identified attacks.",
+    "guidance": "Enable active prevention mode on EDR. Configure ASR rules and exploit protection policies on Windows endpoints.",
+    "implementationGuide": "Deploy and enforce deploy a host-based intrusion prevention solution across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy a Host-Based Intrusion Prevention Solution policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy a host-based intrusion prevention solution is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS13.08",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Deploy a Network Intrusion Prevention Solution",
+    "description": "Deploy a network intrusion prevention solution such as an NIPS or equivalent cloud service.",
+    "guidance": "Deploy inline IPS capability at internet egress and critical internal chokepoints.",
+    "implementationGuide": "Deploy and enforce deploy a network intrusion prevention solution across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy a Network Intrusion Prevention Solution policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy a network intrusion prevention solution is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS13.09",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Deploy Port-Level Access Control",
+    "description": "Deploy port-level access control using 802.1X certificates-based authentication as a form of network access control.",
+    "guidance": "Implement 802.1X on all wired switch ports. Enforce RADIUS-based authentication before granting VLAN assignment.",
+    "implementationGuide": "Deploy and enforce deploy port-level access control across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Deploy Port-Level Access Control policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing deploy port-level access control is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS13.10",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Perform Application Layer Filtering",
+    "description": "Perform application layer filtering using a filtering proxy or next-generation firewall that inspects HTTP, DNS, email, and other traffic.",
+    "guidance": "Deploy a Next-Gen Firewall with application-layer inspection enabled. Block high-risk applications and protocols at the perimeter.",
+    "implementationGuide": "Deploy and enforce perform application layer filtering across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Application Layer Filtering policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform application layer filtering is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS13.11",
+    "domain": "Network Monitoring and Defence",
+    "domainCode": "13",
+    "title": "Tune Security Event Alerting Thresholds",
+    "description": "Tune security event alerting thresholds monthly or more frequently to reduce false positives and improve detection quality.",
+    "guidance": "Review SIEM detection rule performance monthly. Suppress false positives, tune thresholds, and add new rules from threat intelligence.",
+    "implementationGuide": "Deploy and enforce tune security event alerting thresholds across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Tune Security Event Alerting Thresholds policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing tune security event alerting thresholds is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS14.01",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Establish and Maintain a Security Awareness Programme",
+    "description": "Establish and maintain a security awareness programme to influence the enterprise security culture. Conduct activities annually at a minimum.",
+    "guidance": "Launch a phishing simulation and training programme. Set annual 100% completion target and track via LMS.",
+    "implementationGuide": "Deploy and enforce establish and maintain a security awareness programme across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Security Awareness Programme policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a security awareness programme is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS14.02",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Train Workforce to Recognise Social Engineering Attacks",
+    "description": "Train workforce members to recognise social engineering attacks such as phishing, pretexting, and tailgating.",
+    "guidance": "Deliver anti-phishing awareness modules quarterly. Run simulated phishing campaigns monthly. Track click rates and provide training for clickers.",
+    "implementationGuide": "Deploy and enforce train workforce to recognise social engineering attacks across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Workforce to Recognise Social Engineering Attacks policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train workforce to recognise social engineering attacks is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS14.03",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Train Workforce on Authentication Best Practices",
+    "description": "Train workforce members on authentication best practices including MFA, password composition, and credential management.",
+    "guidance": "Include password hygiene and MFA best-practice module in annual security awareness training. Cover password manager usage.",
+    "implementationGuide": "Deploy and enforce train workforce on authentication best practices across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Workforce on Authentication Best Practices policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train workforce on authentication best practices is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS14.04",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Train Workforce on Data Handling Best Practices",
+    "description": "Train workforce on data handling best practices and identify the point of contact for data handling questions.",
+    "guidance": "Deliver data classification and handling training to all staff annually. Cover email, file sharing, USB, and print security.",
+    "implementationGuide": "Deploy and enforce train workforce on data handling best practices across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Workforce on Data Handling Best Practices policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train workforce on data handling best practices is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS14.05",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Train Workforce on Causes of Unintentional Data Exposure",
+    "description": "Train workforce members to be aware of causes for unintentional data exposure including mis-delivery and publishing data to unintended audiences.",
+    "guidance": "Include accidental data disclosure scenarios in security awareness training: email misdirection, oversharing, and lost device reporting.",
+    "implementationGuide": "Deploy and enforce train workforce on causes of unintentional data exposure across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Workforce on Causes of Unintentional Data Exposure policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train workforce on causes of unintentional data exposure is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS14.06",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Train Workforce to Recognise and Report Security Incidents",
+    "description": "Train workforce members to recognise a potential incident and report it through appropriate channels.",
+    "guidance": "Provide a one-click phishing report button and a clear incident reporting hotline. Train all staff on its use annually.",
+    "implementationGuide": "Deploy and enforce train workforce to recognise and report security incidents across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Workforce to Recognise and Report Security Incidents policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train workforce to recognise and report security incidents is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS14.07",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Train Workforce to Identify and Report Missing Security Updates",
+    "description": "Train workforce to understand how to verify and report out-of-date software patches or failures in automated patching processes.",
+    "guidance": "Include patch compliance checking steps in security awareness programme. Provide a self-service link for staff to report patching failures.",
+    "implementationGuide": "Deploy and enforce train workforce to identify and report missing security updates across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Workforce to Identify and Report Missing Security Updates policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train workforce to identify and report missing security updates is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS14.08",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Train Workforce on Dangers of Insecure Network Connections",
+    "description": "Train workforce members on the dangers of connecting to and transmitting data over insecure networks for enterprise activities.",
+    "guidance": "Cover public Wi-Fi risks and VPN use requirements in annual security training. Mandate VPN use before accessing corporate systems.",
+    "implementationGuide": "Deploy and enforce train workforce on dangers of insecure network connections across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Workforce on Dangers of Insecure Network Connections policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train workforce on dangers of insecure network connections is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS14.09",
+    "domain": "Security Awareness Training",
+    "domainCode": "14",
+    "title": "Conduct Role-Specific Security Awareness and Skills Training",
+    "description": "Conduct role-specific security awareness and skills training for the workforce based on job function and risk exposure.",
+    "guidance": "Deliver additional security training for high-risk roles: developers (secure coding), IT admins (hardening), finance (fraud awareness).",
+    "implementationGuide": "Deploy and enforce conduct role-specific security awareness and skills training across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Conduct Role-Specific Security Awareness and Skills Training policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing conduct role-specific security awareness and skills training is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS15.01",
+    "domain": "Service Provider Management",
+    "domainCode": "15",
+    "title": "Establish and Maintain an Inventory of Service Providers",
+    "description": "Establish and maintain an inventory of service providers including type, data exchanged, and the service agreement details.",
+    "guidance": "Maintain a third-party vendor register covering name, data shared, contract expiry, risk tier, and last assessment date. Review quarterly.",
+    "implementationGuide": "Deploy and enforce establish and maintain an inventory of service providers across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain an Inventory of Service Providers policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain an inventory of service providers is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS15.02",
+    "domain": "Service Provider Management",
+    "domainCode": "15",
+    "title": "Establish and Maintain a Service Provider Management Policy",
+    "description": "Establish and maintain a service provider management policy addressing classification, inventory, assessment, monitoring, and decommissioning.",
+    "guidance": "Document a supplier security policy covering onboarding due diligence, contract security requirements, ongoing monitoring, and offboarding.",
+    "implementationGuide": "Deploy and enforce establish and maintain a service provider management policy across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Service Provider Management Policy policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a service provider management policy is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS15.03",
+    "domain": "Service Provider Management",
+    "domainCode": "15",
+    "title": "Classify Service Providers",
+    "description": "Classify service providers based on data sensitivity, data volume, availability requirements, applicable regulations, and inherent risk.",
+    "guidance": "Assign each supplier a risk tier (Critical, High, Medium, Low) based on data access and operational dependency.",
+    "implementationGuide": "Deploy and enforce classify service providers across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Classify Service Providers policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing classify service providers is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS15.04",
+    "domain": "Service Provider Management",
+    "domainCode": "15",
+    "title": "Ensure Service Provider Contracts Include Security Requirements",
+    "description": "Ensure service provider contracts include security requirements such as minimum security programme requirements and incident notification timelines.",
+    "guidance": "Include data protection, incident notification (72h), audit rights, and security certification clauses in all supplier contracts.",
+    "implementationGuide": "Deploy and enforce ensure service provider contracts include security requirements across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Ensure Service Provider Contracts Include Security Requirements policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing ensure service provider contracts include security requirements is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS15.05",
+    "domain": "Service Provider Management",
+    "domainCode": "15",
+    "title": "Assess Service Providers",
+    "description": "Assess service providers consistent with the enterprise service provider management policy including policy, process, controls, and compliance evidence.",
+    "guidance": "Conduct annual security assessments for all Tier 1 and Tier 2 suppliers. Document findings and remediation plans.",
+    "implementationGuide": "Deploy and enforce assess service providers across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Assess Service Providers policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing assess service providers is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS15.06",
+    "domain": "Service Provider Management",
+    "domainCode": "15",
+    "title": "Monitor Service Providers",
+    "description": "Monitor service providers consistent with the enterprise service provider management policy through periodic reassessment and tracking of security incidents.",
+    "guidance": "Subscribe to threat intelligence feeds and alerts for critical suppliers. Review security posture changes in continuous monitoring tools.",
+    "implementationGuide": "Deploy and enforce monitor service providers across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Monitor Service Providers policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing monitor service providers is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS15.07",
+    "domain": "Service Provider Management",
+    "domainCode": "15",
+    "title": "Securely Decommission Service Providers",
+    "description": "Securely decommission service providers by confirming all enterprise data has been deleted and contracts are terminated.",
+    "guidance": "Follow a formal offboarding checklist: revoke access, confirm data deletion, retrieve any hardware, and obtain a destruction certificate.",
+    "implementationGuide": "Deploy and enforce securely decommission service providers across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Securely Decommission Service Providers policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing securely decommission service providers is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS16.01",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Establish and Maintain a Secure Application Development Process",
+    "description": "Establish and maintain a secure application development process addressing secure design, secure coding, developer training, code review, and handoff.",
+    "guidance": "Adopt a documented SDLC with security gates at design, code review, and pre-deployment stages. Integrate SAST and DAST into CI/CD.",
+    "implementationGuide": "Deploy and enforce establish and maintain a secure application development process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Secure Application Development Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a secure application development process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.02",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Establish a Process to Accept and Address Software Vulnerabilities",
+    "description": "Establish and maintain a process to accept and address reports of software vulnerabilities including a vulnerability disclosure policy.",
+    "guidance": "Publish a responsible disclosure policy. Set up a security contact address. Define a triage and remediation SLA for reported vulnerabilities.",
+    "implementationGuide": "Deploy and enforce establish a process to accept and address software vulnerabilities across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish a Process to Accept and Address Software Vulnerabilities policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish a process to accept and address software vulnerabilities is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.03",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Perform Root Cause Analysis on Security Vulnerabilities",
+    "description": "Perform root cause analysis on security vulnerabilities to identify common mistake patterns and implement proactive fixes.",
+    "guidance": "After each high/critical vulnerability fix, conduct a root-cause analysis and document findings. Implement process improvements to prevent recurrence.",
+    "implementationGuide": "Deploy and enforce perform root cause analysis on security vulnerabilities across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Root Cause Analysis on Security Vulnerabilities policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform root cause analysis on security vulnerabilities is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.04",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Establish and Manage an Application Inventory",
+    "description": "Establish and manage an updated inventory of third-party software components including a software bill of materials for production applications.",
+    "guidance": "Generate and maintain a Software Bill of Materials (SBOM) for all applications. Automate via Syft or Trivy in the CI pipeline.",
+    "implementationGuide": "Deploy and enforce establish and manage an application inventory across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Manage an Application Inventory policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and manage an application inventory is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.05",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Use Up-to-Date and Trusted Third-Party Software Components",
+    "description": "Use up-to-date and trusted third-party software components choosing established and maintained frameworks and libraries.",
+    "guidance": "Enforce dependency version pinning. Run automated SCA scans (Snyk, Dependabot, OWASP Dependency-Check) in CI/CD pipelines.",
+    "implementationGuide": "Deploy and enforce use up-to-date and trusted third-party software components across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use Up-to-Date and Trusted Third-Party Software Components policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use up-to-date and trusted third-party software components is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.06",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Establish a Severity Rating System for Application Vulnerabilities",
+    "description": "Establish and maintain a severity rating system for application vulnerabilities to prioritise remediation order.",
+    "guidance": "Adopt CVSS as the base rating. Supplement with business context (exploitability, asset criticality). Document the rating methodology.",
+    "implementationGuide": "Deploy and enforce establish a severity rating system for application vulnerabilities across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish a Severity Rating System for Application Vulnerabilities policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish a severity rating system for application vulnerabilities is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.07",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Use Standard Hardening Configuration Templates for Application Infrastructure",
+    "description": "Use standard industry-recommended hardening configuration templates for application infrastructure components.",
+    "guidance": "Apply CIS Benchmarks for all application servers, databases, and containers. Enforce via IaC with policy-as-code checks.",
+    "implementationGuide": "Deploy and enforce use standard hardening configuration templates for application infrastructure across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Use Standard Hardening Configuration Templates for Application Infrastructure policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing use standard hardening configuration templates for application infrastructure is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.08",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Separate Production and Non-Production Systems",
+    "description": "Separate production and non-production systems. Developers should not have uncontrolled access to production environments.",
+    "guidance": "Maintain separate accounts for prod and non-prod. Restrict developer production access via PAM with time-limited sessions.",
+    "implementationGuide": "Deploy and enforce separate production and non-production systems across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Separate Production and Non-Production Systems policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing separate production and non-production systems is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.09",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Train Developers in Application Security and Secure Coding",
+    "description": "Ensure all software development personnel receive training in writing secure code for their specific development environment.",
+    "guidance": "Mandate OWASP Top 10 secure coding training for all developers annually. Supplement with language-specific secure coding guidelines.",
+    "implementationGuide": "Deploy and enforce train developers in application security and secure coding across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Train Developers in Application Security and Secure Coding policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing train developers in application security and secure coding is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.10",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Apply Secure Design Principles in Application Architectures",
+    "description": "Apply secure design principles in application architectures including secure design standards, patterns, and threat-modelling techniques.",
+    "guidance": "Embed threat modelling (STRIDE) into the design phase for all new features. Document security decisions in architecture review records.",
+    "implementationGuide": "Deploy and enforce apply secure design principles in application architectures across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Apply Secure Design Principles in Application Architectures policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing apply secure design principles in application architectures is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS16.11",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Leverage Vetted Modules for Application Security Components",
+    "description": "Leverage vetted modules or services for application security components such as identity management, encryption, and auditing.",
+    "guidance": "Use well-established authentication libraries and encryption modules. Prohibit custom cryptographic implementations.",
+    "implementationGuide": "Deploy and enforce leverage vetted modules for application security components across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Leverage Vetted Modules for Application Security Components policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing leverage vetted modules for application security components is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS16.12",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Implement Code-Level Security Checks",
+    "description": "Apply static code analysis tools to verify that coding practices match the organisation secure coding policy.",
+    "guidance": "Integrate SAST tools (SonarQube, Semgrep, CodeQL) into CI pipelines. Block merges on critical/high severity findings.",
+    "implementationGuide": "Deploy and enforce implement code-level security checks across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Implement Code-Level Security Checks policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing implement code-level security checks is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS16.13",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Conduct Application Penetration Testing",
+    "description": "Conduct application penetration testing for critical applications. Periodically test for OWASP Top 10 vulnerabilities.",
+    "guidance": "Conduct annual application penetration tests on all internet-facing applications. Remediate high findings within 30 days.",
+    "implementationGuide": "Deploy and enforce conduct application penetration testing across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Conduct Application Penetration Testing policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing conduct application penetration testing is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS16.14",
+    "domain": "Application Software Security",
+    "domainCode": "16",
+    "title": "Conduct Threat Modelling",
+    "description": "Conduct threat modelling for sensitive applications to prioritise security feature development and identify needed security controls.",
+    "guidance": "Run STRIDE threat modelling sessions for all new products and significant features. Maintain threat model documents alongside architecture docs.",
+    "implementationGuide": "Deploy and enforce conduct threat modelling across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Conduct Threat Modelling policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing conduct threat modelling is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS17.01",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Designate Personnel to Manage Incident Handling",
+    "description": "Designate one key person and at least one backup to manage the enterprise incident handling process with formal reporting to senior management.",
+    "guidance": "Name a designated Incident Response Manager with a named deputy. Document contact details and escalation path in the IRP.",
+    "implementationGuide": "Deploy and enforce designate personnel to manage incident handling across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Designate Personnel to Manage Incident Handling policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing designate personnel to manage incident handling is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 1
+  },
+  {
+    "id": "CIS17.02",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Establish and Maintain Incident Reporting Contact Information",
+    "description": "Establish and maintain contact information for parties that need to be informed of security incidents.",
+    "guidance": "Document an incident contact list including internal stakeholders, ISPs, national cybersecurity authority, cyber insurers, legal counsel, and PR.",
+    "implementationGuide": "Deploy and enforce establish and maintain incident reporting contact information across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain Incident Reporting Contact Information policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain incident reporting contact information is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS17.03",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Establish an Enterprise Process for Reporting Incidents",
+    "description": "Establish and maintain an enterprise process for the workforce to report security incidents including reporting timeframe and mechanism.",
+    "guidance": "Publish a simple incident reporting procedure on the intranet. Provide a security contact and hotline. Train all staff annually.",
+    "implementationGuide": "Deploy and enforce establish an enterprise process for reporting incidents across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish an Enterprise Process for Reporting Incidents policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish an enterprise process for reporting incidents is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS17.04",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Establish and Maintain an Incident Response Process",
+    "description": "Establish and maintain an incident response process addressing roles, responsibilities, compliance requirements, and a communication plan.",
+    "guidance": "Document a formal IRP covering identification, containment, eradication, recovery, and lessons learned. Review and update annually.",
+    "implementationGuide": "Deploy and enforce establish and maintain an incident response process across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain an Incident Response Process policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain an incident response process is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS17.05",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Assign Key Roles and Responsibilities for Incident Response",
+    "description": "Assign key roles and responsibilities for incident response including staff from legal, IT, information security, HR, and communications.",
+    "guidance": "Create an incident response RACI. Assign named individuals to each role. Include legal, communications, and senior management.",
+    "implementationGuide": "Deploy and enforce assign key roles and responsibilities for incident response across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Assign Key Roles and Responsibilities for Incident Response policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing assign key roles and responsibilities for incident response is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS17.06",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Define Mechanisms for Communicating During Incident Investigation",
+    "description": "Determine primary and secondary mechanisms for communication during a security incident including out-of-band channels.",
+    "guidance": "Define an out-of-band communications channel for use during incidents where corporate systems may be compromised.",
+    "implementationGuide": "Deploy and enforce define mechanisms for communicating during incident investigation across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Define Mechanisms for Communicating During Incident Investigation policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing define mechanisms for communicating during incident investigation is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS17.07",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Conduct Routine Incident Response Exercises",
+    "description": "Plan and conduct routine incident response exercises and scenarios for key personnel to prepare for real-world incidents.",
+    "guidance": "Run annual tabletop exercises simulating realistic threat scenarios. Document outcomes and update the IRP accordingly.",
+    "implementationGuide": "Deploy and enforce conduct routine incident response exercises across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Conduct Routine Incident Response Exercises policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing conduct routine incident response exercises is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS17.08",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Conduct Post-Incident Reviews",
+    "description": "Conduct post-incident reviews to prevent recurrence through identifying lessons learned and follow-up actions.",
+    "guidance": "Conduct a post-incident review within 5 business days of any significant incident. Document timeline, root cause, and action items.",
+    "implementationGuide": "Deploy and enforce conduct post-incident reviews across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Conduct Post-Incident Reviews policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing conduct post-incident reviews is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS17.09",
+    "domain": "Incident Response Management",
+    "domainCode": "17",
+    "title": "Establish and Maintain Security Incident Thresholds",
+    "description": "Establish and maintain security incident thresholds differentiating between events and incidents and classifying incidents by severity.",
+    "guidance": "Define severity tiers (P1-P4) with response time SLAs and escalation criteria. Publish to all incident response personnel.",
+    "implementationGuide": "Deploy and enforce establish and maintain security incident thresholds across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain Security Incident Thresholds policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain security incident thresholds is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS18.01",
+    "domain": "Penetration Testing",
+    "domainCode": "18",
+    "title": "Establish and Maintain a Penetration Testing Programme",
+    "description": "Establish and maintain a penetration testing programme appropriate to the size, complexity, and maturity of the enterprise.",
+    "guidance": "Document a penetration testing policy covering scope, frequency, methodology, and remediation requirements. Obtain board approval.",
+    "implementationGuide": "Deploy and enforce establish and maintain a penetration testing programme across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Establish and Maintain a Penetration Testing Programme policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing establish and maintain a penetration testing programme is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS18.02",
+    "domain": "Penetration Testing",
+    "domainCode": "18",
+    "title": "Perform Periodic External Penetration Tests",
+    "description": "Perform periodic external penetration tests no less than annually including enterprise reconnaissance and external network testing.",
+    "guidance": "Engage a qualified third-party penetration testing firm annually. Scope to include all externally-exposed IP ranges, domains, and APIs.",
+    "implementationGuide": "Deploy and enforce perform periodic external penetration tests across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Periodic External Penetration Tests policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform periodic external penetration tests is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 2
+  },
+  {
+    "id": "CIS18.03",
+    "domain": "Penetration Testing",
+    "domainCode": "18",
+    "title": "Remediate Penetration Test Findings",
+    "description": "Remediate penetration test findings based on the enterprise policy for remediation scope and prioritisation.",
+    "guidance": "Track all pentest findings in the vulnerability management tracker. Remediate critical findings within 14 days and high within 30 days.",
+    "implementationGuide": "Deploy and enforce remediate penetration test findings across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Remediate Penetration Test Findings policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing remediate penetration test findings is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS18.04",
+    "domain": "Penetration Testing",
+    "domainCode": "18",
+    "title": "Validate Security Measures After Penetration Testing",
+    "description": "Validate security measures after each penetration test. Document any challenges with validation and provide a remediation plan with timeline.",
+    "guidance": "Conduct a validation re-test for all critical and high findings from the initial pentest. Document pass/fail status in a follow-up report.",
+    "implementationGuide": "Deploy and enforce validate security measures after penetration testing across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Validate Security Measures After Penetration Testing policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing validate security measures after penetration testing is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  },
+  {
+    "id": "CIS18.05",
+    "domain": "Penetration Testing",
+    "domainCode": "18",
+    "title": "Perform Periodic Internal Penetration Tests",
+    "description": "Perform periodic internal penetration tests no less than annually. Scope should include environment reconnaissance and network layer testing.",
+    "guidance": "Conduct annual internal network penetration tests from an assumed-breach position. Test lateral movement paths and directory attack vectors.",
+    "implementationGuide": "Deploy and enforce perform periodic internal penetration tests across all enterprise assets. Document the process, assign an owner, and review quarterly.",
+    "exampleEvidence": [
+      "Written Perform Periodic Internal Penetration Tests policy signed by the security lead, dated within the last 12 months",
+      "Tool configuration or scan report showing perform periodic internal penetration tests is active across all in-scope assets",
+      "Quarterly review record confirming compliance with this safeguard"
+    ],
+    "status": "not-started",
+    "notes": "",
+    "evidence": "",
+    "owner": "",
+    "igLevel": 3
+  }
+]
