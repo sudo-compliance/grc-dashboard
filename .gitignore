@@ -1,6 +1,9 @@
 # Claude Code internal
 .claude/
 
+# Local-only dev notes
+SPEC.md
+
 # Dependencies
 node_modules/
 
