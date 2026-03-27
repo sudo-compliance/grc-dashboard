@@ -31,13 +31,13 @@ export default function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 animate-fade-in"
       style={{ background: 'rgba(0,0,0,0.65)' }}
       onClick={e => { if (e.target === e.currentTarget) onClose() }}
     >
       <div
         ref={panelRef}
-        className={`w-full ${maxWidth} rounded-xl flex flex-col max-h-[90vh] animate-slide-in`}
+        className={`w-full ${maxWidth} flex flex-col max-h-[92vh] sm:max-h-[90vh] animate-slide-in rounded-t-2xl sm:rounded-xl`}
         style={{
           background: 'var(--bg-surface)',
           border: '1px solid var(--border-default)',

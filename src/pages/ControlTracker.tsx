@@ -199,7 +199,7 @@ export default function ControlTracker() {
     : 0
 
   return (
-    <div className="p-6 space-y-4 animate-fade-in">
+    <div className="p-4 md:p-6 space-y-4 animate-fade-in">
 
       {/* Framework tabs */}
       <div className="flex flex-wrap gap-1">

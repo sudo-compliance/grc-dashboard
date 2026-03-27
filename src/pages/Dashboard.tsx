@@ -101,7 +101,7 @@ export default function Dashboard() {
   const activeMeta    = FRAMEWORKS.find(f => f.id === activeFramework)
 
   return (
-    <div className="p-6 space-y-5 page-enter">
+    <div className="p-4 md:p-6 space-y-5 page-enter">
 
       {/* ── KPI bar ─────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">

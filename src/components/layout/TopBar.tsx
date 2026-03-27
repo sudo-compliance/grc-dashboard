@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { Sun, Moon, Download, Monitor, Search } from 'lucide-react'
+import { Sun, Moon, Download, Monitor, Search, Menu } from 'lucide-react'
 import { useUIStore } from '../../store/useUIStore'
 import { exportToJSON } from '../../services/persistence'
 
@@ -31,13 +31,13 @@ const PAGE_TITLES: Record<string, string> = {
 
 export default function TopBar() {
   const location = useLocation()
-  const { theme, toggleTheme, addToast } = useUIStore()
+  const { theme, toggleTheme, addToast, toggleMobileSidebar } = useUIStore()
   const [installPrompt, setInstallPrompt] = useState<Event | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
 
   const title = PAGE_TITLES[location.pathname] ?? 'GRC Intelligence'
 
-  const today = new Date()
+  const today   = new Date()
   const day     = today.getDate()
   const weekday = today.toLocaleDateString('en-GB', { weekday: 'short' })
   const month   = today.toLocaleDateString('en-GB', { month: 'long' })
@@ -69,16 +69,30 @@ export default function TopBar() {
   return (
     <div
       id="topbar"
-      className="flex items-center gap-3 px-5"
+      className="flex items-center gap-2 md:gap-3 px-3 md:px-5"
       style={{
         height: 64,
         background: 'var(--bg-base)',
         borderBottom: '1px solid var(--border-subtle)',
       }}
     >
-      {/* Date pill */}
+      {/* ── Hamburger (mobile only) ─────────────────────── */}
+      <button
+        className="md:hidden flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all"
+        style={{
+          background: 'var(--bg-elevated)',
+          border: '1px solid var(--border-default)',
+          color: 'var(--text-secondary)',
+        }}
+        onClick={toggleMobileSidebar}
+        aria-label="Open navigation"
+      >
+        <Menu size={16} />
+      </button>
+
+      {/* ── Date pill (desktop only) ────────────────────── */}
       <div
-        className="flex items-center gap-2.5 px-4 py-2.5 flex-shrink-0"
+        className="hidden md:flex items-center gap-2.5 px-4 py-2.5 flex-shrink-0"
         style={{
           background: 'var(--bg-surface)',
           borderRadius: 12,
@@ -94,26 +108,26 @@ export default function TopBar() {
         </div>
       </div>
 
-      {/* Page title (CTA-style pill) */}
+      {/* ── Page title pill ─────────────────────────────── */}
       <div
-        className="px-4 py-2 flex-shrink-0"
+        className="px-3 py-1.5 md:px-4 md:py-2 flex-shrink-0 truncate max-w-[160px] md:max-w-none"
         style={{
           background: 'var(--accent)',
           borderRadius: 8,
           color: '#fff',
-          fontSize: 14,
+          fontSize: 13,
           fontWeight: 600,
         }}
       >
         {title}
       </div>
 
-      {/* Spacer */}
+      {/* ── Spacer ──────────────────────────────────────── */}
       <div className="flex-1" />
 
-      {/* Search */}
+      {/* ── Search (desktop only) ───────────────────────── */}
       <label
-        className="flex items-center gap-2 px-3 py-2 flex-shrink-0 cursor-text"
+        className="hidden md:flex items-center gap-2 px-3 py-2 flex-shrink-0 cursor-text"
         style={{
           background: 'var(--bg-surface)',
           borderRadius: 10,
@@ -135,11 +149,11 @@ export default function TopBar() {
         />
       </label>
 
-      {/* Install */}
+      {/* ── Install (desktop only) ───────────────────────── */}
       {installPrompt && (
         <button
           onClick={handleInstall}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex-shrink-0"
+          className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex-shrink-0"
           style={{
             background: 'var(--bg-elevated)',
             border: '1px solid var(--border-default)',
@@ -153,10 +167,10 @@ export default function TopBar() {
         </button>
       )}
 
-      {/* Export */}
+      {/* ── Export ──────────────────────────────────────── */}
       <button
         onClick={handleExport}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex-shrink-0"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 md:px-3 rounded-lg text-xs font-medium transition-all flex-shrink-0"
         style={{
           background: 'var(--bg-elevated)',
           border: '1px solid var(--border-default)',
@@ -166,10 +180,10 @@ export default function TopBar() {
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-default)' }}
       >
         <Download size={13} />
-        <span>Export</span>
+        <span className="hidden md:inline">Export</span>
       </button>
 
-      {/* Theme toggle */}
+      {/* ── Theme toggle ────────────────────────────────── */}
       <button
         onClick={toggleTheme}
         className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all"

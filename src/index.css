@@ -294,6 +294,26 @@ html.dark {
   .scrollbar-none::-webkit-scrollbar { display: none; }
 }
 
+/* ─── Mobile ─────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  /* Respect notch / home-bar on iOS */
+  #main-content {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Larger tap targets for all icon-only buttons */
+  button {
+    min-height: 36px;
+    min-width: 36px;
+  }
+
+  /* Prevent tiny text on form inputs on iOS (stops auto-zoom) */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
 /* ─── Print ──────────────────────────────────────────────────────────────────── */
 
 @media print {

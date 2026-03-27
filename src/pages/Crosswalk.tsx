@@ -114,7 +114,7 @@ export default function Crosswalk() {
   const detailControlData = detailControl ? getControl(detailControl.id, detailControl.fwId) : undefined
 
   return (
-    <div className="p-6 space-y-5 animate-fade-in">
+    <div className="p-4 md:p-6 space-y-5 animate-fade-in">
 
       {/* ── Header ─────────────────────────────────────────────────────────── */}
       <div className="flex items-start justify-between gap-4 flex-wrap">

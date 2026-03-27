@@ -204,7 +204,7 @@ export default function RiskAssessment() {
   }
 
   return (
-    <div className="p-6 space-y-5 animate-fade-in">
+    <div className="p-4 md:p-6 space-y-5 animate-fade-in">
 
       {/* Header */}
       <div className="flex items-center justify-between gap-4 flex-wrap">
@@ -307,7 +307,8 @@ export default function RiskAssessment() {
                 </button>
               </div>
             ) : (
-              <table className="w-full text-xs">
+              <div className="overflow-x-auto">
+              <table className="w-full text-xs min-w-[480px]">
                 <thead>
                   <tr style={{ borderBottom: '1px solid var(--border-default)' }}>
                     {([
@@ -390,7 +391,7 @@ export default function RiskAssessment() {
                                 <p style={{ color: 'var(--text-secondary)' }}>{r.owner || '—'}</p>
                               </div>
                               {/* Treatment tabs */}
-                              <div className="col-span-2">
+                              <div className="col-span-1 sm:col-span-2">
                                 <p className="mono uppercase tracking-wider text-[11px] mb-2" style={{ color: 'var(--text-muted)' }}>Treatment options</p>
                                 {r.treatmentTabs && r.treatmentTabs.length > 0 ? (
                                   <div className="space-y-2">
@@ -420,6 +421,7 @@ export default function RiskAssessment() {
                   ))}
                 </tbody>
               </table>
+              </div>
             )}
           </div>
         </div>
@@ -493,7 +495,7 @@ export default function RiskAssessment() {
           </>
         }
       >
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {field('Asset name *',
             <input className={inputCls} style={inputStyle} value={form.assetName} onChange={e => setForm(f => ({ ...f, assetName: e.target.value }))} placeholder="e.g. Customer database" />
           )}
@@ -507,7 +509,7 @@ export default function RiskAssessment() {
             <textarea className={`${inputCls} resize-none`} style={inputStyle} rows={2} value={form.vulnerability} onChange={e => setForm(f => ({ ...f, vulnerability: e.target.value }))} placeholder="e.g. Unparameterised queries in legacy search module" />
           )}
 
-          <div className="col-span-2 grid grid-cols-2 gap-4">
+          <div className="col-span-1 sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {field(`Likelihood — ${LIKELIHOOD_LABELS[form.likelihood]}`,
               <div className="space-y-1">
                 <input type="range" min={1} max={5} value={form.likelihood} onChange={e => setForm(f => ({ ...f, likelihood: Number(e.target.value) as RiskLikelihood }))} className="w-full accent-amber-500" />
@@ -527,7 +529,7 @@ export default function RiskAssessment() {
           </div>
 
           {/* Live score preview */}
-          <div className="col-span-2 flex items-center gap-4 p-3 rounded-lg" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-default)' }}>
+          <div className="col-span-1 sm:col-span-2 flex items-center gap-4 p-3 rounded-lg" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-default)' }}>
             <div>
               <p className="text-[11px] mono uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Risk score</p>
               <p className="mono text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>{previewScore}</p>
@@ -543,7 +545,7 @@ export default function RiskAssessment() {
           </div>
 
           {/* ── Treatment tabs ── */}
-          <div className="col-span-2">
+          <div className="col-span-1 sm:col-span-2">
             <label className="text-[11px] mono uppercase tracking-wider block mb-2" style={{ color: 'var(--text-muted)' }}>
               Treatment options
             </label>

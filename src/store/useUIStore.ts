@@ -4,6 +4,7 @@ import type { FrameworkId, Toast, ToastType } from '../types'
 interface UIStore {
   theme: 'dark' | 'light'
   sidebarOpen: boolean
+  mobileSidebarOpen: boolean
   denseTable: boolean
   activeFramework: FrameworkId
   toasts: Toast[]
@@ -12,6 +13,8 @@ interface UIStore {
   setTheme: (theme: 'dark' | 'light') => void
   toggleSidebar: () => void
   setSidebar: (open: boolean) => void
+  toggleMobileSidebar: () => void
+  closeMobileSidebar: () => void
   setDenseTable: (dense: boolean) => void
   setActiveFramework: (id: FrameworkId) => void
 
@@ -47,11 +50,12 @@ document.documentElement.classList.remove('dark', 'light')
 document.documentElement.classList.add(_initTheme)
 
 export const useUIStore = create<UIStore>((set) => ({
-  theme:            _initTheme,
-  sidebarOpen:      loadSetting<boolean>('sidebarOpen', true),
-  denseTable:       loadSetting<boolean>('denseTable', false),
-  activeFramework:  loadSetting<FrameworkId>('activeFramework', 'iso27001'),
-  toasts:           [],
+  theme:              _initTheme,
+  sidebarOpen:        loadSetting<boolean>('sidebarOpen', true),
+  mobileSidebarOpen:  false,   // never persisted — always starts closed
+  denseTable:         loadSetting<boolean>('denseTable', false),
+  activeFramework:    loadSetting<FrameworkId>('activeFramework', 'iso27001'),
+  toasts:             [],
 
   toggleTheme() {
     set(s => {
@@ -80,6 +84,14 @@ export const useUIStore = create<UIStore>((set) => ({
   setSidebar(open) {
     saveSetting('sidebarOpen', open)
     set({ sidebarOpen: open })
+  },
+
+  toggleMobileSidebar() {
+    set(s => ({ mobileSidebarOpen: !s.mobileSidebarOpen }))
+  },
+
+  closeMobileSidebar() {
+    set({ mobileSidebarOpen: false })
   },
 
   setDenseTable(dense) {
