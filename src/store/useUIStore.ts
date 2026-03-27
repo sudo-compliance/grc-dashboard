@@ -37,15 +37,29 @@ function saveSetting(key: string, value: unknown): void {
   } catch { /* ignore */ }
 }
 
-// v3 migration: reset any saved dark theme so light is the default for
-// all existing visitors. Mirrors the inline script in index.html.
-if (!localStorage.getItem('grc:ui:theme-v3')) {
-  localStorage.removeItem('grc:ui:theme')
-  localStorage.setItem('grc:ui:theme-v3', '1')
+// Theme uses sessionStorage so it resets to light on every new visit.
+// Within a session the user can toggle dark and it stays for that tab.
+function loadTheme(): 'dark' | 'light' {
+  try {
+    const t = sessionStorage.getItem('grc:theme')
+    if (t === 'dark' || t === 'light') return t
+  } catch { /* ignore */ }
+  return 'light'
 }
 
-// Apply saved theme class on initial load (before first render)
-const _initTheme = loadSetting<'dark' | 'light'>('theme', 'light')
+function saveTheme(t: 'dark' | 'light') {
+  try { sessionStorage.setItem('grc:theme', t) } catch { /* ignore */ }
+}
+
+// Clean up any legacy localStorage theme keys from previous versions
+try {
+  localStorage.removeItem('grc:ui:theme')
+  localStorage.removeItem('grc:ui:theme-v2')
+  localStorage.removeItem('grc:ui:theme-v3')
+} catch { /* ignore */ }
+
+// Apply theme class on initial load (before first render)
+const _initTheme = loadTheme()
 document.documentElement.classList.remove('dark', 'light')
 document.documentElement.classList.add(_initTheme)
 
@@ -60,7 +74,7 @@ export const useUIStore = create<UIStore>((set) => ({
   toggleTheme() {
     set(s => {
       const next = s.theme === 'dark' ? 'light' : 'dark'
-      saveSetting('theme', next)
+      saveTheme(next)
       document.documentElement.classList.remove('dark', 'light')
       document.documentElement.classList.add(next)
       return { theme: next }
@@ -68,7 +82,7 @@ export const useUIStore = create<UIStore>((set) => ({
   },
 
   setTheme(theme) {
-    saveSetting('theme', theme)
+    saveTheme(theme)
     document.documentElement.classList.remove('dark', 'light')
     document.documentElement.classList.add(theme)
     set({ theme })

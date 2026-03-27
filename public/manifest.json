@@ -4,8 +4,8 @@
   "description": "Local-first GRC framework dashboard — ISO 27001, NIST CSF, PCI-DSS",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0A0C10",
-  "theme_color": "#E8A020",
+  "background_color": "#EFEFEF",
+  "theme_color": "#E8512A",
   "icons": [
     {
       "src": "./favicon.svg",

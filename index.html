@@ -13,17 +13,16 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Apply saved theme synchronously before first paint to prevent flash -->
+    <!-- Apply theme before first paint. Theme is session-scoped so every new visit starts light. -->
     <script>
       (function () {
         try {
-          // v3 migration: force reset to light for all existing visitors
-          if (!localStorage.getItem('grc:ui:theme-v3')) {
-            localStorage.removeItem('grc:ui:theme');
-            localStorage.setItem('grc:ui:theme-v3', '1');
-          }
-          var saved = localStorage.getItem('grc:ui:theme');
-          if (saved === 'dark') {
+          // Clear any legacy localStorage theme keys from old versions
+          localStorage.removeItem('grc:ui:theme');
+          localStorage.removeItem('grc:ui:theme-v2');
+          localStorage.removeItem('grc:ui:theme-v3');
+          // Apply dark only if user toggled it in this session
+          if (sessionStorage.getItem('grc:theme') === 'dark') {
             document.documentElement.classList.replace('light', 'dark');
           }
         } catch (e) {}
