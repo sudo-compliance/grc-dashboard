@@ -148,12 +148,15 @@ export default function FrameworkDetail() {
           onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'transparent'}
           onClick={() => toggleControl(c.id)}
         >
+          {/* Control ID */}
           <span
             className="mono text-xs w-14 flex-shrink-0 pt-0.5 font-semibold"
             style={{ color: 'var(--accent)' }}
           >
             {c.id}
           </span>
+
+          {/* Title + description + mobile status */}
           <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold leading-snug" style={{ color: 'var(--text-primary)' }}>
               {c.title}
@@ -163,11 +166,19 @@ export default function FrameworkDetail() {
                 {c.description}
               </p>
             )}
+            {/* Mobile: status select sits below the title — no overlap */}
+            <div className="mt-2 sm:hidden" onClick={e => e.stopPropagation()}>
+              <StatusSelect value={c.status} onChange={s => handleStatus(c.id, s)} compact />
+            </div>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0 ml-2" onClick={e => e.stopPropagation()}>
+
+          {/* Desktop: badge + status select inline */}
+          <div className="hidden sm:flex items-center gap-2 flex-shrink-0 ml-2" onClick={e => e.stopPropagation()}>
             <Badge value={c.status} />
             <StatusSelect value={c.status} onChange={s => handleStatus(c.id, s)} compact />
           </div>
+
+          {/* Expand chevron */}
           <span className="flex-shrink-0 mt-0.5" style={{ color: 'var(--text-muted)' }}>
             {isExpanded ? <ChevronDown size={13} /> : <ChevronRight size={13} />}
           </span>
@@ -175,7 +186,7 @@ export default function FrameworkDetail() {
 
         {/* Expanded detail */}
         {isExpanded && (
-          <div className="px-4 pb-4 ml-[68px] space-y-3 animate-fade-in">
+          <div className="px-4 pb-4 ml-[52px] sm:ml-[68px] space-y-3 animate-fade-in">
             <p className="text-sm leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
               {c.description}
             </p>
