@@ -57,6 +57,12 @@ export type RiskImpact     = 1 | 2 | 3 | 4 | 5
 export type RiskLevel      = 'low' | 'medium' | 'high' | 'critical'
 export type RiskStatus     = 'open' | 'mitigated' | 'accepted' | 'transferred'
 
+export interface TreatmentTab {
+  id: string
+  label: string
+  content: string
+}
+
 export interface Risk {
   id: string
   assetName: string
@@ -66,7 +72,8 @@ export interface Risk {
   impact: RiskImpact
   score: number        // likelihood × impact (1–25)
   riskLevel: RiskLevel
-  treatment: string
+  treatment: string          // concatenated summary (kept for display compat)
+  treatmentTabs?: TreatmentTab[]  // individual treatment option tabs
   owner: string
   status: RiskStatus
   treatmentActioned?: boolean

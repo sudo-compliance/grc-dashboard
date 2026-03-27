@@ -297,35 +297,39 @@ export default function Dashboard() {
           className="lg:col-span-3"
           title="Domain analysis"
           action={
-            <div className="flex gap-1 flex-wrap justify-end">
-              {FRAMEWORKS.map(f => {
-                const label = f.id === 'iso27001' ? 'ISO 27001' : f.id === 'iso42001' ? 'ISO 42001' : f.id === 'nist-csf' ? 'NIST' : f.id === 'pci-dss' ? 'PCI' : f.id === 'dora' ? 'DORA' : f.id === 'cis-v8' ? 'CIS' : f.id === 'soc2' ? 'SOC 2' : f.id === 'uk-gdpr' ? 'GDPR' : 'CE'
-                return (
-                  <button
-                    key={f.id}
-                    onClick={() => setActiveFramework(f.id)}
-                    style={{
-                      ...btnStyle(activeFramework === f.id),
-                      borderColor: activeFramework === f.id ? f.color : 'transparent',
-                      color:       activeFramework === f.id ? f.color : 'var(--text-muted)',
-                      background:  activeFramework === f.id ? `${f.color}18` : 'transparent',
-                    }}
-                    title={f.name}
-                  >
-                    {label}
+            <div className="flex flex-col gap-1.5 items-end" style={{ maxWidth: 320 }}>
+              {/* Framework selector — wraps onto multiple rows if needed */}
+              <div className="flex gap-1 flex-wrap justify-end">
+                {FRAMEWORKS.map(f => {
+                  const label = f.id === 'iso27001' ? 'ISO 27001' : f.id === 'iso42001' ? 'ISO 42001' : f.id === 'nist-csf' ? 'NIST' : f.id === 'pci-dss' ? 'PCI' : f.id === 'dora' ? 'DORA' : f.id === 'cis-v8' ? 'CIS' : f.id === 'soc2' ? 'SOC 2' : f.id === 'uk-gdpr' ? 'GDPR' : 'CE'
+                  return (
+                    <button
+                      key={f.id}
+                      onClick={() => setActiveFramework(f.id)}
+                      style={{
+                        ...btnStyle(activeFramework === f.id),
+                        borderColor: activeFramework === f.id ? f.color : 'transparent',
+                        color:       activeFramework === f.id ? f.color : 'var(--text-muted)',
+                        background:  activeFramework === f.id ? `${f.color}18` : 'transparent',
+                      }}
+                      title={f.name}
+                    >
+                      {label}
+                    </button>
+                  )
+                })}
+              </div>
+              {/* Chart-type toggle — always its own row */}
+              <div className="flex gap-1">
+                {(['bar', 'heatmap'] as DashView[]).map(v => (
+                  <button key={v} onClick={() => setChartView(v)} style={btnStyle(chartView === v)}>
+                    {v === 'bar' ? 'Bar' : 'Grid'}
                   </button>
-                )
-              })}
+                ))}
+              </div>
             </div>
           }
         >
-          <div className="flex justify-end gap-1 mb-3">
-            {(['bar', 'heatmap'] as DashView[]).map(v => (
-              <button key={v} onClick={() => setChartView(v)} style={btnStyle(chartView === v)}>
-                {v === 'bar' ? 'Bar' : 'Grid'}
-              </button>
-            ))}
-          </div>
           {chartView === 'bar' ? (
             domainStats.length === 0
               ? <div className="h-32 flex items-center justify-center text-xs" style={{ color: 'var(--text-muted)' }}>Loading…</div>

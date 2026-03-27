@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Plus, Pencil, Trash2, AlertTriangle, ChevronUp, ChevronDown, Target, RotateCcw } from 'lucide-react'
+import { Plus, Pencil, Trash2, AlertTriangle, ChevronUp, ChevronDown, Target, RotateCcw, X } from 'lucide-react'
 import { useRiskStore } from '../store/useRiskStore'
 import { useUIStore } from '../store/useUIStore'
 import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
 import Modal from '../components/ui/Modal'
 import RiskHeatmap from '../components/charts/RiskHeatmap'
-import type { Risk, RiskAppetiteThreshold, RiskImpact, RiskLikelihood, RiskStatus } from '../types'
+import type { Risk, RiskAppetiteThreshold, RiskImpact, RiskLikelihood, RiskStatus, TreatmentTab } from '../types'
 import { DEFAULT_APPETITE, LIKELIHOOD_LABELS, IMPACT_LABELS } from '../types'
 
 type SortKey = 'score' | 'assetName' | 'status' | 'riskLevel'
@@ -18,14 +18,20 @@ type RiskForm = {
   vulnerability: string
   likelihood: RiskLikelihood
   impact: RiskImpact
-  treatment: string
+  treatmentTabs: TreatmentTab[]
   owner: string
   status: RiskStatus
 }
 
+function newTab(n: number): TreatmentTab {
+  return { id: `t-${Date.now()}-${n}`, label: `Treatment ${n}`, content: '' }
+}
+
 const BLANK: RiskForm = {
   assetName: '', threat: '', vulnerability: '',
-  likelihood: 3, impact: 3, treatment: '', owner: '', status: 'open',
+  likelihood: 3, impact: 3,
+  treatmentTabs: [{ id: 't-0', label: 'Treatment 1', content: '' }],
+  owner: '', status: 'open',
 }
 
 function appetiteColor(l: number, i: number): React.CSSProperties {
@@ -43,6 +49,7 @@ export default function RiskAssessment() {
   const [modalOpen, setModalOpen]         = useState(false)
   const [editId, setEditId]               = useState<string | null>(null)
   const [form, setForm]                   = useState<RiskForm>(BLANK)
+  const [activeTab, setActiveTab]         = useState<string>('t-0')
   const [deleteId, setDeleteId]           = useState<string | null>(null)
   const [levelFilter, setLevelFilter]     = useState<Risk['riskLevel'] | 'all'>('all')
   const [statusFilter, setStatusFilter]   = useState<RiskStatus | 'all'>('all')
@@ -71,25 +78,70 @@ export default function RiskAssessment() {
     else { setSortKey(k); setSortDir('desc') }
   }
 
-  function openAdd() { setForm(BLANK); setEditId(null); setModalOpen(true) }
+  function openAdd() {
+    const blank = { ...BLANK, treatmentTabs: [{ id: 't-0', label: 'Treatment 1', content: '' }] }
+    setForm(blank)
+    setActiveTab('t-0')
+    setEditId(null)
+    setModalOpen(true)
+  }
 
   function openEdit(r: Risk) {
+    const tabs: TreatmentTab[] = r.treatmentTabs && r.treatmentTabs.length > 0
+      ? r.treatmentTabs
+      : [{ id: 't-0', label: 'Treatment 1', content: r.treatment }]
     setForm({
       assetName: r.assetName, threat: r.threat, vulnerability: r.vulnerability,
-      likelihood: r.likelihood, impact: r.impact, treatment: r.treatment,
+      likelihood: r.likelihood, impact: r.impact,
+      treatmentTabs: tabs,
       owner: r.owner, status: r.status,
     })
+    setActiveTab(tabs[0].id)
     setEditId(r.id)
     setModalOpen(true)
   }
 
+  // ── Treatment tab helpers ──────────────────────────────────────────────────
+  function addTreatmentTab() {
+    const n = form.treatmentTabs.length + 1
+    const tab = newTab(n)
+    setForm(f => ({ ...f, treatmentTabs: [...f.treatmentTabs, tab] }))
+    setActiveTab(tab.id)
+  }
+
+  function removeTreatmentTab(id: string) {
+    setForm(f => {
+      const tabs = f.treatmentTabs.filter(t => t.id !== id)
+      return { ...f, treatmentTabs: tabs }
+    })
+    setActiveTab(prev => {
+      if (prev !== id) return prev
+      const remaining = form.treatmentTabs.filter(t => t.id !== id)
+      return remaining[remaining.length - 1]?.id ?? ''
+    })
+  }
+
+  function updateTabLabel(id: string, label: string) {
+    setForm(f => ({ ...f, treatmentTabs: f.treatmentTabs.map(t => t.id === id ? { ...t, label } : t) }))
+  }
+
+  function updateTabContent(id: string, content: string) {
+    setForm(f => ({ ...f, treatmentTabs: f.treatmentTabs.map(t => t.id === id ? { ...t, content } : t) }))
+  }
+
   function handleSave() {
     if (!form.assetName || !form.threat) { addToast('Asset name and threat are required', 'error'); return }
+    // Build concatenated treatment string for display compat
+    const treatment = form.treatmentTabs
+      .filter(t => t.content.trim())
+      .map(t => form.treatmentTabs.length > 1 ? `[${t.label}] ${t.content}` : t.content)
+      .join('\n\n')
+    const payload = { ...form, treatment, treatmentTabs: form.treatmentTabs }
     if (editId) {
-      updateRisk(editId, form)
+      updateRisk(editId, payload)
       addToast('Risk updated', 'success')
     } else {
-      addRisk(form)
+      addRisk(payload)
       addToast('Risk added', 'success')
     }
     setModalOpen(false)
@@ -334,12 +386,27 @@ export default function RiskAssessment() {
                                 <p style={{ color: 'var(--text-secondary)' }}>{r.vulnerability || '—'}</p>
                               </div>
                               <div>
-                                <p className="mono uppercase tracking-wider text-[11px] mb-1" style={{ color: 'var(--text-muted)' }}>Treatment</p>
-                                <p style={{ color: 'var(--text-secondary)' }}>{r.treatment || '—'}</p>
-                              </div>
-                              <div>
                                 <p className="mono uppercase tracking-wider text-[11px] mb-1" style={{ color: 'var(--text-muted)' }}>Owner</p>
                                 <p style={{ color: 'var(--text-secondary)' }}>{r.owner || '—'}</p>
+                              </div>
+                              {/* Treatment tabs */}
+                              <div className="col-span-2">
+                                <p className="mono uppercase tracking-wider text-[11px] mb-2" style={{ color: 'var(--text-muted)' }}>Treatment options</p>
+                                {r.treatmentTabs && r.treatmentTabs.length > 0 ? (
+                                  <div className="space-y-2">
+                                    {r.treatmentTabs.filter(t => t.content).map(t => (
+                                      <div key={t.id} className="p-2.5 rounded-lg" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+                                        <p className="text-[11px] font-semibold mb-0.5" style={{ color: 'var(--accent)' }}>{t.label}</p>
+                                        <p style={{ color: 'var(--text-secondary)' }}>{t.content}</p>
+                                      </div>
+                                    ))}
+                                    {r.treatmentTabs.every(t => !t.content) && (
+                                      <p style={{ color: 'var(--text-muted)' }}>—</p>
+                                    )}
+                                  </div>
+                                ) : (
+                                  <p style={{ color: 'var(--text-secondary)' }}>{r.treatment || '—'}</p>
+                                )}
                               </div>
                               <div>
                                 <p className="mono uppercase tracking-wider text-[11px] mb-1" style={{ color: 'var(--text-muted)' }}>Created</p>
@@ -475,9 +542,96 @@ export default function RiskAssessment() {
             </p>
           </div>
 
-          {field('Treatment',
-            <textarea className={`${inputCls} resize-none`} style={inputStyle} rows={2} value={form.treatment} onChange={e => setForm(f => ({ ...f, treatment: e.target.value }))} placeholder="e.g. Parameterise all queries; schedule pen test" />
-          )}
+          {/* ── Treatment tabs ── */}
+          <div className="col-span-2">
+            <label className="text-[11px] mono uppercase tracking-wider block mb-2" style={{ color: 'var(--text-muted)' }}>
+              Treatment options
+            </label>
+
+            {/* Tab bar */}
+            <div className="flex items-center gap-1 flex-wrap mb-2">
+              {form.treatmentTabs.map(tab => (
+                <div key={tab.id} className="flex items-center" style={{ gap: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab(tab.id)}
+                    className="px-3 py-1.5 text-xs rounded-l-lg transition-all"
+                    style={activeTab === tab.id ? {
+                      background: 'var(--accent-dim)',
+                      color: 'var(--accent)',
+                      border: '1px solid var(--accent-border)',
+                      borderRight: form.treatmentTabs.length > 1 ? 'none' : undefined,
+                    } : {
+                      background: 'var(--bg-elevated)',
+                      color: 'var(--text-muted)',
+                      border: '1px solid var(--border-default)',
+                      borderRight: form.treatmentTabs.length > 1 ? 'none' : undefined,
+                    }}
+                  >
+                    {tab.label || 'Untitled'}
+                  </button>
+                  {form.treatmentTabs.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeTreatmentTab(tab.id)}
+                      className="px-1.5 py-1.5 text-xs rounded-r-lg transition-all flex items-center"
+                      style={activeTab === tab.id ? {
+                        background: 'var(--accent-dim)',
+                        color: 'var(--accent)',
+                        border: '1px solid var(--accent-border)',
+                        borderLeft: 'none',
+                      } : {
+                        background: 'var(--bg-elevated)',
+                        color: 'var(--text-muted)',
+                        border: '1px solid var(--border-default)',
+                        borderLeft: 'none',
+                      }}
+                      title="Remove this treatment tab"
+                    >
+                      <X size={10} />
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={addTreatmentTab}
+                className="px-2.5 py-1.5 text-xs rounded-lg flex items-center gap-1 transition-all"
+                style={{
+                  background: 'var(--bg-elevated)',
+                  color: 'var(--text-muted)',
+                  border: '1px solid var(--border-default)',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--accent-border)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-default)' }}
+                title="Add treatment option"
+              >
+                <Plus size={11} /> Add option
+              </button>
+            </div>
+
+            {/* Active tab content */}
+            {form.treatmentTabs.map(tab => tab.id === activeTab && (
+              <div key={tab.id} className="space-y-2">
+                <input
+                  className={`${inputCls} text-xs`}
+                  style={inputStyle}
+                  value={tab.label}
+                  onChange={e => updateTabLabel(tab.id, e.target.value)}
+                  placeholder="Option label (e.g. Mitigate, Transfer, Accept…)"
+                />
+                <textarea
+                  className={`${inputCls} resize-none`}
+                  style={inputStyle}
+                  rows={3}
+                  value={tab.content}
+                  onChange={e => updateTabContent(tab.id, e.target.value)}
+                  placeholder="Describe this treatment option…"
+                />
+              </div>
+            ))}
+          </div>
+
           {field('Status',
             <select className={inputCls} style={inputStyle} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value as RiskStatus }))}>
               <option value="open">Open</option>
