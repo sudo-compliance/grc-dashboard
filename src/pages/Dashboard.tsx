@@ -293,13 +293,15 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-7 gap-4">
 
         {/* Domain chart */}
-        <Card
-          className="lg:col-span-3"
-          title="Domain analysis"
-          action={
-            <div className="flex flex-col gap-1.5 items-end" style={{ maxWidth: 320 }}>
-              {/* Framework selector — wraps onto multiple rows if needed */}
-              <div className="flex gap-1 flex-wrap justify-end">
+        <Card className="lg:col-span-3">
+          {/* Header: title left, controls right on desktop; stacked on mobile */}
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-3 mb-4">
+            <h3 className="text-[15px] font-bold leading-tight flex-shrink-0" style={{ color: 'var(--text-primary)' }}>
+              Domain analysis
+            </h3>
+            <div className="flex flex-col gap-1.5">
+              {/* Framework selector */}
+              <div className="flex gap-1 flex-wrap">
                 {FRAMEWORKS.map(f => {
                   const label = f.id === 'iso27001' ? 'ISO 27001' : f.id === 'iso42001' ? 'ISO 42001' : f.id === 'nist-csf' ? 'NIST' : f.id === 'pci-dss' ? 'PCI' : f.id === 'dora' ? 'DORA' : f.id === 'cis-v8' ? 'CIS' : f.id === 'soc2' ? 'SOC 2' : f.id === 'uk-gdpr' ? 'GDPR' : 'CE'
                   return (
@@ -319,7 +321,7 @@ export default function Dashboard() {
                   )
                 })}
               </div>
-              {/* Chart-type toggle — always its own row */}
+              {/* Bar / Grid toggle */}
               <div className="flex gap-1">
                 {(['bar', 'heatmap'] as DashView[]).map(v => (
                   <button key={v} onClick={() => setChartView(v)} style={btnStyle(chartView === v)}>
@@ -328,8 +330,8 @@ export default function Dashboard() {
                 ))}
               </div>
             </div>
-          }
-        >
+          </div>
+
           {chartView === 'bar' ? (
             domainStats.length === 0
               ? <div className="h-32 flex items-center justify-center text-xs" style={{ color: 'var(--text-muted)' }}>Loading…</div>
