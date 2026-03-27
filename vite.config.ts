@@ -2,6 +2,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// When building for GitHub Pages the workflow sets VITE_BASE_PATH=/grc-dashboard/
+// Locally (dev + dist file-open) we keep the relative './' base.
+const base = process.env.VITE_BASE_PATH ?? './'
+
 export default defineConfig({
   plugins: [
     react(),
@@ -20,7 +24,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: './',
+  base,
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
