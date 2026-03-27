@@ -40,9 +40,11 @@ function saveSetting(key: string, value: unknown): void {
 // Theme uses sessionStorage so it resets to light on every new visit.
 // Within a session the user can toggle dark and it stays for that tab.
 function loadTheme(): 'dark' | 'light' {
+  // Read the actual HTML class — set synchronously by the inline script
+  // in index.html before any JS runs. This is the ground truth and ensures
+  // the store state always matches what is visually rendered on screen.
   try {
-    const t = sessionStorage.getItem('grc:theme')
-    if (t === 'dark' || t === 'light') return t
+    if (document.documentElement.classList.contains('dark')) return 'dark'
   } catch { /* ignore */ }
   return 'light'
 }
@@ -58,10 +60,9 @@ try {
   localStorage.removeItem('grc:ui:theme-v3')
 } catch { /* ignore */ }
 
-// Apply theme class on initial load (before first render)
+// Read the theme from the DOM — the inline script in index.html already set
+// the correct class before any JS ran, so this is always accurate.
 const _initTheme = loadTheme()
-document.documentElement.classList.remove('dark', 'light')
-document.documentElement.classList.add(_initTheme)
 
 export const useUIStore = create<UIStore>((set) => ({
   theme:              _initTheme,
