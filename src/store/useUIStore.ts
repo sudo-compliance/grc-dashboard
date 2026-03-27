@@ -37,11 +37,11 @@ function saveSetting(key: string, value: unknown): void {
   } catch { /* ignore */ }
 }
 
-// One-time migration: the old default was 'dark'. Clear it so the new
-// default ('light') takes effect for all existing users.
-if (!localStorage.getItem('grc:ui:theme-v2')) {
+// v3 migration: reset any saved dark theme so light is the default for
+// all existing visitors. Mirrors the inline script in index.html.
+if (!localStorage.getItem('grc:ui:theme-v3')) {
   localStorage.removeItem('grc:ui:theme')
-  localStorage.setItem('grc:ui:theme-v2', '1')
+  localStorage.setItem('grc:ui:theme-v3', '1')
 }
 
 // Apply saved theme class on initial load (before first render)

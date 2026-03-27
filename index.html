@@ -13,6 +13,22 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Apply saved theme synchronously before first paint to prevent flash -->
+    <script>
+      (function () {
+        try {
+          // v3 migration: force reset to light for all existing visitors
+          if (!localStorage.getItem('grc:ui:theme-v3')) {
+            localStorage.removeItem('grc:ui:theme');
+            localStorage.setItem('grc:ui:theme-v3', '1');
+          }
+          var saved = localStorage.getItem('grc:ui:theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.replace('light', 'dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
